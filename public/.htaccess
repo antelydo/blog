@@ -1,0 +1,57 @@
+<IfModule mod_rewrite.c>
+  Options +FollowSymlinks -Multiviews
+  RewriteEngine On
+
+  # 防止访问敏感文件
+  RewriteRule ^(.*/)?\.(git|svn|hg)/ - [F,L]
+  RewriteRule ^(.*/)?\.(env|gitignore)$ - [F,L]
+  RewriteRule ^(.*/)?composer\.(json|lock)$ - [F,L]
+  RewriteRule ^(.*/)?package(-lock)?\.json$ - [F,L]
+
+  # 防止访问敏感目录
+  RewriteRule ^vendor/ - [F,L]
+  RewriteRule ^runtime/ - [F,L]
+  RewriteRule ^config/ - [F,L]
+  RewriteRule ^app/ - [F,L]
+  RewriteRule ^extend/ - [F,L]
+  RewriteRule ^route/ - [F,L]
+
+  # 将所有非文件和非目录的请求重定向到index.php
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+</IfModule>
+
+# 设置安全响应头
+<IfModule mod_headers.c>
+  # 防止点击劫持
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # 启用XSS过滤器
+  Header always set X-XSS-Protection "1; mode=block"
+
+  # 防止MIME类型嘲探
+  Header always set X-Content-Type-Options "nosniff"
+
+  # 引用策略
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # 禁用缓存敏感页面
+  <FilesMatch "\.(php|html)$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+</IfModule>
+
+# 禁止访问敏感文件
+<FilesMatch "^(\.htaccess|\.htpasswd|\.user\.ini|php\.ini|web\.config)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# 禁止列出目录内容
+# Options -Indexes
+
+# 设置默认字符集
+AddDefaultCharset UTF-8

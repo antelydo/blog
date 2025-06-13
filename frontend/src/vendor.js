@@ -1,0 +1,9 @@
+// 仅导入第三方依赖
+import 'vue'
+import 'vue-router'
+import 'pinia'
+import 'vue-i18n'
+import 'element-plus'
+import '@element-plus/icons-vue'
+import 'axios'
+import 'ant-design-vue'

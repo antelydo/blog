@@ -1,0 +1,120 @@
+PHP环境配置故障排除指南
+====================
+
+1. ZIP模块重复加载问题
+------------------
+检查步骤：
+# 检查已加载的ZIP模块配置
+ls -l /www/server/php/83/etc/php.d/*zip.ini
+
+# 如果发现多个配置文件，保留一个：
+sudo rm -f /www/server/php/83/etc/php.d/001-zip.ini
+
+2. 依赖安装问题修复
+---------------
+# 进入项目目录
+cd /www/wwwroot/aichat-ui
+
+# 删除现有的vendor目录
+rm -rf vendor/
+
+# 删除composer.lock文件
+rm composer.lock
+
+# 清理composer缓存
+composer clear-cache
+
+# 重新安装依赖
+composer install --prefer-dist
+
+# 如果上述命令失败，尝试：
+composer install --prefer-dist --ignore-platform-reqs
+
+3. Think-ORM配置修复
+-----------------
+在composer.json中指定think-orm版本：
+{
+    "require": {
+        "topthink/think-orm": "^3.0"
+    }
+}
+
+执行更新：
+composer update topthink/think-orm --with-dependencies
+
+或强制重新安装：
+composer require topthink/think-orm --update-with-dependencies
+
+4. 文件权限设置
+------------
+# 设置正确的目录权限
+sudo chown -R www:www /www/wwwroot/aichat-ui
+sudo chmod -R 755 /www/wwwroot/aichat-ui
+
+5. Helper.php文件修复
+------------------
+# 检查文件是否存在
+ls -l /www/wwwroot/aichat-ui/vendor/topthink/think-orm/src/helper.php
+
+# 如果文件不存在，从GitHub获取
+wget https://raw.githubusercontent.com/top-think/think-orm/3.0/src/helper.php -O /www/wwwroot/aichat-ui/vendor/topthink/think-orm/src/helper.php
+
+6. 验证步骤
+---------
+# 重新生成autoload文件
+composer dump-autoload -o
+
+# 验证ThinkPHP安装
+php think version
+
+7. 宝塔面板配置
+------------
+1. 打开PHP管理
+2. 选择PHP 8.3
+3. 点击"配置文件"
+4. 确保extension=zip只出现一次
+
+8. Composer配置示例
+----------------
+{
+    "require": {
+        "php": ">=8.0.0",
+        "topthink/framework": "^8.0",
+        "topthink/think-orm": "^3.0",
+        "topthink/think-helper": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app"
+        },
+        "psr-0": {
+            "": "extend/"
+        }
+    }
+}
+
+9. 调试方法
+---------
+# 使用composer调试模式
+composer -vvv install
+
+# 检查PHP错误日志
+tail -f /www/wwwlogs/php-error.log
+
+# 检查PHP扩展
+php -m | grep zip
+php -m | grep pdo
+
+注意事项：
+1. 确保服务器PHP版本兼容性
+2. 检查磁盘空间是否充足
+3. 确保网络连接稳定
+4. 记录所有错误信息以便排查
+
+如果问题持续存在：
+1. 检查服务器具体配置
+2. 收集完整的错误日志
+3. 确认所有依赖版本兼容性
+4. 考虑升级或降级相关组件版本
+
+最后更新：[当前日期]

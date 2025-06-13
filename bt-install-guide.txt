@@ -1,0 +1,173 @@
+宝塔面板ThinkPHP项目安装指南
+======================
+
+1. 环境准备
+---------
+1.1 安装必要的PHP扩展：
+   - 登录宝塔面板
+   - 打开"软件商店"
+   - 找到"PHP-8.0"或更高版本
+   - 点击"设置"
+   - 在"安装扩展"中确保安装以下扩展：
+     * fileinfo
+     * redis
+     * zip
+     * pdo
+     * pdo_mysql
+     * openssl
+     * mbstring
+     * gd
+     * curl
+     * opcache
+
+1.2 安装必要的软件：
+   - Nginx 1.18+
+   - MySQL 5.7+ 或 MariaDB 10.3+
+   - Redis（可选，推荐安装）
+
+2. 站点创建
+---------
+2.1 创建站点：
+   - 点击"网站"
+   - 点击"添加站点"
+   - 填写域名
+   - 选择PHP版本为8.0+
+   - 创建数据库（勾选创建数据库）
+   - 记录数据库名、用户名和密码
+
+2.2 设置运行目录：
+   - 进入站点设置
+   - 点击"网站目录"
+   - 设置运行目录为 /public
+   - 勾选"防跨站攻击(open_basedir)"
+
+3. 代码部署
+---------
+3.1 上传代码：
+   方式1 - 使用Git：
+   ```bash
+   cd /www/wwwroot/你的站点目录
+   git clone 你的项目地址 .
+   ```
+
+   方式2 - 直接上传：
+   - 在宝塔面板中打开"文件"
+   - 进入 /www/wwwroot/你的站点目录
+   - 上传项目文件
+
+3.2 安装依赖：
+   ```bash
+   cd /www/wwwroot/你的站点目录
+   composer install --no-dev --optimize-autoloader
+   ```
+
+4. 项目配置
+---------
+4.1 设置环境变量：
+   ```bash
+   cp .env.example .env
+   ```
+   
+4.2 修改.env文件配置：
+   ```
+   APP_DEBUG = false
+   APP_TRACE = false
+   
+   DATABASE_TYPE = mysql
+   DATABASE_HOSTNAME = localhost
+   DATABASE_DATABASE = 你的数据库名
+   DATABASE_USERNAME = 你的数据库用户名
+   DATABASE_PASSWORD = 你的数据库密码
+   DATABASE_HOSTPORT = 3306
+   ```
+
+4.3 设置目录权限：
+   ```bash
+   chown -R www:www /www/wwwroot/你的站点目录
+   chmod -R 755 /www/wwwroot/你的站点目录
+   chmod -R 777 runtime
+   chmod -R 777 public/uploads
+   ```
+
+5. Nginx配置
+----------
+5.1 修改网站配置：
+   - 在站点设置中点击"配置文件"
+   - 修改Nginx配置：
+
+   ```nginx
+   location / {
+       if (!-e $request_filename){
+           rewrite  ^(.*)$  /index.php?s=$1  last;   break;
+       }
+   }
+
+   location ~ \.php$ {
+       fastcgi_pass unix:/tmp/php-cgi-80.sock;
+       fastcgi_index index.php;
+       fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+       include fastcgi_params;
+       fastcgi_param PHP_VALUE "upload_max_filesize=50M \n post_max_size=50M";
+       fastcgi_read_timeout 300;
+   }
+   ```
+
+6. 性能优化
+---------
+6.1 开启OPcache：
+   - 在PHP管理中开启OPcache
+   - 添加以下配置到PHP配置文件：
+   ```ini
+   opcache.enable=1
+   opcache.enable_cli=1
+   opcache.memory_consumption=128
+   opcache.interned_strings_buffer=8
+   opcache.max_accelerated_files=4000
+   opcache.revalidate_freq=60
+   opcache.fast_shutdown=1
+   ```
+
+6.2 配置Redis（如果使用）：
+   - 在PHP管理中开启Redis扩展
+   - 修改.env文件添加Redis配置
+
+7. 安全设置
+---------
+7.1 设置防火墙：
+   - 在安全页面设置放行端口
+   - 只开放必要的端口（如80、443）
+
+7.2 设置SSL：
+   - 在站点设置中申请SSL证书
+   - 开启强制HTTPS
+
+8. 故障排查
+---------
+如果遇到问题：
+1. 检查PHP错误日志：
+   - 路径：/www/wwwlogs/php-error.log
+   
+2. 检查网站错误日志：
+   - 路径：/www/wwwlogs/你的域名.error.log
+
+3. 检查权限：
+   ```bash
+   ls -la /www/wwwroot/你的站点目录
+   ```
+
+4. 检查PHP配置：
+   ```bash
+   php -m
+   ```
+
+注意事项：
+1. 确保所有必需的PHP扩展都已安装
+2. 定期检查日志文件
+3. 定期备份数据库和代码
+4. 保持软件版本更新
+
+常见问题解决：
+1. 500错误：检查PHP错误日志
+2. 404错误：检查伪静态配置
+3. 权限问题：检查目录权限设置
+4. 白屏：检查PHP配置和错误日志

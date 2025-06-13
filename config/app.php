@@ -1,0 +1,43 @@
+<?php
+// +----------------------------------------------------------------------
+// | 应用设置
+// +----------------------------------------------------------------------
+
+return [
+    // 应用的命名空间
+    'app_namespace' => '',
+    // 开启应用快速访问
+    'app_express' => true,
+    // 是否启用路由
+    'with_route' => true,
+    // 默认应用
+    'default_app' => 'api',
+    // 默认时区
+    'default_timezone' => 'Asia/Shanghai',
+
+    // 应用映射（自动多应用模式有效）
+    'app_map' => [],
+    // 域名绑定（自动多应用模式有效）
+    'domain_bind' => [],
+    // 禁止URL访问的应用列表（自动多应用模式有效）
+    'deny_app_list' => [],
+
+    // 异常页面的模板文件
+    'exception_tmpl' => app()->getThinkPath() . 'tpl/think_exception.tpl',
+
+    // 错误显示信息,非调试模式有效
+    'error_message' => '页面错误！请稍后再试～',
+    // 显示错误信息
+    'show_error_msg' => true,
+    //多应用模式
+    'auto_multi_app' => false,
+
+    // 是否启用调试日志记录
+    'debug_log_enabled' => env('DEBUG_LOG_ENABLED', false),
+    'http_exception_template' => [
+        // 定义404错误的模板文件地址
+        404 => \think\facade\App::getAppPath() . '404.html',
+        // 还可以定义其它的HTTP status
+        401 => \think\facade\App::getAppPath() . '401.html',
+    ]
+];

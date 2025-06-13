@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP网站性能优化指南</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+                color: #f0f0f0;
+            }
+            a {
+                color: #61afef;
+            }
+            code, pre {
+                background-color: #282c34;
+                border-color: #3e4451;
+            }
+            table {
+                border-color: #3e4451;
+            }
+            th {
+                background-color: #2c313a;
+            }
+            tr:nth-child(even) {
+                background-color: #282c34;
+            }
+            .card {
+                background-color: #282c34;
+                border-color: #3e4451;
+            }
+            .note {
+                background-color: #2c313a;
+                border-color: #3e4451;
+            }
+        }
+        
+        h1, h2, h3, h4 {
+            color: #3498db;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        
+        h1 {
+            font-size: 2.2em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+        }
+        
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            background-color: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            border: 1px solid #eee;
+        }
+        
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #eee;
+        }
+        
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            border: none;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #eee;
+        }
+        
+        .note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .toc {
+            background-color: #f8f9fa;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        
+        .toc li {
+            margin: 5px 0;
+        }
+        
+        .toc-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .command {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>PHP网站性能优化指南</h1>
+    
+    <p>本文档提供了针对本PHP网站的性能优化方案和使用说明，旨在提高网站的并发能力和响应速度，同时不改变现有的业务逻辑。</p>
+    
+    <div class="toc">
+        <div class="toc-title">目录</div>
+        <ul>
+            <li><a href="#优化概述">1. 优化概述</a></li>
+            <li><a href="#快速开始">2. 快速开始</a></li>
+            <li><a href="#缓存优化">3. 缓存优化</a></li>
+            <li><a href="#数据库优化">4. 数据库优化</a></li>
+            <li><a href="#中间件优化">5. 中间件优化</a></li>
+            <li><a href="#性能监控工具">6. 性能监控工具</a></li>
+            <li><a href="#配置文件说明">7. 配置文件说明</a></li>
+            <li><a href="#常见问题">8. 常见问题</a></li>
+        </ul>
+    </div>
+    
+    <h2 id="优化概述">1. 优化概述</h2>
+    
+    <div class="card">
+        <p>本优化方案主要包括以下几个方面：</p>
+        <ul>
+            <li><strong>缓存优化</strong>：使用Redis替代文件缓存，提高缓存读写速度</li>
+            <li><strong>数据库优化</strong>：启用字段缓存和持久连接，减少数据库负担</li>
+            <li><strong>中间件优化</strong>：添加性能监控和优化中间件</li>
+            <li><strong>性能监控</strong>：提供性能监控工具和命令行工具</li>
+            <li><strong>配置优化</strong>：提供性能优化的配置文件</li>
+        </ul>
+        <p>所有优化措施都不会改变现有的业务逻辑，可以根据实际需求逐步启用。</p>
+    </div>
+    
+    <h2 id="快速开始">2. 快速开始</h2>
+    
+    <h3>2.1 使用性能优化配置</h3>
+    
+    <p>复制性能优化环境变量配置文件：</p>
+    
+    <div class="command">cp .env.performance .env</div>
+    
+    <p>然后根据实际情况修改<code>.env</code>文件中的配置。</p>
+    
+    <h3>2.2 执行优化命令</h3>
+    
+    <div class="command">php think performance optimize</div>
+    
+    <p>此命令将执行一系列优化操作，包括清除缓存、准备路由缓存目录、优化数据库表等。</p>
+    
+    <h3>2.3 查看系统状态</h3>
+    
+    <div class="command">php think performance status</div>
+    
+    <p>此命令将显示系统当前的性能状态，包括PHP配置、OPCache状态、数据库连接信息、缓存配置等。</p>
+    
+    <h2 id="缓存优化">3. 缓存优化</h2>
+    
+    <h3>3.1 Redis缓存配置</h3>
+    
+    <p>在<code>.env</code>文件中设置以下配置启用Redis缓存：</p>
+    
+    <pre><code>CACHE_DRIVER=redis
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
+REDIS_PASSWORD=
+REDIS_DB=0
+REDIS_PREFIX=cache:
+REDIS_POOL_SIZE=10
+REDIS_PERSISTENT=true</code></pre>
+    
+    <h3>3.2 会话存储优化</h3>
+    
+    <p>在<code>.env</code>文件中设置以下配置启用Redis会话存储：</p>
+    
+    <pre><code>SESSION_DRIVER=redis
+SESSION_EXPIRE=7200
+REDIS_SESSION_DB=1
+REDIS_SESSION_PREFIX=session:</code></pre>
+    
+    <h3>3.3 路由缓存优化</h3>
+    
+    <p>在<code>.env</code>文件中设置以下配置启用路由缓存：</p>
+    
+    <pre><code>ROUTE_CHECK_CACHE=true
+ROUTE_CACHE_TYPE=redis
+ROUTE_CACHE_PREFIX=route:
+ROUTE_CACHE_EXPIRE=86400</code></pre>
+    
+    <h3>3.4 页面缓存配置</h3>
+    
+    <p>在<code>.env</code>文件中设置以下配置启用页面缓存：</p>
+    
+    <pre><code>PAGE_CACHE_ENABLED=true
+PAGE_CACHE_TIME=3600</code></pre>
+    
+    <p>页面缓存排除规则可以在<code>config/performance.php</code>文件中配置：</p>
+    
+    <pre><code>'page_cache_exclude' => [
+    'admin/',
+    'user/profile',
+    'api/auth',
+],</code></pre>
+    
+    <h2 id="数据库优化">4. 数据库优化</h2>
+    
+    <h3>4.1 字段缓存配置</h3>
+    
+    <p>在<code>.env</code>文件中设置以下配置启用数据库字段缓存：</p>
+    
+    <pre><code>DB_FIELDS_CACHE=true</code></pre>
+    
+    <h3>4.2 持久连接配置</h3>
+    
+    <p>在<code>.env</code>文件中设置以下配置启用数据库持久连接：</p>
+    
+    <pre><code>DB_PERSISTENT=true</code></pre>
+    
+    <div class="note">
+        <p><strong>注意：</strong> 持久连接可能会增加数据库服务器的连接数，请确保数据库服务器有足够的连接数限制。</p>
+    </div>
+    
+    <h3>4.3 慢查询监控</h3>
+    
+    <p>在<code>.env</code>文件中设置慢查询监控阈值：</p>
+    
+    <pre><code>DB_SLOW_QUERY_THRESHOLD=1.0</code></pre>
+    
+    <p>此配置将监控执行时间超过1秒的查询，并记录到日志文件中。</p>
+    
+    <h3>4.4 数据库分析</h3>
+    
+    <p>使用以下命令分析数据库状态：</p>
+    
+    <div class="command">php think performance analyze-db</div>
+    
+    <p>添加<code>-d</code>参数可以查看更详细的信息：</p>
+    
+    <div class="command">php think performance analyze-db -d</div>
+    
+    <h2 id="中间件优化">5. 中间件优化</h2>
+    
+    <h3>5.1 启用优化中间件</h3>
+    
+    <p>在应用的路由配置中添加中间件：</p>
+    
+    <pre><code>// 在路由配置中添加
+Route::group('api', function () {
+    // 路由定义...
+})->middleware(['cache_optimizer', 'db_optimizer']);</code></pre>
+    
+    <p>或者在全局中间件配置中添加：</p>
+    
+    <p>编辑<code>app/middleware.php</code>文件：</p>
+    
+    <pre><code>return [
+    // 全局中间件
+    \app\middleware\CacheOptimizer::class,
+    \app\middleware\DbOptimizer::class,
+];</code></pre>
+    
+    <h3>5.2 中间件说明</h3>
+    
+    <ul>
+        <li><strong>CacheOptimizer</strong>：实现页面级缓存，减少重复计算</li>
+        <li><strong>DbOptimizer</strong>：监控数据库查询性能，记录慢查询</li>
+    </ul>
+    
+    <h2 id="性能监控工具">6. 性能监控工具</h2>
+    
+    <h3>6.1 命令行工具</h3>
+    
+    <p>本项目提供了一个命令行工具用于性能监控和优化：</p>
+    
+    <div class="command">php think performance [action] [options]</div>
+    
+    <p>可用的操作：</p>
+    
+    <ul>
+        <li><strong>status</strong>：显示系统性能状态</li>
+        <li><strong>optimize</strong>：执行系统优化</li>
+        <li><strong>clear-cache</strong>：清除系统缓存</li>
+        <li><strong>analyze-db</strong>：分析数据库</li>
+    </ul>
+    
+    <p>选项：</p>
+    
+    <ul>
+        <li><strong>-d, --detail</strong>：显示详细信息</li>
+    </ul>
+    
+    <p>示例：</p>
+    
+    <div class="command"># 显示系统状态
+php think performance status
+
+# 显示详细系统状态
+php think performance status -d
+
+# 执行系统优化
+php think performance optimize
+
+# 清除系统缓存
+php think performance clear-cache
+
+# 分析数据库
+php think performance analyze-db</div>
+    
+    <h3>6.2 OPCache状态监控</h3>
+    
+    <p>访问<code>/opcache-status.php</code>可以查看OPCache的状态（需要管理员权限）。</p>
+    
+    <h3>6.3 性能监控类</h3>
+    
+    <p>项目提供了<code>app\common\Performance</code>类用于性能监控，可以在代码中使用：</p>
+    
+    <pre><code>use app\common\Performance;
+
+// 开始计时
+Performance::startTimer('my_operation');
+
+// 执行操作
+// ...
+
+// 停止计时
+$duration = Performance::stopTimer('my_operation');
+
+// 记录数据库查询
+Performance::recordDbQueries(5);
+
+// 记录缓存命中
+Performance::recordCacheHit();
+
+// 记录缓存未命中
+Performance::recordCacheMiss();
+
+// 获取性能报告
+$report = Performance::getReport();
+
+// 记录性能报告到日志
+Performance::logReport();</code></pre>
+    
+    <h2 id="配置文件说明">7. 配置文件说明</h2>
+    
+    <h3>7.1 .env.performance</h3>
+    
+    <p>此文件包含了性能优化的环境变量配置，可以复制为<code>.env</code>文件使用。主要配置项包括：</p>
+    
+    <ul>
+        <li>应用设置（调试模式、跟踪等）</li>
+        <li>数据库设置（字段缓存、持久连接等）</li>
+        <li>缓存设置（缓存驱动、Redis配置等）</li>
+        <li>会话设置（会话驱动、有效期等）</li>
+        <li>路由设置（路由缓存等）</li>
+        <li>日志设置（日志通道、级别等）</li>
+    </ul>
+    
+    <h3>7.2 config/performance.php</h3>
+    
+    <p>此文件集中管理性能相关的配置，主要配置项包括：</p>
+    
+    <ul>
+        <li>页面缓存配置</li>
+        <li>数据库优化配置</li>
+        <li>路由优化配置</li>
+        <li>性能监控配置</li>
+        <li>缓存配置</li>
+        <li>会话配置</li>
+        <li>日志配置</li>
+    </ul>
+    
+    <h2 id="常见问题">8. 常见问题</h2>
+    
+    <h3>8.1 Redis连接失败</h3>
+    
+    <p><strong>问题</strong>：启用Redis缓存后，网站无法正常运行，报Redis连接错误。</p>
+    
+    <p><strong>解决方案</strong>：</p>
+    <ul>
+        <li>确认Redis服务已启动</li>
+        <li>检查Redis连接配置（主机、端口、密码等）</li>
+        <li>确认PHP已安装Redis扩展</li>
+    </ul>
+    
+    <h3>8.2 性能优化后网站出现异常</h3>
+    
+    <p><strong>问题</strong>：应用性能优化配置后，网站某些功能出现异常。</p>
+    
+    <p><strong>解决方案</strong>：</p>
+    <ul>
+        <li>执行<code>php think performance clear-cache</code>清除所有缓存</li>
+        <li>逐步启用优化功能，找出导致问题的配置</li>
+        <li>检查日志文件，查找错误信息</li>
+    </ul>
+    
+    <h3>8.3 数据库查询仍然很慢</h3>
+    
+    <p><strong>问题</strong>：尽管进行了优化，但数据库查询仍然很慢。</p>
+    
+    <p><strong>解决方案</strong>：</p>
+    <ul>
+        <li>执行<code>php think performance analyze-db -d</code>分析数据库</li>
+        <li>检查慢查询日志，找出慢查询</li>
+        <li>为频繁查询的字段添加索引</li>
+        <li>优化SQL语句，避免使用<code>SELECT *</code></li>
+    </ul>
+    
+    <h3>8.4 缓存不生效</h3>
+    
+    <p><strong>问题</strong>：配置了缓存，但似乎没有生效。</p>
+    
+    <p><strong>解决方案</strong>：</p>
+    <ul>
+        <li>确认缓存驱动配置正确</li>
+        <li>检查缓存键是否正确</li>
+        <li>使用<code>Performance::recordCacheHit()</code>和<code>Performance::recordCacheMiss()</code>监控缓存命中率</li>
+        <li>检查缓存排除规则是否过于宽松</li>
+    </ul>
+    
+    <h3>8.5 OPCache未启用</h3>
+    
+    <p><strong>问题</strong>：OPCache配置后未生效。</p>
+    
+    <p><strong>解决方案</strong>：</p>
+    <ul>
+        <li>在php.ini中设置<code>opcache.enable=1</code></li>
+        <li>重启PHP服务</li>
+        <li>访问<code>/opcache-status.php</code>确认OPCache状态</li>
+    </ul>
+    
+    <div class="footer">
+        <p>如有任何问题或需要进一步的优化建议，请联系网站管理员。</p>
+        <p>文档最后更新时间：2025年4月27日</p>
+    </div>
+</body>
+</html>

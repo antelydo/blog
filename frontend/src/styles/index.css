@@ -1,0 +1,559 @@
+@import './table.css';
+@import './stats.css';
+@import './admin-card.css';
+@import './override.css';
+
+/* Base styles */
+:root {
+  --el-color-primary: #409EFF;
+  --el-color-primary-light-3: #79bbff;
+  --el-color-primary-light-5: #a0cfff;
+  --el-color-primary-light-7: #c6e2ff;
+  --el-color-primary-light-8: #d9ecff;
+  --el-color-primary-light-9: #ecf5ff;
+  --el-color-primary-dark-2: #337ecc;
+
+  --el-color-success: #67C23A;
+  --el-color-warning: #E6A23C;
+  --el-color-danger: #F56C6C;
+  --el-color-info: #909399;
+
+  --el-text-color-primary: #303133;
+  --el-text-color-regular: #606266;
+  --el-text-color-secondary: #909399;
+  --el-text-color-placeholder: #A8ABB2;
+  --el-text-color-disabled: #C0C4CC;
+
+  --el-border-color: #DCDFE6;
+  --el-border-color-light: #E4E7ED;
+  --el-border-color-lighter: #EBEEF5;
+  --el-border-color-extra-light: #F2F6FC;
+
+  --el-fill-color: #F0F2F5;
+  --el-fill-color-light: #F5F7FA;
+  --el-fill-color-lighter: #FAFAFA;
+  --el-fill-color-extra-light: #FAFCFF;
+  --el-fill-color-blank: #FFFFFF;
+
+  --el-mask-color: rgba(255, 255, 255, 0.9);
+  --el-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  --el-box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  --el-box-shadow-lighter: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  --el-box-shadow-dark: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Global styles */
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--el-fill-color-light);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--el-border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--el-text-color-secondary);
+}
+
+/* Transition styles */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.mt-1 { margin-top: 4px; }
+.mt-2 { margin-top: 8px; }
+.mt-3 { margin-top: 12px; }
+.mt-4 { margin-top: 16px; }
+.mt-5 { margin-top: 20px; }
+
+.mb-1 { margin-bottom: 4px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-3 { margin-bottom: 12px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-5 { margin-bottom: 20px; }
+
+.ml-1 { margin-left: 4px; }
+.ml-2 { margin-left: 8px; }
+.ml-3 { margin-left: 12px; }
+.ml-4 { margin-left: 16px; }
+.ml-5 { margin-left: 20px; }
+
+.mr-1 { margin-right: 4px; }
+.mr-2 { margin-right: 8px; }
+.mr-3 { margin-right: 12px; }
+.mr-4 { margin-right: 16px; }
+.mr-5 { margin-right: 20px; }
+
+/* 全局表格样式 */
+.dark-theme .el-table th,
+.system-theme .el-table th {
+  background-color: var(--el-table-header-bg-color) !important;
+  color: var(--el-text-color-primary) !important;
+}
+
+.dark-theme .el-table__header,
+.system-theme .el-table__header {
+  background-color: var(--el-table-header-bg-color) !important;
+}
+
+.dark-theme .el-table__header-wrapper,
+.system-theme .el-table__header-wrapper {
+  background-color: var(--el-table-header-bg-color) !important;
+}
+
+.dark-theme .el-table__header th,
+.system-theme .el-table__header th {
+  background-color: var(--el-table-header-bg-color) !important;
+  color: var(--el-text-color-primary) !important;
+}
+
+/* 增强表格样式，确保在暗黑模式下正确显示 */
+.dark-theme .el-table,
+.system-theme .el-table {
+  --el-table-header-bg-color: var(--el-bg-color);
+  --el-table-tr-bg-color: var(--el-bg-color-overlay);
+  --el-table-border-color: var(--el-border-color);
+  --el-table-text-color: var(--el-text-color-regular);
+  --el-table-header-text-color: var(--el-text-color-primary);
+}
+
+.dark-theme .el-table--border,
+.system-theme .el-table--border {
+  border-color: var(--el-table-border-color);
+}
+
+.dark-theme .el-table--border th,
+.dark-theme .el-table--border td,
+.system-theme .el-table--border th,
+.system-theme .el-table--border td {
+  border-color: var(--el-table-border-color);
+}
+
+.dark-theme .el-table--striped .el-table__body tr.el-table__row--striped td,
+.system-theme .el-table--striped .el-table__body tr.el-table__row--striped td {
+  background-color: var(--el-fill-color-light);
+}
+
+.dark-theme .el-table--enable-row-hover .el-table__body tr:hover > td,
+.system-theme .el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: var(--el-fill-color);
+}
+
+/* 常规HTML表格样式优化 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 1px 0;
+  font-size: 14px;
+  background-color: var(--el-fill-color-blank);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px 0 rgba(252, 249, 249, 0.05);
+}
+
+/* 表头样式 */
+th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--el-text-color-primary);
+  background-color: var(--el-fill-color-light);
+  border-bottom: 2px solid var(--el-border-color-lighter);
+  transition: background-color 0.3s;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* 表格单元格样式 */
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--el-border-color-lighter);
+  color: var(--el-text-color-regular);
+  transition: all 0.3s ease;
+}
+
+/* 表格行悬停效果 */
+tr:hover td {
+  background-color: var(--el-fill-color-light);
+}
+
+/* 表格行斑马纹效果 */
+tr:nth-child(even) {
+  background-color: var(--el-fill-color-lighter);
+}
+
+/* 表格边框 */
+table.bordered {
+  border: 1px solid var(--el-border-color-lighter);
+}
+
+table.bordered th,
+table.bordered td {
+  border: 1px solid var(--el-border-color-lighter);
+}
+
+/* 紧凑型表格 */
+table.compact th,
+table.compact td {
+  padding: 8px 10px;
+}
+
+/* 响应式表格 */
+@media screen and (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  table.responsive th,
+  table.responsive td {
+    white-space: normal;
+  }
+
+  table.responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* 暗黑模式表格样式 */
+.dark-theme table,
+.system-theme table {
+  background-color: var(--el-bg-color);
+  color: var(--el-text-color-regular);
+}
+
+.dark-theme th,
+.system-theme th {
+  background-color: var(--el-bg-color);
+  color: var(--el-text-color-primary);
+  border-color: var(--el-border-color);
+}
+
+.dark-theme td,
+.system-theme td {
+  border-color: var(--el-border-color);
+}
+
+.dark-theme tr:hover td,
+.system-theme tr:hover td {
+  background-color: var(--el-fill-color);
+}
+
+.dark-theme tr:nth-child(even),
+.system-theme tr:nth-child(even) {
+  background-color: var(--el-bg-color-overlay);
+}
+
+/* 全宽表格 */
+table.full-width {
+  width: 100%;
+}
+
+/* 表格排序图标样式 */
+th.sortable {
+  cursor: pointer;
+  position: relative;
+}
+
+th.sortable:after {
+  content: '▴';
+  position: absolute;
+  right: 10px;
+  color: var(--el-text-color-secondary);
+  opacity: 0.5;
+}
+
+th.sortable.desc:after {
+  content: '▾';
+}
+
+th.sortable:hover:after {
+  opacity: 1;
+}
+
+/* 表格内文字溢出处理 */
+td.ellipsis,
+th.ellipsis {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ========= 原生表格增强样式 ========= */
+
+/* 卡片式表格 */
+table.table-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 8px;
+  border: none;
+  background-color: var(--el-bg-color);
+}
+
+table.table-card thead {
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+table.table-card thead th {
+  background-color: var(--el-fill-color-light);
+  border-bottom: 2px solid var(--el-border-color-light);
+  padding: 14px 12px;
+}
+
+table.table-card tbody td {
+  border-bottom: 1px solid var(--el-border-color-lighter);
+}
+
+table.table-card tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 现代无边框表格 */
+table.table-borderless {
+  border: none;
+  box-shadow: none;
+}
+
+table.table-borderless th {
+  border-bottom: 2px solid var(--el-border-color-light);
+  background-color: transparent;
+}
+
+table.table-borderless td {
+  border-bottom: 1px solid var(--el-border-color-lighter);
+}
+
+/* 垂直居中的表格内容 */
+table.table-middle th,
+table.table-middle td {
+  vertical-align: middle;
+}
+
+/* 带分割的表格行 */
+table.table-divided tbody tr {
+  border-bottom: 1px solid var(--el-border-color-lighter);
+}
+
+table.table-divided tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* 可点击的表格行 */
+table.table-clickable tbody tr {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+table.table-clickable tbody tr:hover {
+  background-color: var(--el-fill-color-light);
+  transform: translateY(-1px);
+}
+
+/* 表头与内容对齐样式 */
+table.table-align-left th,
+table.table-align-left td {
+  text-align: left;
+}
+
+table.table-align-center th,
+table.table-align-center td {
+  text-align: center;
+}
+
+table.table-align-right th,
+table.table-align-right td {
+  text-align: right;
+}
+
+/* 固定表头的表格 */
+table.table-fixed-header {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+}
+
+table.table-fixed-header thead {
+  flex: 0 0 auto;
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+
+table.table-fixed-header tbody {
+  flex: 1 1 auto;
+  display: block;
+  overflow-y: auto;
+}
+
+table.table-fixed-header tbody tr {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+
+/* 彩色状态表格 */
+table.table-status td.status-success {
+  color: var(--el-color-success);
+  font-weight: 500;
+}
+
+table.table-status td.status-warning {
+  color: var(--el-color-warning);
+  font-weight: 500;
+}
+
+table.table-status td.status-danger {
+  color: var(--el-color-danger);
+  font-weight: 500;
+}
+
+table.table-status td.status-info {
+  color: var(--el-color-info);
+  font-weight: 500;
+}
+
+/* 带标记的表格行 */
+table.table-marked tr.marked-row {
+  background-color: rgba(var(--el-color-primary-rgb), 0.1);
+}
+
+table.table-marked tr.marked-row td {
+  position: relative;
+}
+
+table.table-marked tr.marked-row td:first-child::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: var(--el-color-primary);
+}
+
+/* 带提示的表格单元格 */
+td.cell-with-tooltip {
+  position: relative;
+}
+
+td.cell-with-tooltip .tooltip-content {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: 100;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: opacity 0.3s;
+}
+
+td.cell-with-tooltip:hover .tooltip-content {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* 带操作按钮的表格行 */
+table tr .row-actions {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+table tr:hover .row-actions {
+  visibility: visible;
+  opacity: 1;
+}

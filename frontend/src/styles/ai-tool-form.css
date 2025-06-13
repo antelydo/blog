@@ -1,0 +1,576 @@
+/**
+ * AI 工具管理列表搜索筛选框样式
+ * 使所有列表的搜索筛选框样式与 admin/article/list 保持一致
+ */
+
+/* 搜索表单样式 */
+.ai-tool-list-container .search-form,
+.ai-tool-tag-container .search-form,
+.ai-tool-category-container .search-form,
+.ai-tool-comment-container .search-form,
+.ai-tool-favorite-container .search-form,
+.ai-tool-like-container .search-form,
+.ai-tool-visit-log-container .search-form {
+  background-color: #f5f5f5;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+/* 表单标签样式 */
+.ai-tool-list-container .ant-form-item-label > label,
+.ai-tool-tag-container .ant-form-item-label > label,
+.ai-tool-category-container .ant-form-item-label > label,
+.ai-tool-comment-container .ant-form-item-label > label,
+.ai-tool-favorite-container .ant-form-item-label > label,
+.ai-tool-like-container .ant-form-item-label > label,
+.ai-tool-visit-log-container .ant-form-item-label > label {
+  color: #606266;
+  font-weight: 500;
+}
+
+/* 输入框样式 */
+.ai-tool-list-container .ant-input,
+.ai-tool-tag-container .ant-input,
+.ai-tool-category-container .ant-input,
+.ai-tool-comment-container .ant-input,
+.ai-tool-favorite-container .ant-input,
+.ai-tool-like-container .ant-input,
+.ai-tool-visit-log-container .ant-input,
+.ai-tool-list-container .ant-input-affix-wrapper,
+.ai-tool-tag-container .ant-input-affix-wrapper,
+.ai-tool-category-container .ant-input-affix-wrapper,
+.ai-tool-comment-container .ant-input-affix-wrapper,
+.ai-tool-favorite-container .ant-input-affix-wrapper,
+.ai-tool-like-container .ant-input-affix-wrapper,
+.ai-tool-visit-log-container .ant-input-affix-wrapper,
+.ai-tool-list-container .ant-picker,
+.ai-tool-tag-container .ant-picker,
+.ai-tool-category-container .ant-picker,
+.ai-tool-comment-container .ant-picker,
+.ai-tool-favorite-container .ant-picker,
+.ai-tool-like-container .ant-picker,
+.ai-tool-visit-log-container .ant-picker,
+.ai-tool-list-container .ant-input-number,
+.ai-tool-tag-container .ant-input-number,
+.ai-tool-category-container .ant-input-number,
+.ai-tool-comment-container .ant-input-number,
+.ai-tool-favorite-container .ant-input-number,
+.ai-tool-like-container .ant-input-number,
+.ai-tool-visit-log-container .ant-input-number {
+  background-color: #ffffff;
+  color: #606266;
+  border-color: #dcdfe6;
+}
+
+.ai-tool-list-container .ant-input:hover,
+.ai-tool-tag-container .ant-input:hover,
+.ai-tool-category-container .ant-input:hover,
+.ai-tool-comment-container .ant-input:hover,
+.ai-tool-favorite-container .ant-input:hover,
+.ai-tool-like-container .ant-input:hover,
+.ai-tool-visit-log-container .ant-input:hover,
+.ai-tool-list-container .ant-input-affix-wrapper:hover,
+.ai-tool-tag-container .ant-input-affix-wrapper:hover,
+.ai-tool-category-container .ant-input-affix-wrapper:hover,
+.ai-tool-comment-container .ant-input-affix-wrapper:hover,
+.ai-tool-favorite-container .ant-input-affix-wrapper:hover,
+.ai-tool-like-container .ant-input-affix-wrapper:hover,
+.ai-tool-visit-log-container .ant-input-affix-wrapper:hover,
+.ai-tool-list-container .ant-picker:hover,
+.ai-tool-tag-container .ant-picker:hover,
+.ai-tool-category-container .ant-picker:hover,
+.ai-tool-comment-container .ant-picker:hover,
+.ai-tool-favorite-container .ant-picker:hover,
+.ai-tool-like-container .ant-picker:hover,
+.ai-tool-visit-log-container .ant-picker:hover,
+.ai-tool-list-container .ant-input-number:hover,
+.ai-tool-tag-container .ant-input-number:hover,
+.ai-tool-category-container .ant-input-number:hover,
+.ai-tool-comment-container .ant-input-number:hover,
+.ai-tool-favorite-container .ant-input-number:hover,
+.ai-tool-like-container .ant-input-number:hover,
+.ai-tool-visit-log-container .ant-input-number:hover {
+  border-color: #c0c4cc;
+}
+
+.ai-tool-list-container .ant-input:focus,
+.ai-tool-tag-container .ant-input:focus,
+.ai-tool-category-container .ant-input:focus,
+.ai-tool-comment-container .ant-input:focus,
+.ai-tool-favorite-container .ant-input:focus,
+.ai-tool-like-container .ant-input:focus,
+.ai-tool-visit-log-container .ant-input:focus,
+.ai-tool-list-container .ant-input-affix-wrapper:focus,
+.ai-tool-tag-container .ant-input-affix-wrapper:focus,
+.ai-tool-category-container .ant-input-affix-wrapper:focus,
+.ai-tool-comment-container .ant-input-affix-wrapper:focus,
+.ai-tool-favorite-container .ant-input-affix-wrapper:focus,
+.ai-tool-like-container .ant-input-affix-wrapper:focus,
+.ai-tool-visit-log-container .ant-input-affix-wrapper:focus,
+.ai-tool-list-container .ant-input-affix-wrapper-focused,
+.ai-tool-tag-container .ant-input-affix-wrapper-focused,
+.ai-tool-category-container .ant-input-affix-wrapper-focused,
+.ai-tool-comment-container .ant-input-affix-wrapper-focused,
+.ai-tool-favorite-container .ant-input-affix-wrapper-focused,
+.ai-tool-like-container .ant-input-affix-wrapper-focused,
+.ai-tool-visit-log-container .ant-input-affix-wrapper-focused,
+.ai-tool-list-container .ant-picker-focused,
+.ai-tool-tag-container .ant-picker-focused,
+.ai-tool-category-container .ant-picker-focused,
+.ai-tool-comment-container .ant-picker-focused,
+.ai-tool-favorite-container .ant-picker-focused,
+.ai-tool-like-container .ant-picker-focused,
+.ai-tool-visit-log-container .ant-picker-focused,
+.ai-tool-list-container .ant-input-number-focused,
+.ai-tool-tag-container .ant-input-number-focused,
+.ai-tool-category-container .ant-input-number-focused,
+.ai-tool-comment-container .ant-input-number-focused,
+.ai-tool-favorite-container .ant-input-number-focused,
+.ai-tool-like-container .ant-input-number-focused,
+.ai-tool-visit-log-container .ant-input-number-focused {
+  border-color: #409eff;
+}
+
+/* 选择框样式 */
+.ai-tool-list-container .ant-select .ant-select-selector,
+.ai-tool-tag-container .ant-select .ant-select-selector,
+.ai-tool-category-container .ant-select .ant-select-selector,
+.ai-tool-comment-container .ant-select .ant-select-selector,
+.ai-tool-favorite-container .ant-select .ant-select-selector,
+.ai-tool-like-container .ant-select .ant-select-selector,
+.ai-tool-visit-log-container .ant-select .ant-select-selector {
+  background-color: #ffffff;
+  color: #606266;
+  border-color: #dcdfe6;
+}
+
+.ai-tool-list-container .ant-select .ant-select-selector:hover,
+.ai-tool-tag-container .ant-select .ant-select-selector:hover,
+.ai-tool-category-container .ant-select .ant-select-selector:hover,
+.ai-tool-comment-container .ant-select .ant-select-selector:hover,
+.ai-tool-favorite-container .ant-select .ant-select-selector:hover,
+.ai-tool-like-container .ant-select .ant-select-selector:hover,
+.ai-tool-visit-log-container .ant-select .ant-select-selector:hover {
+  border-color: #c0c4cc;
+}
+
+.ai-tool-list-container .ant-select-focused .ant-select-selector,
+.ai-tool-tag-container .ant-select-focused .ant-select-selector,
+.ai-tool-category-container .ant-select-focused .ant-select-selector,
+.ai-tool-comment-container .ant-select-focused .ant-select-selector,
+.ai-tool-favorite-container .ant-select-focused .ant-select-selector,
+.ai-tool-like-container .ant-select-focused .ant-select-selector,
+.ai-tool-visit-log-container .ant-select-focused .ant-select-selector {
+  border-color: #409eff !important;
+}
+
+/* 按钮样式 */
+.ai-tool-list-container .ant-btn-primary,
+.ai-tool-tag-container .ant-btn-primary,
+.ai-tool-category-container .ant-btn-primary,
+.ai-tool-comment-container .ant-btn-primary,
+.ai-tool-favorite-container .ant-btn-primary,
+.ai-tool-like-container .ant-btn-primary,
+.ai-tool-visit-log-container .ant-btn-primary {
+  background-color: #409eff;
+  border-color: #409eff;
+}
+
+.ai-tool-list-container .ant-btn-primary:hover,
+.ai-tool-tag-container .ant-btn-primary:hover,
+.ai-tool-category-container .ant-btn-primary:hover,
+.ai-tool-comment-container .ant-btn-primary:hover,
+.ai-tool-favorite-container .ant-btn-primary:hover,
+.ai-tool-like-container .ant-btn-primary:hover,
+.ai-tool-visit-log-container .ant-btn-primary:hover {
+  background-color: #66b1ff;
+  border-color: #66b1ff;
+}
+
+/* 暗黑模式下的表单标签样式 */
+html.dark .ai-tool-list-container .ant-form-item-label > label,
+html.dark .ai-tool-tag-container .ant-form-item-label > label,
+html.dark .ai-tool-category-container .ant-form-item-label > label,
+html.dark .ai-tool-comment-container .ant-form-item-label > label,
+html.dark .ai-tool-favorite-container .ant-form-item-label > label,
+html.dark .ai-tool-like-container .ant-form-item-label > label,
+html.dark .ai-tool-visit-log-container .ant-form-item-label > label {
+  color: #ffffff;
+}
+
+/* 暗黑模式下的输入框样式 */
+html.dark .ai-tool-list-container .ant-input,
+html.dark .ai-tool-tag-container .ant-input,
+html.dark .ai-tool-category-container .ant-input,
+html.dark .ai-tool-comment-container .ant-input,
+html.dark .ai-tool-favorite-container .ant-input,
+html.dark .ai-tool-like-container .ant-input,
+html.dark .ai-tool-visit-log-container .ant-input,
+html.dark .ai-tool-list-container .ant-input-affix-wrapper,
+html.dark .ai-tool-tag-container .ant-input-affix-wrapper,
+html.dark .ai-tool-category-container .ant-input-affix-wrapper,
+html.dark .ai-tool-comment-container .ant-input-affix-wrapper,
+html.dark .ai-tool-favorite-container .ant-input-affix-wrapper,
+html.dark .ai-tool-like-container .ant-input-affix-wrapper,
+html.dark .ai-tool-visit-log-container .ant-input-affix-wrapper,
+html.dark .ai-tool-list-container .ant-input-number,
+html.dark .ai-tool-tag-container .ant-input-number,
+html.dark .ai-tool-category-container .ant-input-number,
+html.dark .ai-tool-comment-container .ant-input-number,
+html.dark .ai-tool-favorite-container .ant-input-number,
+html.dark .ai-tool-like-container .ant-input-number,
+html.dark .ai-tool-visit-log-container .ant-input-number {
+  background-color: var(--el-bg-color-overlay, #242424);
+  color: #ffffff;
+  border-color: var(--el-border-color, #363636);
+}
+
+/* 暗黑模式下的输入框悬停样式 */
+html.dark .ai-tool-list-container .ant-input:hover,
+html.dark .ai-tool-tag-container .ant-input:hover,
+html.dark .ai-tool-category-container .ant-input:hover,
+html.dark .ai-tool-comment-container .ant-input:hover,
+html.dark .ai-tool-favorite-container .ant-input:hover,
+html.dark .ai-tool-like-container .ant-input:hover,
+html.dark .ai-tool-visit-log-container .ant-input:hover,
+html.dark .ai-tool-list-container .ant-input-affix-wrapper:hover,
+html.dark .ai-tool-tag-container .ant-input-affix-wrapper:hover,
+html.dark .ai-tool-category-container .ant-input-affix-wrapper:hover,
+html.dark .ai-tool-comment-container .ant-input-affix-wrapper:hover,
+html.dark .ai-tool-favorite-container .ant-input-affix-wrapper:hover,
+html.dark .ai-tool-like-container .ant-input-affix-wrapper:hover,
+html.dark .ai-tool-visit-log-container .ant-input-affix-wrapper:hover,
+html.dark .ai-tool-list-container .ant-picker:hover,
+html.dark .ai-tool-tag-container .ant-picker:hover,
+html.dark .ai-tool-category-container .ant-picker:hover,
+html.dark .ai-tool-comment-container .ant-picker:hover,
+html.dark .ai-tool-favorite-container .ant-picker:hover,
+html.dark .ai-tool-like-container .ant-picker:hover,
+html.dark .ai-tool-visit-log-container .ant-picker:hover,
+html.dark .ai-tool-list-container .ant-input-number:hover,
+html.dark .ai-tool-tag-container .ant-input-number:hover,
+html.dark .ai-tool-category-container .ant-input-number:hover,
+html.dark .ai-tool-comment-container .ant-input-number:hover,
+html.dark .ai-tool-favorite-container .ant-input-number:hover,
+html.dark .ai-tool-like-container .ant-input-number:hover,
+html.dark .ai-tool-visit-log-container .ant-input-number:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 暗黑模式下的输入框placeholder样式 */
+html.dark .ai-tool-list-container .ant-input::placeholder,
+html.dark .ai-tool-tag-container .ant-input::placeholder,
+html.dark .ai-tool-category-container .ant-input::placeholder,
+html.dark .ai-tool-comment-container .ant-input::placeholder,
+html.dark .ai-tool-favorite-container .ant-input::placeholder,
+html.dark .ai-tool-like-container .ant-input::placeholder,
+html.dark .ai-tool-visit-log-container .ant-input::placeholder,
+html.dark .ai-tool-list-container .ant-picker-input > input::placeholder,
+html.dark .ai-tool-tag-container .ant-picker-input > input::placeholder,
+html.dark .ai-tool-category-container .ant-picker-input > input::placeholder,
+html.dark .ai-tool-comment-container .ant-picker-input > input::placeholder,
+html.dark .ai-tool-favorite-container .ant-picker-input > input::placeholder,
+html.dark .ai-tool-like-container .ant-picker-input > input::placeholder,
+html.dark .ai-tool-visit-log-container .ant-picker-input > input::placeholder,
+html.dark .ai-tool-list-container .ant-input-number-input::placeholder,
+html.dark .ai-tool-tag-container .ant-input-number-input::placeholder,
+html.dark .ai-tool-category-container .ant-input-number-input::placeholder,
+html.dark .ai-tool-comment-container .ant-input-number-input::placeholder,
+html.dark .ai-tool-favorite-container .ant-input-number-input::placeholder,
+html.dark .ai-tool-like-container .ant-input-number-input::placeholder,
+html.dark .ai-tool-visit-log-container .ant-input-number-input::placeholder {
+  color: #ffffff !important;
+}
+
+/* 暗黑模式下的选择框样式 */
+html.dark .ai-tool-list-container .ant-select .ant-select-selector,
+html.dark .ai-tool-tag-container .ant-select .ant-select-selector,
+html.dark .ai-tool-category-container .ant-select .ant-select-selector,
+html.dark .ai-tool-comment-container .ant-select .ant-select-selector,
+html.dark .ai-tool-favorite-container .ant-select .ant-select-selector,
+html.dark .ai-tool-like-container .ant-select .ant-select-selector,
+html.dark .ai-tool-visit-log-container .ant-select .ant-select-selector {
+  background-color: var(--el-bg-color-overlay, #242424);
+  color: #ffffff;
+  border-color: var(--el-border-color, #363636);
+}
+
+/* 暗黑模式下的选择框选中文本样式 */
+html.dark .ai-tool-list-container .ant-select-selection-item,
+html.dark .ai-tool-tag-container .ant-select-selection-item,
+html.dark .ai-tool-category-container .ant-select-selection-item,
+html.dark .ai-tool-comment-container .ant-select-selection-item,
+html.dark .ai-tool-favorite-container .ant-select-selection-item,
+html.dark .ai-tool-like-container .ant-select-selection-item,
+html.dark .ai-tool-visit-log-container .ant-select-selection-item {
+  color: #ffffff;
+}
+
+/* 暗黑模式下的选择框占位符样式 */
+html.dark .ai-tool-list-container .ant-select-selection-placeholder,
+html.dark .ai-tool-tag-container .ant-select-selection-placeholder,
+html.dark .ai-tool-category-container .ant-select-selection-placeholder,
+html.dark .ai-tool-comment-container .ant-select-selection-placeholder,
+html.dark .ai-tool-favorite-container .ant-select-selection-placeholder,
+html.dark .ai-tool-like-container .ant-select-selection-placeholder,
+html.dark .ai-tool-visit-log-container .ant-select-selection-placeholder {
+  color: #ffffff !important;
+}
+
+/* 暗黑模式下的选择框弹出层样式 */
+html.dark .ant-select-dropdown {
+  background-color: var(--el-bg-color-overlay, #242424) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+/* 暗黑模式下的选择框弹出层选项样式 */
+html.dark .ant-select-dropdown .ant-select-item {
+  color: #ffffff !important;
+}
+
+/* 暗黑模式下的选择框弹出层选项悬停样式 */
+html.dark .ant-select-dropdown .ant-select-item-option-active {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 暗黑模式下的选择框弹出层选项选中样式 */
+html.dark .ant-select-dropdown .ant-select-item-option-selected {
+  background-color: rgba(64, 158, 255, 0.2) !important;
+  color: #409eff !important;
+}
+
+/* 暗黑模式下的时间控件样式 */
+html.dark .ai-tool-list-container .ant-picker,
+html.dark .ai-tool-tag-container .ant-picker,
+html.dark .ai-tool-category-container .ant-picker,
+html.dark .ai-tool-comment-container .ant-picker,
+html.dark .ai-tool-favorite-container .ant-picker,
+html.dark .ai-tool-like-container .ant-picker,
+html.dark .ai-tool-visit-log-container .ant-picker {
+  background-color: var(--el-bg-color-overlay, #242424) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+/* 暗黑模式下的时间控件内部文本样式 */
+html.dark .ai-tool-list-container .ant-picker-input > input,
+html.dark .ai-tool-tag-container .ant-picker-input > input,
+html.dark .ai-tool-category-container .ant-picker-input > input,
+html.dark .ai-tool-comment-container .ant-picker-input > input,
+html.dark .ai-tool-favorite-container .ant-picker-input > input,
+html.dark .ai-tool-like-container .ant-picker-input > input,
+html.dark .ai-tool-visit-log-container .ant-picker-input > input {
+  color: #ffffff !important;
+}
+
+/* 暗黑模式下的时间控件图标样式 */
+html.dark .ai-tool-list-container .ant-picker-suffix,
+html.dark .ai-tool-tag-container .ant-picker-suffix,
+html.dark .ai-tool-category-container .ant-picker-suffix,
+html.dark .ai-tool-comment-container .ant-picker-suffix,
+html.dark .ai-tool-favorite-container .ant-picker-suffix,
+html.dark .ai-tool-like-container .ant-picker-suffix,
+html.dark .ai-tool-visit-log-container .ant-picker-suffix {
+  color: #ffffff !important;
+}
+
+/* 暗黑模式下的时间选择框弹出层样式 */
+html.dark .ant-picker-dropdown {
+  background-color: var(--el-bg-color-overlay, #242424) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+
+
+/* 暗黑模式下的时间选择框弹出层内容样式 */
+html.dark .ant-picker-dropdown .ant-picker-content th,
+html.dark .ant-picker-dropdown .ant-picker-content td {
+  color: #ffffff !important;
+}
+
+/* 暗黑模式下的时间选择框弹出层单元格悬停样式 */
+html.dark .ant-picker-dropdown .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end) .ant-picker-cell-inner {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 暗黑模式下的时间选择框弹出层单元格选中样式 */
+html.dark .ant-picker-dropdown .ant-picker-cell-selected .ant-picker-cell-inner,
+html.dark .ant-picker-dropdown .ant-picker-cell-range-start .ant-picker-cell-inner,
+html.dark .ant-picker-dropdown .ant-picker-cell-range-end .ant-picker-cell-inner {
+  background-color: #409eff !important;
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的表单标签样式 */
+html.system-dark-theme .ai-tool-list-container .ant-form-item-label > label,
+html.system-dark-theme .ai-tool-tag-container .ant-form-item-label > label,
+html.system-dark-theme .ai-tool-category-container .ant-form-item-label > label,
+html.system-dark-theme .ai-tool-comment-container .ant-form-item-label > label,
+html.system-dark-theme .ai-tool-favorite-container .ant-form-item-label > label,
+html.system-dark-theme .ai-tool-like-container .ant-form-item-label > label,
+html.system-dark-theme .ai-tool-visit-log-container .ant-form-item-label > label {
+  color: #ffffff;
+}
+
+/* 系统主题暗黑模式下的输入框样式 */
+html.system-dark-theme .ai-tool-list-container .ant-input,
+html.system-dark-theme .ai-tool-tag-container .ant-input,
+html.system-dark-theme .ai-tool-category-container .ant-input,
+html.system-dark-theme .ai-tool-comment-container .ant-input,
+html.system-dark-theme .ai-tool-favorite-container .ant-input,
+html.system-dark-theme .ai-tool-like-container .ant-input,
+html.system-dark-theme .ai-tool-visit-log-container .ant-input,
+html.system-dark-theme .ai-tool-list-container .ant-input-affix-wrapper,
+html.system-dark-theme .ai-tool-tag-container .ant-input-affix-wrapper,
+html.system-dark-theme .ai-tool-category-container .ant-input-affix-wrapper,
+html.system-dark-theme .ai-tool-comment-container .ant-input-affix-wrapper,
+html.system-dark-theme .ai-tool-favorite-container .ant-input-affix-wrapper,
+html.system-dark-theme .ai-tool-like-container .ant-input-affix-wrapper,
+html.system-dark-theme .ai-tool-visit-log-container .ant-input-affix-wrapper,
+html.system-dark-theme .ai-tool-list-container .ant-input-number,
+html.system-dark-theme .ai-tool-tag-container .ant-input-number,
+html.system-dark-theme .ai-tool-category-container .ant-input-number,
+html.system-dark-theme .ai-tool-comment-container .ant-input-number,
+html.system-dark-theme .ai-tool-favorite-container .ant-input-number,
+html.system-dark-theme .ai-tool-like-container .ant-input-number,
+html.system-dark-theme .ai-tool-visit-log-container .ant-input-number {
+  background-color: var(--el-bg-color-overlay, #242424);
+  color: #ffffff;
+  border-color: var(--el-border-color, #363636);
+}
+
+/* 系统主题暗黑模式下的输入框placeholder样式 */
+html.system-dark-theme .ai-tool-list-container .ant-input::placeholder,
+html.system-dark-theme .ai-tool-tag-container .ant-input::placeholder,
+html.system-dark-theme .ai-tool-category-container .ant-input::placeholder,
+html.system-dark-theme .ai-tool-comment-container .ant-input::placeholder,
+html.system-dark-theme .ai-tool-favorite-container .ant-input::placeholder,
+html.system-dark-theme .ai-tool-like-container .ant-input::placeholder,
+html.system-dark-theme .ai-tool-visit-log-container .ant-input::placeholder,
+html.system-dark-theme .ai-tool-list-container .ant-picker-input > input::placeholder,
+html.system-dark-theme .ai-tool-tag-container .ant-picker-input > input::placeholder,
+html.system-dark-theme .ai-tool-category-container .ant-picker-input > input::placeholder,
+html.system-dark-theme .ai-tool-comment-container .ant-picker-input > input::placeholder,
+html.system-dark-theme .ai-tool-favorite-container .ant-picker-input > input::placeholder,
+html.system-dark-theme .ai-tool-like-container .ant-picker-input > input::placeholder,
+html.system-dark-theme .ai-tool-visit-log-container .ant-picker-input > input::placeholder,
+html.system-dark-theme .ai-tool-list-container .ant-input-number-input::placeholder,
+html.system-dark-theme .ai-tool-tag-container .ant-input-number-input::placeholder,
+html.system-dark-theme .ai-tool-category-container .ant-input-number-input::placeholder,
+html.system-dark-theme .ai-tool-comment-container .ant-input-number-input::placeholder,
+html.system-dark-theme .ai-tool-favorite-container .ant-input-number-input::placeholder,
+html.system-dark-theme .ai-tool-like-container .ant-input-number-input::placeholder,
+html.system-dark-theme .ai-tool-visit-log-container .ant-input-number-input::placeholder {
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的选择框选中文本样式 */
+html.system-dark-theme .ai-tool-list-container .ant-select-selection-item,
+html.system-dark-theme .ai-tool-tag-container .ant-select-selection-item,
+html.system-dark-theme .ai-tool-category-container .ant-select-selection-item,
+html.system-dark-theme .ai-tool-comment-container .ant-select-selection-item,
+html.system-dark-theme .ai-tool-favorite-container .ant-select-selection-item,
+html.system-dark-theme .ai-tool-like-container .ant-select-selection-item,
+html.system-dark-theme .ai-tool-visit-log-container .ant-select-selection-item {
+  color: #ffffff;
+}
+
+/* 系统主题暗黑模式下的选择框占位符样式 */
+html.system-dark-theme .ai-tool-list-container .ant-select-selection-placeholder,
+html.system-dark-theme .ai-tool-tag-container .ant-select-selection-placeholder,
+html.system-dark-theme .ai-tool-category-container .ant-select-selection-placeholder,
+html.system-dark-theme .ai-tool-comment-container .ant-select-selection-placeholder,
+html.system-dark-theme .ai-tool-favorite-container .ant-select-selection-placeholder,
+html.system-dark-theme .ai-tool-like-container .ant-select-selection-placeholder,
+html.system-dark-theme .ai-tool-visit-log-container .ant-select-selection-placeholder {
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的选择框弹出层样式 */
+html.system-dark-theme .ant-select-dropdown {
+  background-color: var(--el-bg-color-overlay, #242424) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+/* 系统主题暗黑模式下的选择框弹出层选项样式 */
+html.system-dark-theme .ant-select-dropdown .ant-select-item {
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的选择框弹出层选项悬停样式 */
+html.system-dark-theme .ant-select-dropdown .ant-select-item-option-active {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 系统主题暗黑模式下的选择框弹出层选项选中样式 */
+html.system-dark-theme .ant-select-dropdown .ant-select-item-option-selected {
+  background-color: rgba(64, 158, 255, 0.2) !important;
+  color: #409eff !important;
+}
+
+/* 系统主题暗黑模式下的时间控件样式 */
+html.system-dark-theme .ai-tool-list-container .ant-picker,
+html.system-dark-theme .ai-tool-tag-container .ant-picker,
+html.system-dark-theme .ai-tool-category-container .ant-picker,
+html.system-dark-theme .ai-tool-comment-container .ant-picker,
+html.system-dark-theme .ai-tool-favorite-container .ant-picker,
+html.system-dark-theme .ai-tool-like-container .ant-picker,
+html.system-dark-theme .ai-tool-visit-log-container .ant-picker {
+  background-color: var(--el-bg-color-overlay, #242424) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+/* 系统主题暗黑模式下的时间控件内部文本样式 */
+html.system-dark-theme .ai-tool-list-container .ant-picker-input > input,
+html.system-dark-theme .ai-tool-tag-container .ant-picker-input > input,
+html.system-dark-theme .ai-tool-category-container .ant-picker-input > input,
+html.system-dark-theme .ai-tool-comment-container .ant-picker-input > input,
+html.system-dark-theme .ai-tool-favorite-container .ant-picker-input > input,
+html.system-dark-theme .ai-tool-like-container .ant-picker-input > input,
+html.system-dark-theme .ai-tool-visit-log-container .ant-picker-input > input {
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的时间控件图标样式 */
+html.system-dark-theme .ai-tool-list-container .ant-picker-suffix,
+html.system-dark-theme .ai-tool-tag-container .ant-picker-suffix,
+html.system-dark-theme .ai-tool-category-container .ant-picker-suffix,
+html.system-dark-theme .ai-tool-comment-container .ant-picker-suffix,
+html.system-dark-theme .ai-tool-favorite-container .ant-picker-suffix,
+html.system-dark-theme .ai-tool-like-container .ant-picker-suffix,
+html.system-dark-theme .ai-tool-visit-log-container .ant-picker-suffix {
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的时间选择框弹出层样式 */
+html.system-dark-theme .ant-picker-dropdown {
+  background-color: var(--el-bg-color-overlay, #242424) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+
+
+/* 系统主题暗黑模式下的时间选择框弹出层内容样式 */
+html.system-dark-theme .ant-picker-dropdown .ant-picker-content th,
+html.system-dark-theme .ant-picker-dropdown .ant-picker-content td {
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的时间选择框弹出层单元格悬停样式 */
+html.system-dark-theme .ant-picker-dropdown .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end) .ant-picker-cell-inner {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 系统主题暗黑模式下的时间选择框弹出层单元格选中样式 */
+html.system-dark-theme .ant-picker-dropdown .ant-picker-cell-selected .ant-picker-cell-inner,
+html.system-dark-theme .ant-picker-dropdown .ant-picker-cell-range-start .ant-picker-cell-inner,
+html.system-dark-theme .ant-picker-dropdown .ant-picker-cell-range-end .ant-picker-cell-inner {
+  background-color: #409eff !important;
+  color: #ffffff !important;
+}

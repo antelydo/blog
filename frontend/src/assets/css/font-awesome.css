@@ -1,0 +1,243 @@
+/* 本地 Font Awesome 样式 */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/assets/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 使用swap策略，确保字体在加载前使用系统字体 */
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Font Awesome 图标定义 */
+.fa-search:before {
+  content: "\f002";
+}
+.fa-heart:before {
+  content: "\f004";
+}
+.fa-heart-o:before {
+  content: "\f08a";
+}
+.fa-star:before {
+  content: "\f005";
+}
+.fa-star-o:before {
+  content: "\f006";
+}
+.fa-user:before {
+  content: "\f007";
+}
+.fa-check:before {
+  content: "\f00c";
+}
+.fa-close:before,
+.fa-times:before {
+  content: "\f00d";
+}
+.fa-home:before {
+  content: "\f015";
+}
+.fa-clock-o:before {
+  content: "\f017";
+}
+.fa-refresh:before {
+  content: "\f021";
+}
+.fa-tag:before {
+  content: "\f02b";
+}
+.fa-tags:before {
+  content: "\f02c";
+}
+.fa-book:before {
+  content: "\f02d";
+}
+.fa-pencil:before {
+  content: "\f040";
+}
+.fa-map-marker:before {
+  content: "\f041";
+}
+.fa-edit:before {
+  content: "\f044";
+}
+.fa-chevron-left:before {
+  content: "\f053";
+}
+.fa-chevron-right:before {
+  content: "\f054";
+}
+.fa-plus:before {
+  content: "\f067";
+}
+.fa-minus:before {
+  content: "\f068";
+}
+.fa-eye:before {
+  content: "\f06e";
+}
+.fa-calendar:before {
+  content: "\f073";
+}
+.fa-comment:before {
+  content: "\f075";
+}
+.fa-folder:before {
+  content: "\f07b";
+}
+.fa-thumbs-up:before {
+  content: "\f087";
+}
+.fa-thumbs-down:before {
+  content: "\f088";
+}
+.fa-phone:before {
+  content: "\f095";
+}
+.fa-twitter:before {
+  content: "\f099";
+}
+.fa-facebook:before {
+  content: "\f09a";
+}
+.fa-github:before {
+  content: "\f09b";
+}
+.fa-globe:before {
+  content: "\f0ac";
+}
+.fa-link:before {
+  content: "\f0c1";
+}
+.fa-bars:before {
+  content: "\f0c9";
+}
+.fa-list-ul:before {
+  content: "\f0ca";
+}
+.fa-list-ol:before {
+  content: "\f0cb";
+}
+.fa-pinterest:before {
+  content: "\f0d2";
+}
+.fa-google-plus:before {
+  content: "\f0d5";
+}
+.fa-envelope:before {
+  content: "\f0e0";
+}
+.fa-linkedin:before {
+  content: "\f0e1";
+}
+.fa-angle-left:before {
+  content: "\f104";
+}
+.fa-angle-right:before {
+  content: "\f105";
+}
+.fa-angle-up:before {
+  content: "\f106";
+}
+.fa-angle-down:before {
+  content: "\f107";
+}
+.fa-quote-left:before {
+  content: "\f10d";
+}
+.fa-quote-right:before {
+  content: "\f10e";
+}
+.fa-spinner:before {
+  content: "\f110";
+}
+.fa-smile-o:before {
+  content: "\f118";
+}
+.fa-frown-o:before {
+  content: "\f119";
+}
+.fa-code:before {
+  content: "\f121";
+}
+.fa-question:before {
+  content: "\f128";
+}
+.fa-info:before {
+  content: "\f129";
+}
+.fa-info-circle:before {
+  content: "\f05a";
+}
+.fa-exclamation:before {
+  content: "\f12a";
+}
+.fa-calendar-o:before {
+  content: "\f133";
+}
+.fa-html5:before {
+  content: "\f13b";
+}
+.fa-css3:before {
+  content: "\f13c";
+}
+.fa-share-square-o:before {
+  content: "\f045";
+}
+.fa-compass:before {
+  content: "\f14e";
+}
+.fa-file:before {
+  content: "\f15b";
+}
+.fa-youtube:before {
+  content: "\f167";
+}
+.fa-instagram:before {
+  content: "\f16d";
+}
+.fa-arrow-up:before {
+  content: "\f176";
+}
+.fa-sun-o:before {
+  content: "\f185";
+}
+.fa-moon-o:before {
+  content: "\f186";
+}
+.fa-weibo:before {
+  content: "\f18a";
+}
+.fa-wechat:before,
+.fa-weixin:before {
+  content: "\f1d7";
+}
+.fa-paper-plane:before {
+  content: "\f1d8";
+}
+.fa-share-alt:before {
+  content: "\f1e0";
+}
+.fa-qq:before {
+  content: "\f1d6";
+}
+.fa-search-plus:before {
+  content: "\f00e";
+}
+.fa-search-minus:before {
+  content: "\f010";
+}
+.fa-external-link:before {
+  content: "\f08e";
+}
+.fa-exclamation-circle:before {
+  content: "\f06a";
+}

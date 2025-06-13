@@ -1,0 +1,98 @@
+/**
+ * AI 工具访问日志管理样式
+ * 适用于暗黑模式和跟随系统模式
+ */
+
+/* 访问日志列表和访问统计的基础样式 */
+.ai-tool-visit-log-container {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+/* 暗黑模式下的访问日志列表和访问统计样式 */
+html.dark .ai-tool-visit-log-container .ant-descriptions-item-content,
+html.dark .ai-tool-visit-log-container .ant-descriptions-item-label,
+html.dark .ai-tool-visit-log-container .ant-card-head-title,
+html.dark .ai-tool-visit-log-container .ant-tabs-tab,
+html.dark .ai-tool-visit-log-container .ant-tabs-tab-active,
+html.dark .ai-tool-visit-log-container .ant-tabs-tab-btn,
+html.dark .ai-tool-visit-log-container .ant-table,
+html.dark .ai-tool-visit-log-container .ant-table-thead > tr > th,
+html.dark .ai-tool-visit-log-container .ant-table-tbody > tr > td,
+html.dark .ai-tool-visit-log-container .ant-table-summary > tr > td,
+html.dark .ai-tool-visit-log-container .ant-table-cell,
+html.dark .ai-tool-visit-log-container .ant-table-row,
+html.dark .ai-tool-visit-log-container .ant-drawer-title,
+html.dark .ai-tool-visit-log-container .ant-drawer-body,
+html.dark .ai-tool-visit-log-container .ant-modal-title,
+html.dark .ai-tool-visit-log-container .ant-modal-body,
+html.dark .ai-tool-visit-log-container .ant-modal-footer,
+html.dark .ai-tool-visit-log-container .ant-form-item-label > label,
+html.dark .ai-tool-visit-log-container .ant-select-selection-item,
+html.dark .ai-tool-visit-log-container .ant-select-selection-placeholder,
+html.dark .ai-tool-visit-log-container .ant-input,
+html.dark .ai-tool-visit-log-container .ant-picker-input > input,
+html.dark .ai-tool-visit-log-container .ant-picker-suffix,
+html.dark .ai-tool-visit-log-container .ant-btn,
+html.dark .ai-tool-visit-log-container .ant-btn-link,
+html.dark .ai-tool-visit-log-container .ant-btn-primary:not(.ant-btn-dangerous),
+html.dark .ai-tool-visit-log-container .ant-tooltip-inner,
+html.dark .ai-tool-visit-log-container .tool-info,
+html.dark .ai-tool-visit-log-container .ant-alert-message,
+html.dark .ai-tool-visit-log-container .ant-alert-description {
+  color: #ffffff !important;
+}
+
+
+
+/* 系统主题暗黑模式下的访问日志列表和访问统计样式 */
+html.system-dark-theme .ai-tool-visit-log-container .ant-descriptions-item-content,
+html.system-dark-theme .ai-tool-visit-log-container .ant-descriptions-item-label,
+html.system-dark-theme .ai-tool-visit-log-container .ant-card-head-title,
+html.system-dark-theme .ai-tool-visit-log-container .ant-tabs-tab,
+html.system-dark-theme .ai-tool-visit-log-container .ant-tabs-tab-active,
+html.system-dark-theme .ai-tool-visit-log-container .ant-tabs-tab-btn,
+html.system-dark-theme .ai-tool-visit-log-container .ant-table,
+html.system-dark-theme .ai-tool-visit-log-container .ant-table-thead > tr > th,
+html.system-dark-theme .ai-tool-visit-log-container .ant-table-tbody > tr > td,
+html.system-dark-theme .ai-tool-visit-log-container .ant-table-summary > tr > td,
+html.system-dark-theme .ai-tool-visit-log-container .ant-table-cell,
+html.system-dark-theme .ai-tool-visit-log-container .ant-table-row,
+html.system-dark-theme .ai-tool-visit-log-container .ant-drawer-title,
+html.system-dark-theme .ai-tool-visit-log-container .ant-drawer-body,
+html.system-dark-theme .ai-tool-visit-log-container .ant-modal-title,
+html.system-dark-theme .ai-tool-visit-log-container .ant-modal-body,
+html.system-dark-theme .ai-tool-visit-log-container .ant-modal-footer,
+html.system-dark-theme .ai-tool-visit-log-container .ant-form-item-label > label,
+html.system-dark-theme .ai-tool-visit-log-container .ant-select-selection-item,
+html.system-dark-theme .ai-tool-visit-log-container .ant-select-selection-placeholder,
+html.system-dark-theme .ai-tool-visit-log-container .ant-input,
+html.system-dark-theme .ai-tool-visit-log-container .ant-picker-input > input,
+html.system-dark-theme .ai-tool-visit-log-container .ant-picker-suffix,
+html.system-dark-theme .ai-tool-visit-log-container .ant-btn,
+html.system-dark-theme .ai-tool-visit-log-container .ant-btn-link,
+html.system-dark-theme .ai-tool-visit-log-container .ant-btn-primary:not(.ant-btn-dangerous),
+html.system-dark-theme .ai-tool-visit-log-container .ant-tooltip-inner,
+html.system-dark-theme .ai-tool-visit-log-container .tool-info,
+html.system-dark-theme .ai-tool-visit-log-container .ant-alert-message,
+html.system-dark-theme .ai-tool-visit-log-container .ant-alert-description {
+  color: #ffffff !important;
+}
+
+
+
+/* 图表样式 */
+html.dark .ai-tool-visit-log-container .echarts-for-react,
+html.dark .ai-tool-visit-log-container .echarts,
+html.dark .ai-tool-visit-log-container .echarts-for-react canvas,
+html.dark .ai-tool-visit-log-container .echarts canvas {
+  color: #ffffff !important;
+}
+
+html.system-dark-theme .ai-tool-visit-log-container .echarts-for-react,
+html.system-dark-theme .ai-tool-visit-log-container .echarts,
+html.system-dark-theme .ai-tool-visit-log-container .echarts-for-react canvas,
+html.system-dark-theme .ai-tool-visit-log-container .echarts canvas {
+  color: #ffffff !important;
+}

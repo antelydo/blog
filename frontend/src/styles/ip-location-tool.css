@@ -1,0 +1,84 @@
+/**
+ * IP 地理位置查询工具样式
+ * 适用于暗黑模式和跟随系统模式
+ */
+
+/* IP 地理位置查询工具基础样式 */
+.ip-location-page {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 结果容器样式 */
+.ip-location-page .result-container {
+  margin-top: 16px;
+}
+
+/* 描述列表样式 */
+.ip-location-page .ant-descriptions-item-label,
+.ip-location-page .ant-descriptions-item-content {
+  transition: color 0.3s;
+}
+
+/* 暗黑模式下的 IP 地址颜色 */
+html.dark .ip-location-page .ant-descriptions-item-content,
+html.dark .ip-location-page .ant-descriptions-item-label,
+html.dark .ip-location-page .ant-descriptions-title,
+html.dark .ip-location-page .ant-card-head-title,
+html.dark .ip-location-page .ant-form-item-label > label,
+html.dark .ip-location-page .ant-divider-inner-text,
+html.dark .ip-location-page .ant-empty-description,
+html.dark .ip-location-page .ant-spin-text,
+html.dark .ip-location-page .ant-modal-title,
+html.dark .ip-location-page .ant-table-thead > tr > th,
+html.dark .ip-location-page .ant-table-tbody > tr > td {
+  color: #ffffff !important;
+}
+
+/* 暗黑模式下的表格样式 */
+html.dark .ip-location-page .ant-table {
+  background-color: transparent !important;
+}
+
+html.dark .ip-location-page .ant-table-thead > tr > th {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .ip-location-page .ant-table-tbody > tr > td {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .ip-location-page .ant-table-tbody > tr:hover > td {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 系统主题暗黑模式下的 IP 地址颜色 */
+html.system-dark-theme .ip-location-page .ant-descriptions-item-content,
+html.system-dark-theme .ip-location-page .ant-descriptions-item-label,
+html.system-dark-theme .ip-location-page .ant-descriptions-title,
+html.system-dark-theme .ip-location-page .ant-card-head-title,
+html.system-dark-theme .ip-location-page .ant-form-item-label > label,
+html.system-dark-theme .ip-location-page .ant-divider-inner-text,
+html.system-dark-theme .ip-location-page .ant-empty-description,
+html.system-dark-theme .ip-location-page .ant-spin-text,
+html.system-dark-theme .ip-location-page .ant-modal-title,
+html.system-dark-theme .ip-location-page .ant-table-thead > tr > th,
+html.system-dark-theme .ip-location-page .ant-table-tbody > tr > td {
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的表格样式 */
+html.system-dark-theme .ip-location-page .ant-table {
+  background-color: transparent !important;
+}
+
+html.system-dark-theme .ip-location-page .ant-table-thead > tr > th {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .ip-location-page .ant-table-tbody > tr > td {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .ip-location-page .ant-table-tbody > tr:hover > td {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}

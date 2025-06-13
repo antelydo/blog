@@ -1,0 +1,63 @@
+/**
+ * 标签样式
+ * 确保标签的默认颜色和悬停效果正确
+ */
+
+/* 标签基础样式 */
+.category-tag, .tag-item {
+  display: inline-block;
+  background-color: var(--bg-color-light, #f5f7fa);
+  border-radius: 15px;
+  padding: 2px 8px;
+  margin: 2px;
+  font-size: 0.9em;
+  color: var(--el-color-primary, #409eff) !important;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border: 1px solid var(--el-color-primary-light-7, #d9ecff) !important;
+}
+
+/* 标签悬停效果 */
+.category-tag:hover, .tag-item:hover {
+  background-color: var(--el-color-primary-light-9, #ecf5ff) !important;
+  color: var(--el-color-primary, #409eff) !important;
+  cursor: pointer;
+  text-decoration: none !important;
+  border-color: var(--el-color-primary-light-5, #a0cfff) !important;
+}
+
+/* 标签离开后恢复样式 */
+.category-tag.theme-color-tag-applied, .tag-item.theme-color-tag-applied {
+  color: var(--el-color-primary, #409eff) !important;
+  background-color: var(--bg-color-light, #f5f7fa) !important;
+  border: 1px solid var(--el-color-primary-light-7, #d9ecff) !important;
+}
+
+/* 标签云项目 */
+.tag-cloud-item {
+  display: inline-block;
+  background-color: var(--el-color-primary-light-9, #ecf5ff);
+  color: var(--el-color-primary, #409eff) !important;
+  padding: 3px 10px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  font-weight: 500;
+  margin: 3px;
+  border: 1px solid var(--el-color-primary-light-7, #d9ecff) !important;
+}
+
+.tag-cloud-item:hover {
+  background-color: var(--el-color-primary-light-8, #d9ecff) !important;
+  color: var(--el-color-primary, #409eff) !important;
+  text-decoration: none !important;
+  border-color: var(--el-color-primary-light-5, #a0cfff) !important;
+}
+
+/* 标签云项目离开后恢复样式 */
+.tag-cloud-item.theme-color-tag-applied {
+  color: var(--el-color-primary, #409eff) !important;
+  background-color: var(--el-color-primary-light-9, #ecf5ff) !important;
+  border: 1px solid var(--el-color-primary-light-7, #d9ecff) !important;
+}

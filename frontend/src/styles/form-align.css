@@ -1,0 +1,54 @@
+/* 表单项内容靠右对齐样式 */
+
+/* AI工具管理下所有列表的表单项内容靠右对齐 */
+.ai-tool-list-container .ant-form-item-control-input-content,
+.ai-tool-tag-container .ant-form-item-control-input-content,
+.ai-tool-category-container .ant-form-item-control-input-content,
+.ai-tool-comment-container .ant-form-item-control-input-content,
+.ai-tool-favorite-container .ant-form-item-control-input-content,
+.ai-tool-like-container .ant-form-item-control-input-content,
+.ai-tool-visit-log-container .ant-form-item-control-input-content {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 确保搜索按钮区域的内容仍然靠右对齐 */
+.search-buttons .ant-form-item-control-input-content {
+  justify-content: flex-end !important;
+}
+
+/* 确保输入框和选择框内的文本仍然靠左对齐 */
+.ai-tool-list-container .ant-input,
+.ai-tool-tag-container .ant-input,
+.ai-tool-category-container .ant-input,
+.ai-tool-comment-container .ant-input,
+.ai-tool-favorite-container .ant-input,
+.ai-tool-like-container .ant-input,
+.ai-tool-visit-log-container .ant-input,
+.ai-tool-list-container .ant-input-number-input,
+.ai-tool-tag-container .ant-input-number-input,
+.ai-tool-category-container .ant-input-number-input,
+.ai-tool-comment-container .ant-input-number-input,
+.ai-tool-favorite-container .ant-input-number-input,
+.ai-tool-like-container .ant-input-number-input,
+.ai-tool-visit-log-container .ant-input-number-input,
+.ai-tool-list-container .ant-select-selection-search-input,
+.ai-tool-tag-container .ant-select-selection-search-input,
+.ai-tool-category-container .ant-select-selection-search-input,
+.ai-tool-comment-container .ant-select-selection-search-input,
+.ai-tool-favorite-container .ant-select-selection-search-input,
+.ai-tool-like-container .ant-select-selection-search-input,
+.ai-tool-visit-log-container .ant-select-selection-search-input {
+  text-align: left;
+}
+
+/* 确保日期选择器内的文本仍然靠左对齐 */
+.ai-tool-list-container .ant-picker-input > input,
+.ai-tool-tag-container .ant-picker-input > input,
+.ai-tool-category-container .ant-picker-input > input,
+.ai-tool-comment-container .ant-picker-input > input,
+.ai-tool-favorite-container .ant-picker-input > input,
+.ai-tool-like-container .ant-picker-input > input,
+.ai-tool-visit-log-container .ant-picker-input > input {
+  text-align: left;
+}

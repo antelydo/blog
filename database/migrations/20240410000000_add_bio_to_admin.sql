@@ -1,0 +1,1 @@
+ALTER TABLE `ai_admin` ADD COLUMN `bio` TEXT NULL COMMENT '个人简介' AFTER `mobile`; 

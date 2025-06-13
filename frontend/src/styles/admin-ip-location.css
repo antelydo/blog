@@ -1,0 +1,32 @@
+/**
+ * IP 地理位置查询工具页面样式
+ * 适用于暗黑模式和跟随系统模式
+ */
+
+/* IP 地理位置查询工具页面基础样式 */
+.ip-location-page {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 表单项基础样式 */
+.ip-location-page .ant-form-item {
+  transition: color 0.3s;
+}
+
+/* 暗黑模式下的表单项样式 */
+html.dark .ip-location-page .ant-form-item label {
+  color: #ffffff !important;
+}
+
+html.dark .ip-location-page .ant-form-item-label > label {
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的表单项样式 */
+html.system-dark-theme .ip-location-page .ant-form-item label {
+  color: #ffffff !important;
+}
+
+html.system-dark-theme .ip-location-page .ant-form-item-label > label {
+  color: #ffffff !important;
+}

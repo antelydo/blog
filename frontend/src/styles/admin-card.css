@@ -1,0 +1,219 @@
+/* AI工具管理页面卡片标题样式 */
+.ant-card-head-title {
+  text-align: left !important;
+  padding: 16px 0 !important;
+  justify-content: flex-start !important;
+  display: flex !important;
+}
+
+/* 确保所有卡片标题左对齐 */
+.ant-card-head {
+  padding: 0 24px !important;
+  min-height: 48px !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+}
+
+/* 针对特定页面的卡片标题 */
+.ai-tool-list-container .ant-card-head-title,
+.ai-tool-tag-container .ant-card-head-title,
+.ai-tool-category-container .ant-card-head-title,
+.ai-tool-comment-container .ant-card-head-title,
+.ai-tool-favorite-container .ant-card-head-title,
+.ai-tool-like-container .ant-card-head-title,
+.ai-tool-visit-log-container .ant-card-head-title {
+  text-align: left !important;
+  justify-content: flex-start !important;
+}
+
+/* 强制覆盖任何可能的居中或居右样式 */
+.ant-card-head-wrapper {
+  width: 100% !important;
+  justify-content: flex-start !important;
+}
+
+/* 确保卡片内容也正确对齐 */
+.ant-card-body {
+  padding: 24px !important;
+  text-align: left !important;
+}
+
+/* 统计卡片基础样式 */
+.admin-article-list .stat-card,
+.admin-dashboard .stat-card,
+.admin-users .stat-card,
+.admin-favorite .stat-card,
+.admin-view-duration-stats .stat-card,
+.article-list-container .stat-card,
+.dashboard-container .stat-card,
+.users-container .stat-card,
+.favorite-container .stat-card,
+.view-duration-stats-container .stat-card {
+  margin-bottom: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.admin-article-list .stat-card-content,
+.admin-dashboard .stat-card-content,
+.admin-users .stat-card-content,
+.admin-favorite .stat-card-content,
+.admin-view-duration-stats .stat-card-content,
+.article-list-container .stat-card-content,
+.dashboard-container .stat-card-content,
+.users-container .stat-card-content,
+.favorite-container .stat-card-content,
+.view-duration-stats-container .stat-card-content {
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.admin-article-list .stat-number,
+.admin-dashboard .stat-number,
+.admin-users .stat-number,
+.admin-favorite .stat-number,
+.admin-view-duration-stats .stat-number,
+.article-list-container .stat-number,
+.dashboard-container .stat-number,
+.users-container .stat-number,
+.favorite-container .stat-number,
+.view-duration-stats-container .stat-number {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.admin-article-list .stat-label,
+.admin-dashboard .stat-label,
+.admin-users .stat-label,
+.admin-favorite .stat-label,
+.admin-view-duration-stats .stat-label,
+.article-list-container .stat-label,
+.dashboard-container .stat-label,
+.users-container .stat-label,
+.favorite-container .stat-label,
+.view-duration-stats-container .stat-label {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* 主题颜色的统计数字 */
+.admin-article-list .stat-number.theme-color,
+.admin-dashboard .stat-number.theme-color,
+.admin-users .stat-number.theme-color,
+.admin-favorite .stat-number.theme-color,
+.admin-view-duration-stats .stat-number.theme-color,
+.article-list-container .stat-number.theme-color,
+.dashboard-container .stat-number.theme-color,
+.users-container .stat-number.theme-color,
+.favorite-container .stat-number.theme-color,
+.view-duration-stats-container .stat-number.theme-color {
+  color: var(--el-color-primary, #409eff);
+}
+
+/* 暗黑模式下的统计卡片样式 */
+html.dark .admin-article-list .stat-card-content,
+html.dark .admin-dashboard .stat-card-content,
+html.dark .admin-users .stat-card-content,
+html.dark .admin-favorite .stat-card-content,
+html.dark .admin-view-duration-stats .stat-card-content,
+html.dark .article-list-container .stat-card-content,
+html.dark .dashboard-container .stat-card-content,
+html.dark .users-container .stat-card-content,
+html.dark .favorite-container .stat-card-content,
+html.dark .view-duration-stats-container .stat-card-content {
+  color: #ffffff !important;
+}
+
+html.dark .admin-article-list .stat-number,
+html.dark .admin-dashboard .stat-number,
+html.dark .admin-users .stat-number,
+html.dark .admin-favorite .stat-number,
+html.dark .admin-view-duration-stats .stat-number,
+html.dark .article-list-container .stat-number,
+html.dark .dashboard-container .stat-number,
+html.dark .users-container .stat-number,
+html.dark .favorite-container .stat-number,
+html.dark .view-duration-stats-container .stat-number {
+  color: #ffffff !important;
+}
+
+html.dark .admin-article-list .stat-label,
+html.dark .admin-dashboard .stat-label,
+html.dark .admin-users .stat-label,
+html.dark .admin-favorite .stat-label,
+html.dark .admin-view-duration-stats .stat-label,
+html.dark .article-list-container .stat-label,
+html.dark .dashboard-container .stat-label,
+html.dark .users-container .stat-label,
+html.dark .favorite-container .stat-label,
+html.dark .view-duration-stats-container .stat-label {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* 暗黑模式下的主题颜色统计数字 */
+html.dark .admin-article-list .stat-number.theme-color,
+html.dark .admin-dashboard .stat-number.theme-color,
+html.dark .admin-users .stat-number.theme-color,
+html.dark .admin-favorite .stat-number.theme-color,
+html.dark .admin-view-duration-stats .stat-number.theme-color,
+html.dark .article-list-container .stat-number.theme-color,
+html.dark .dashboard-container .stat-number.theme-color,
+html.dark .users-container .stat-number.theme-color,
+html.dark .favorite-container .stat-number.theme-color,
+html.dark .view-duration-stats-container .stat-number.theme-color {
+  color: var(--el-color-primary, #409eff) !important;
+}
+
+/* 系统主题暗黑模式下的统计卡片样式 */
+html.system-dark-theme .admin-article-list .stat-card-content,
+html.system-dark-theme .admin-dashboard .stat-card-content,
+html.system-dark-theme .admin-users .stat-card-content,
+html.system-dark-theme .admin-favorite .stat-card-content,
+html.system-dark-theme .admin-view-duration-stats .stat-card-content,
+html.system-dark-theme .article-list-container .stat-card-content,
+html.system-dark-theme .dashboard-container .stat-card-content,
+html.system-dark-theme .users-container .stat-card-content,
+html.system-dark-theme .favorite-container .stat-card-content,
+html.system-dark-theme .view-duration-stats-container .stat-card-content {
+  color: #ffffff !important;
+}
+
+html.system-dark-theme .admin-article-list .stat-number,
+html.system-dark-theme .admin-dashboard .stat-number,
+html.system-dark-theme .admin-users .stat-number,
+html.system-dark-theme .admin-favorite .stat-number,
+html.system-dark-theme .admin-view-duration-stats .stat-number,
+html.system-dark-theme .article-list-container .stat-number,
+html.system-dark-theme .dashboard-container .stat-number,
+html.system-dark-theme .users-container .stat-number,
+html.system-dark-theme .favorite-container .stat-number,
+html.system-dark-theme .view-duration-stats-container .stat-number {
+  color: #ffffff !important;
+}
+
+html.system-dark-theme .admin-article-list .stat-label,
+html.system-dark-theme .admin-dashboard .stat-label,
+html.system-dark-theme .admin-users .stat-label,
+html.system-dark-theme .admin-favorite .stat-label,
+html.system-dark-theme .admin-view-duration-stats .stat-label,
+html.system-dark-theme .article-list-container .stat-label,
+html.system-dark-theme .dashboard-container .stat-label,
+html.system-dark-theme .users-container .stat-label,
+html.system-dark-theme .favorite-container .stat-label,
+html.system-dark-theme .view-duration-stats-container .stat-label {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* 系统主题暗黑模式下的主题颜色统计数字 */
+html.system-dark-theme .admin-article-list .stat-number.theme-color,
+html.system-dark-theme .admin-dashboard .stat-number.theme-color,
+html.system-dark-theme .admin-users .stat-number.theme-color,
+html.system-dark-theme .admin-favorite .stat-number.theme-color,
+html.system-dark-theme .admin-view-duration-stats .stat-number.theme-color,
+html.system-dark-theme .article-list-container .stat-number.theme-color,
+html.system-dark-theme .dashboard-container .stat-number.theme-color,
+html.system-dark-theme .users-container .stat-number.theme-color,
+html.system-dark-theme .favorite-container .stat-number.theme-color,
+html.system-dark-theme .view-duration-stats-container .stat-number.theme-color {
+  color: var(--el-color-primary, #409eff) !important;
+}

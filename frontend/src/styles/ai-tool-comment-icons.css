@@ -1,0 +1,56 @@
+/**
+ * AI 工具评论管理页面图标样式
+ * 适用于暗黑模式和跟随系统模式
+ */
+
+/* AI工具评论管理页面图标基础样式 */
+.ai-tool-comment-container .anticon-stop,
+.ai-tool-comment-container .anticon-delete,
+.ai-tool-comment-container .ant-table .anticon-stop,
+.ai-tool-comment-container .ant-table .anticon-delete,
+.ai-tool-comment-container .operation-column .anticon-stop,
+.ai-tool-comment-container .operation-column .anticon-delete {
+  transition: color 0.3s;
+}
+
+/* 暗黑模式下的AI工具评论管理页面图标样式 */
+html.dark .ai-tool-comment-container .anticon-stop,
+html.dark .ai-tool-comment-container .anticon-delete,
+html.dark .ai-tool-comment-container .ant-table .anticon-stop,
+html.dark .ai-tool-comment-container .ant-table .anticon-delete,
+html.dark .ai-tool-comment-container .operation-column .anticon-stop,
+html.dark .ai-tool-comment-container .operation-column .anticon-delete {
+  color: #ffffff !important;
+}
+
+/* 暗黑模式下的AI工具评论管理页面图标悬停样式 */
+html.dark .ai-tool-comment-container .anticon-stop:hover,
+html.dark .ai-tool-comment-container .anticon-delete:hover,
+html.dark .ai-tool-comment-container .ant-table .anticon-stop:hover,
+html.dark .ai-tool-comment-container .ant-table .anticon-delete:hover,
+html.dark .ai-tool-comment-container .operation-column .anticon-stop:hover,
+html.dark .ai-tool-comment-container .operation-column .anticon-delete:hover {
+  color: #ffffff !important;
+  opacity: 0.8;
+}
+
+/* 系统主题暗黑模式下的AI工具评论管理页面图标样式 */
+html.system-dark-theme .ai-tool-comment-container .anticon-stop,
+html.system-dark-theme .ai-tool-comment-container .anticon-delete,
+html.system-dark-theme .ai-tool-comment-container .ant-table .anticon-stop,
+html.system-dark-theme .ai-tool-comment-container .ant-table .anticon-delete,
+html.system-dark-theme .ai-tool-comment-container .operation-column .anticon-stop,
+html.system-dark-theme .ai-tool-comment-container .operation-column .anticon-delete {
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的AI工具评论管理页面图标悬停样式 */
+html.system-dark-theme .ai-tool-comment-container .anticon-stop:hover,
+html.system-dark-theme .ai-tool-comment-container .anticon-delete:hover,
+html.system-dark-theme .ai-tool-comment-container .ant-table .anticon-stop:hover,
+html.system-dark-theme .ai-tool-comment-container .ant-table .anticon-delete:hover,
+html.system-dark-theme .ai-tool-comment-container .operation-column .anticon-stop:hover,
+html.system-dark-theme .ai-tool-comment-container .operation-column .anticon-delete:hover {
+  color: #ffffff !important;
+  opacity: 0.8;
+}

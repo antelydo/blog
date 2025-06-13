@@ -1,0 +1,204 @@
+/**
+ * AI 工具管理列表批量删除按钮和分页样式
+ * 适用于暗黑模式和跟随系统模式
+ */
+
+/* 批量删除按钮基础样式 */
+.ai-tool-list-container .batch-delete-btn,
+.ai-tool-tag-container .batch-delete-btn,
+.ai-tool-category-container .batch-delete-btn,
+.ai-tool-comment-container .batch-delete-btn,
+.ai-tool-favorite-container .batch-delete-btn,
+.ai-tool-like-container .batch-delete-btn,
+.ai-tool-visit-log-container .batch-delete-btn {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* 分页基础样式 */
+.ai-tool-list-container .ant-pagination,
+.ai-tool-tag-container .ant-pagination,
+.ai-tool-category-container .ant-pagination,
+.ai-tool-comment-container .ant-pagination,
+.ai-tool-favorite-container .ant-pagination,
+.ai-tool-like-container .ant-pagination,
+.ai-tool-visit-log-container .ant-pagination {
+  transition: color 0.3s;
+}
+
+/* 暗黑模式下的批量删除按钮样式 */
+html.dark .ai-tool-list-container .batch-delete-btn,
+html.dark .ai-tool-tag-container .batch-delete-btn,
+html.dark .ai-tool-category-container .batch-delete-btn,
+html.dark .ai-tool-comment-container .batch-delete-btn,
+html.dark .ai-tool-favorite-container .batch-delete-btn,
+html.dark .ai-tool-like-container .batch-delete-btn,
+html.dark .ai-tool-visit-log-container .batch-delete-btn,
+html.dark .ai-tool-list-container .ant-btn-danger,
+html.dark .ai-tool-tag-container .ant-btn-danger,
+html.dark .ai-tool-category-container .ant-btn-danger,
+html.dark .ai-tool-comment-container .ant-btn-danger,
+html.dark .ai-tool-favorite-container .ant-btn-danger,
+html.dark .ai-tool-like-container .ant-btn-danger,
+html.dark .ai-tool-visit-log-container .ant-btn-danger {
+  color: #ffffff !important;
+}
+
+/* 暗黑模式下的分页样式 */
+html.dark .ai-tool-list-container .ant-pagination-item a,
+html.dark .ai-tool-tag-container .ant-pagination-item a,
+html.dark .ai-tool-category-container .ant-pagination-item a,
+html.dark .ai-tool-comment-container .ant-pagination-item a,
+html.dark .ai-tool-favorite-container .ant-pagination-item a,
+html.dark .ai-tool-like-container .ant-pagination-item a,
+html.dark .ai-tool-visit-log-container .ant-pagination-item a,
+html.dark .ai-tool-list-container .ant-pagination-prev button,
+html.dark .ai-tool-tag-container .ant-pagination-prev button,
+html.dark .ai-tool-category-container .ant-pagination-prev button,
+html.dark .ai-tool-comment-container .ant-pagination-prev button,
+html.dark .ai-tool-favorite-container .ant-pagination-prev button,
+html.dark .ai-tool-like-container .ant-pagination-prev button,
+html.dark .ai-tool-visit-log-container .ant-pagination-prev button,
+html.dark .ai-tool-list-container .ant-pagination-next button,
+html.dark .ai-tool-tag-container .ant-pagination-next button,
+html.dark .ai-tool-category-container .ant-pagination-next button,
+html.dark .ai-tool-comment-container .ant-pagination-next button,
+html.dark .ai-tool-favorite-container .ant-pagination-next button,
+html.dark .ai-tool-like-container .ant-pagination-next button,
+html.dark .ai-tool-visit-log-container .ant-pagination-next button,
+html.dark .ai-tool-list-container .ant-pagination-jump-prev button,
+html.dark .ai-tool-tag-container .ant-pagination-jump-prev button,
+html.dark .ai-tool-category-container .ant-pagination-jump-prev button,
+html.dark .ai-tool-comment-container .ant-pagination-jump-prev button,
+html.dark .ai-tool-favorite-container .ant-pagination-jump-prev button,
+html.dark .ai-tool-like-container .ant-pagination-jump-prev button,
+html.dark .ai-tool-visit-log-container .ant-pagination-jump-prev button,
+html.dark .ai-tool-list-container .ant-pagination-jump-next button,
+html.dark .ai-tool-tag-container .ant-pagination-jump-next button,
+html.dark .ai-tool-category-container .ant-pagination-jump-next button,
+html.dark .ai-tool-comment-container .ant-pagination-jump-next button,
+html.dark .ai-tool-favorite-container .ant-pagination-jump-next button,
+html.dark .ai-tool-like-container .ant-pagination-jump-next button,
+html.dark .ai-tool-visit-log-container .ant-pagination-jump-next button,
+html.dark .ai-tool-list-container .ant-pagination-options-quick-jumper,
+html.dark .ai-tool-tag-container .ant-pagination-options-quick-jumper,
+html.dark .ai-tool-category-container .ant-pagination-options-quick-jumper,
+html.dark .ai-tool-comment-container .ant-pagination-options-quick-jumper,
+html.dark .ai-tool-favorite-container .ant-pagination-options-quick-jumper,
+html.dark .ai-tool-like-container .ant-pagination-options-quick-jumper,
+html.dark .ai-tool-visit-log-container .ant-pagination-options-quick-jumper,
+html.dark .ai-tool-list-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.dark .ai-tool-tag-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.dark .ai-tool-category-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.dark .ai-tool-comment-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.dark .ai-tool-favorite-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.dark .ai-tool-like-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.dark .ai-tool-visit-log-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.dark .ai-tool-list-container .ant-pagination-total-text,
+html.dark .ai-tool-tag-container .ant-pagination-total-text,
+html.dark .ai-tool-category-container .ant-pagination-total-text,
+html.dark .ai-tool-comment-container .ant-pagination-total-text,
+html.dark .ai-tool-favorite-container .ant-pagination-total-text,
+html.dark .ai-tool-like-container .ant-pagination-total-text,
+html.dark .ai-tool-visit-log-container .ant-pagination-total-text {
+  color: #ffffff !important;
+}
+
+/* 暗黑模式下的分页选中样式 */
+html.dark .ai-tool-list-container .ant-pagination-item-active a,
+html.dark .ai-tool-tag-container .ant-pagination-item-active a,
+html.dark .ai-tool-category-container .ant-pagination-item-active a,
+html.dark .ai-tool-comment-container .ant-pagination-item-active a,
+html.dark .ai-tool-favorite-container .ant-pagination-item-active a,
+html.dark .ai-tool-like-container .ant-pagination-item-active a,
+html.dark .ai-tool-visit-log-container .ant-pagination-item-active a {
+  color: #444242 !important;
+}
+
+/* 系统主题暗黑模式下的批量删除按钮样式 */
+html.system-dark-theme .ai-tool-list-container .batch-delete-btn,
+html.system-dark-theme .ai-tool-tag-container .batch-delete-btn,
+html.system-dark-theme .ai-tool-category-container .batch-delete-btn,
+html.system-dark-theme .ai-tool-comment-container .batch-delete-btn,
+html.system-dark-theme .ai-tool-favorite-container .batch-delete-btn,
+html.system-dark-theme .ai-tool-like-container .batch-delete-btn,
+html.system-dark-theme .ai-tool-visit-log-container .batch-delete-btn,
+html.system-dark-theme .ai-tool-list-container .ant-btn-danger,
+html.system-dark-theme .ai-tool-tag-container .ant-btn-danger,
+html.system-dark-theme .ai-tool-category-container .ant-btn-danger,
+html.system-dark-theme .ai-tool-comment-container .ant-btn-danger,
+html.system-dark-theme .ai-tool-favorite-container .ant-btn-danger,
+html.system-dark-theme .ai-tool-like-container .ant-btn-danger,
+html.system-dark-theme .ai-tool-visit-log-container .ant-btn-danger {
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的分页样式 */
+html.system-dark-theme .ai-tool-list-container .ant-pagination-item a,
+html.system-dark-theme .ai-tool-tag-container .ant-pagination-item a,
+html.system-dark-theme .ai-tool-category-container .ant-pagination-item a,
+html.system-dark-theme .ai-tool-comment-container .ant-pagination-item a,
+html.system-dark-theme .ai-tool-favorite-container .ant-pagination-item a,
+html.system-dark-theme .ai-tool-like-container .ant-pagination-item a,
+html.system-dark-theme .ai-tool-visit-log-container .ant-pagination-item a,
+html.system-dark-theme .ai-tool-list-container .ant-pagination-prev button,
+html.system-dark-theme .ai-tool-tag-container .ant-pagination-prev button,
+html.system-dark-theme .ai-tool-category-container .ant-pagination-prev button,
+html.system-dark-theme .ai-tool-comment-container .ant-pagination-prev button,
+html.system-dark-theme .ai-tool-favorite-container .ant-pagination-prev button,
+html.system-dark-theme .ai-tool-like-container .ant-pagination-prev button,
+html.system-dark-theme .ai-tool-visit-log-container .ant-pagination-prev button,
+html.system-dark-theme .ai-tool-list-container .ant-pagination-next button,
+html.system-dark-theme .ai-tool-tag-container .ant-pagination-next button,
+html.system-dark-theme .ai-tool-category-container .ant-pagination-next button,
+html.system-dark-theme .ai-tool-comment-container .ant-pagination-next button,
+html.system-dark-theme .ai-tool-favorite-container .ant-pagination-next button,
+html.system-dark-theme .ai-tool-like-container .ant-pagination-next button,
+html.system-dark-theme .ai-tool-visit-log-container .ant-pagination-next button,
+html.system-dark-theme .ai-tool-list-container .ant-pagination-jump-prev button,
+html.system-dark-theme .ai-tool-tag-container .ant-pagination-jump-prev button,
+html.system-dark-theme .ai-tool-category-container .ant-pagination-jump-prev button,
+html.system-dark-theme .ai-tool-comment-container .ant-pagination-jump-prev button,
+html.system-dark-theme .ai-tool-favorite-container .ant-pagination-jump-prev button,
+html.system-dark-theme .ai-tool-like-container .ant-pagination-jump-prev button,
+html.system-dark-theme .ai-tool-visit-log-container .ant-pagination-jump-prev button,
+html.system-dark-theme .ai-tool-list-container .ant-pagination-jump-next button,
+html.system-dark-theme .ai-tool-tag-container .ant-pagination-jump-next button,
+html.system-dark-theme .ai-tool-category-container .ant-pagination-jump-next button,
+html.system-dark-theme .ai-tool-comment-container .ant-pagination-jump-next button,
+html.system-dark-theme .ai-tool-favorite-container .ant-pagination-jump-next button,
+html.system-dark-theme .ai-tool-like-container .ant-pagination-jump-next button,
+html.system-dark-theme .ai-tool-visit-log-container .ant-pagination-jump-next button,
+html.system-dark-theme .ai-tool-list-container .ant-pagination-options-quick-jumper,
+html.system-dark-theme .ai-tool-tag-container .ant-pagination-options-quick-jumper,
+html.system-dark-theme .ai-tool-category-container .ant-pagination-options-quick-jumper,
+html.system-dark-theme .ai-tool-comment-container .ant-pagination-options-quick-jumper,
+html.system-dark-theme .ai-tool-favorite-container .ant-pagination-options-quick-jumper,
+html.system-dark-theme .ai-tool-like-container .ant-pagination-options-quick-jumper,
+html.system-dark-theme .ai-tool-visit-log-container .ant-pagination-options-quick-jumper,
+html.system-dark-theme .ai-tool-list-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.system-dark-theme .ai-tool-tag-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.system-dark-theme .ai-tool-category-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.system-dark-theme .ai-tool-comment-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.system-dark-theme .ai-tool-favorite-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.system-dark-theme .ai-tool-like-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.system-dark-theme .ai-tool-visit-log-container .ant-pagination-options-size-changer .ant-select-selection-item,
+html.system-dark-theme .ai-tool-list-container .ant-pagination-total-text,
+html.system-dark-theme .ai-tool-tag-container .ant-pagination-total-text,
+html.system-dark-theme .ai-tool-category-container .ant-pagination-total-text,
+html.system-dark-theme .ai-tool-comment-container .ant-pagination-total-text,
+html.system-dark-theme .ai-tool-favorite-container .ant-pagination-total-text,
+html.system-dark-theme .ai-tool-like-container .ant-pagination-total-text,
+html.system-dark-theme .ai-tool-visit-log-container .ant-pagination-total-text {
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的分页选中样式 */
+html.system-dark-theme .ai-tool-list-container .ant-pagination-item-active a,
+html.system-dark-theme .ai-tool-tag-container .ant-pagination-item-active a,
+html.system-dark-theme .ai-tool-category-container .ant-pagination-item-active a,
+html.system-dark-theme .ai-tool-comment-container .ant-pagination-item-active a,
+html.system-dark-theme .ai-tool-favorite-container .ant-pagination-item-active a,
+html.system-dark-theme .ai-tool-like-container .ant-pagination-item-active a,
+html.system-dark-theme .ai-tool-visit-log-container .ant-pagination-item-active a {
+  color: #444242 !important;
+}

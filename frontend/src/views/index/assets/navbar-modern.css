@@ -1,0 +1,499 @@
+/**
+ * 现代化导航栏样式
+ * 适用于PC端和移动端
+ */
+
+:root {
+  --nav-primary-color: #3498db;
+  --nav-primary-hover: #2980b9;
+  --nav-secondary-color: #2c3e50;
+  --nav-text-color: #333;
+  --nav-light-text: #777;
+  --nav-bg-color: #fff;
+  --nav-border-color: #eee;
+  --nav-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --nav-transition: all 0.3s ease;
+  --nav-border-radius: 4px;
+  --nav-font-family: 'Microsoft Yahei', Arial, sans-serif;
+}
+
+/* ===== 顶部栏样式 ===== */
+.top-bar {
+  background-color: var(--nav-secondary-color);
+  padding: 8px 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+}
+
+.top-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.top-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.top-nav li {
+  position: relative;
+  margin-right: 15px;
+}
+
+.top-nav li:last-child {
+  margin-right: 0;
+}
+
+.top-nav li a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: var(--nav-transition);
+  padding: 5px 0;
+  position: relative;
+}
+
+.top-nav li a:hover {
+  color: #fff;
+}
+
+.top-nav li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: var(--nav-transition);
+}
+
+.top-nav li a:hover::after {
+  width: 100%;
+}
+
+.user-link, .dashboard-link, .logout-link {
+  display: inline-block;
+  padding: 0 10px;
+  transition: var(--nav-transition);
+}
+
+.user-link {
+  font-weight: 500;
+  color: #fff !important;
+}
+
+.dashboard-link, .logout-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.user-panel {
+  display: flex;
+  align-items: center;
+}
+
+.user-panel a {
+  margin-left: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: var(--nav-transition);
+  position: relative;
+}
+
+.user-panel a:hover {
+  color: #fff;
+}
+
+.user-panel a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: var(--nav-transition);
+}
+
+.user-panel a:hover::after {
+  width: 100%;
+}
+
+/* ===== 主标题区域 ===== */
+.main-header {
+  background-color: var(--nav-bg-color);
+  padding: 15px 0;
+  box-shadow: var(--nav-shadow);
+  position: relative;
+  z-index: 10;
+}
+
+.main-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+}
+
+.branding-flex {
+  display: flex;
+  align-items: center;
+}
+
+.site-logo {
+  margin-right: 15px;
+  transition: var(--nav-transition);
+}
+
+.site-logo:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.logo-img {
+  max-height: 50px;
+  width: auto;
+}
+
+.branding-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.site-title a {
+  color: var(--nav-secondary-color);
+  text-decoration: none;
+  transition: var(--nav-transition);
+}
+
+.site-title a:hover {
+  color: var(--nav-primary-color);
+}
+
+.site-description {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: var(--nav-light-text);
+}
+
+/* ===== 主导航栏样式 ===== */
+.main-navigation {
+  background-color: var(--nav-secondary-color, #2c3e50); /* 使用深色背景 */
+  position: relative;
+  transition: var(--nav-transition);
+  z-index: 999;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* 边框颜色适应深色背景 */
+}
+
+.main-navigation .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.site-nav-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-menu > li {
+  position: relative;
+}
+
+.nav-menu > li > a {
+  display: block;
+  padding: 15px;
+  color: #fff; /* 修改为白色 */
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--nav-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-menu > li > a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(52, 152, 219, 0.08);
+  transition: height 0.3s ease;
+  z-index: -1;
+}
+
+.nav-menu > li > a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: var(--nav-primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-menu > li:hover > a {
+  color: var(--nav-primary-color, #3498db); /* 确保悬停时颜色足够明亮 */
+}
+
+.nav-menu > li:hover > a::before {
+  height: 100%;
+}
+
+.nav-menu > li:hover > a::after {
+  width: 100%;
+}
+
+/* 子菜单样式 */
+.nav-menu .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 220px;
+  background-color: var(--nav-bg-color);
+  box-shadow: var(--nav-shadow);
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: var(--nav-border-radius);
+  border-top: 3px solid var(--nav-primary-color);
+  overflow: hidden;
+}
+
+.nav-menu > li:hover > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-menu .sub-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--nav-text-color);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.25s ease;
+  position: relative;
+  border-left: 0 solid var(--nav-primary-color);
+}
+
+.nav-menu .sub-menu a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 0;
+  background-color: var(--nav-primary-color);
+  transition: height 0.25s ease;
+}
+
+.nav-menu .sub-menu a:hover {
+  color: var(--nav-primary-color);
+  background-color: rgba(52, 152, 219, 0.08);
+  padding-left: 25px;
+}
+
+.nav-menu .sub-menu a:hover::before {
+  height: 100%;
+}
+
+.nav-menu .sub-menu .sub-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -3px;
+  transform: translateX(15px);
+}
+
+.nav-menu .sub-menu .menu-item-has-children:hover > .sub-menu {
+  transform: translateX(0);
+}
+
+/* 在PC端显示菜单项的下拉箭头 */
+@media (min-width: 769px) {
+  .nav-menu .menu-item-has-children > a:after {
+    content: "\f107";
+    font-family: "FontAwesome";
+    margin-left: 5px;
+    font-size: 12px;
+    transition: var(--nav-transition);
+    display: inline-block !important; /* 确保显示 */
+  }
+
+  .nav-menu .menu-item-has-children:hover > a:after {
+    transform: rotate(180deg);
+  }
+
+  /* 隐藏PC端的下拉按钮 */
+  .dropdown-toggle {
+    display: none !important;
+  }
+}
+
+/* 二级菜单的下拉图标 - 只在PC端显示 */
+@media (min-width: 769px) {
+  .nav-menu .menu-item-has-children .menu-item-has-children > a:after {
+    content: "\f105";
+    font-family: "FontAwesome";
+    float: right;
+    display: inline-block !important;
+    margin-left: 5px;
+  }
+
+  .nav-menu .menu-item-has-children .menu-item-has-children:hover > a:after {
+    transform: rotate(0deg);
+  }
+}
+
+/* 搜索框样式 */
+.nav-search {
+  margin-left: 20px;
+}
+
+.search-form-nav {
+  display: flex;
+  align-items: center;
+}
+
+.search-form-nav input {
+  width: 200px;
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: var(--nav-border-radius) 0 0 var(--nav-border-radius);
+  font-size: 14px;
+  transition: var(--nav-transition);
+}
+
+.search-form-nav input:focus {
+  border-color: var(--nav-primary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.search-button {
+  background-color: var(--nav-primary-color);
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 0 var(--nav-border-radius) var(--nav-border-radius) 0;
+  cursor: pointer;
+  transition: var(--nav-transition);
+}
+
+.search-button:hover {
+  background-color: var(--nav-primary-hover);
+}
+
+/* 激活菜单样式 */
+.nav-menu > li.active > a {
+  color: var(--nav-primary-color, #3498db);
+  font-weight: 600;
+  background-color: rgba(52, 152, 219, 0.15); /* 增加背景透明度，使其在深色背景上更明显 */
+}
+
+.nav-menu > li.active > a::after {
+  width: 100%;
+}
+
+.nav-menu > li.active > a::before {
+  height: 100%;
+}
+
+/* 移动端导航按钮 - 默认隐藏 */
+.mobile-nav-toggle {
+  display: none;
+}
+
+/* 移动端菜单关闭按钮 - 默认隐藏 */
+.mobile-menu-close {
+  display: none;
+}
+
+/* 移动端遮罩层 - 默认隐藏 */
+.mobile-mask {
+  display: none;
+}
+
+/* 桌面端专用 */
+.desktop-only {
+  display: block;
+}
+
+/* 移动端专用 - 默认隐藏 */
+.mobile-only {
+  display: none;
+}
+
+/* 粘性导航 */
+.main-navigation.nav-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: var(--nav-shadow);
+  animation: slideDown 0.3s ease;
+  background-color: var(--nav-secondary-color, #2c3e50); /* 保持与非粘性导航栏相同的背景色 */
+  border-top: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 边框颜色适应深色背景 */
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Active submenu styles */
+.sub-menu li.active > a {
+  color: var(--nav-primary-color);
+  background-color: rgba(52, 152, 219, 0.08);
+  font-weight: 500;
+  padding-left: 25px;
+}
+
+.sub-menu li.active > a::before {
+  height: 100%;
+}

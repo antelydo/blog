@@ -1,0 +1,44 @@
+/**
+ * 留言管理页面样式
+ * 适用于暗黑模式和跟随系统模式
+ */
+
+/* 留言管理页面基础样式 */
+.contact-messages-container {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 批量删除按钮基础样式 */
+.contact-messages-container .batch-delete-btn {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* 暗黑模式下的批量删除按钮样式 */
+html.dark .contact-messages-container .batch-delete-btn,
+html.dark .contact-messages-container .ant-btn-danger {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+html.dark .contact-messages-container .batch-delete-btn:hover,
+html.dark .contact-messages-container .ant-btn-danger:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的批量删除按钮样式 */
+html.system-dark-theme .contact-messages-container .batch-delete-btn,
+html.system-dark-theme .contact-messages-container .ant-btn-danger {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+html.system-dark-theme .contact-messages-container .batch-delete-btn:hover,
+html.system-dark-theme .contact-messages-container .ant-btn-danger:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}

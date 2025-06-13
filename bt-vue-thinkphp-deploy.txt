@@ -1,0 +1,164 @@
+Vue + ThinkPHP 8 项目部署指南（宝塔面板）
+================================
+
+一、创建两个站点
+-------------
+1. 前端站点（Vue项目）
+   1.1 添加站点:
+       - 点击"网站" -> "添加站点"
+       - 域名：例如 www.yourdomain.com
+       - PHP版本：纯静态，不需要选择
+       - 创建数据库：不需要
+       - SSL：建议开启
+       - 目录：/www/wwwroot/your-frontend-domain
+
+   1.2 部署Vue项目:
+       ```bash
+       # 进入前端项目目录
+       cd frontend
+       
+       # 修改生产环境API地址
+       # 编辑 frontend/.env.production 文件：
+       VITE_APP_API_URL=https://api.yourdomain.com  # 改为你的后端API域名
+       
+       # 构建项目
+       npm install
+       npm run build
+       
+       # 将dist目录内容复制到网站根目录
+       cp -r dist/* /www/wwwroot/your-frontend-domain/
+       ```
+
+   1.3 配置Nginx：
+       - 点击站点的"设置"
+       - 点击"配置文件"
+       - 修改配置：
+       ```nginx
+       server {
+           listen 80;
+           server_name www.yourdomain.com;
+           root /www/wwwroot/your-frontend-domain;
+           index index.html;
+           
+           # 处理Vue路由
+           location / {
+               try_files $uri $uri/ /index.html;
+               index index.html index.htm;
+           }
+           
+           # 静态资源缓存
+           location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+               expires max;
+               add_header Cache-Control "public, no-transform";
+           }
+       }
+       ```
+
+2. 后端站点（ThinkPHP 8 API）
+   2.1 添加站点:
+       - 点击"网站" -> "添加站点"
+       - 域名：例如 api.yourdomain.com
+       - PHP版本：选择 PHP 8.0+
+       - 创建数据库：勾选，记录数据库信息
+       - SSL：建议开启
+       - 目录：/www/wwwroot/your-api-domain
+
+   2.2 部署ThinkPHP项目:
+       ```bash
+       # 进入网站目录
+       cd /www/wwwroot/your-api-domain
+       
+       # 上传项目文件
+       git clone 你的项目地址 .
+       
+       # 安装依赖
+       composer install --no-dev --optimize-autoloader
+       
+       # 设置权限
+       chown -R www:www .
+       chmod -R 755 .
+       chmod -R 777 runtime
+       chmod -R 777 public/uploads
+       ```
+
+   2.3 配置环境变量：
+       ```bash
+       # 复制环境配置文件
+       cp .env.example .env
+       
+       # 编辑 .env 文件
+       APP_DEBUG = false
+       APP_TRACE = false
+       
+       DATABASE_TYPE = mysql
+       DATABASE_HOSTNAME = localhost
+       DATABASE_DATABASE = your_database_name
+       DATABASE_USERNAME = your_database_user
+       DATABASE_PASSWORD = your_database_password
+       DATABASE_HOSTPORT = 3306
+       ```
+
+   2.4 配置Nginx：
+       ```nginx
+       server {
+           listen 80;
+           server_name api.yourdomain.com;
+           root /www/wwwroot/your-api-domain/public;
+           
+           location / {
+               if (!-e $request_filename){
+                   rewrite  ^(.*)$  /index.php?s=$1  last;   break;
+               }
+           }
+           
+           location ~ \.php$ {
+               fastcgi_pass unix:/tmp/php-cgi-80.sock;
+               fastcgi_index index.php;
+               fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+               include fastcgi_params;
+               
+               # 上传文件大小限制
+               fastcgi_param PHP_VALUE "upload_max_filesize=50M \n post_max_size=50M";
+               fastcgi_read_timeout 300;
+           }
+           
+           # CORS 配置（如需要）
+           add_header 'Access-Control-Allow-Origin' 'https://www.yourdomain.com';
+           add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+           add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization';
+           add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
+           
+           if ($request_method = 'OPTIONS') {
+               return 204;
+           }
+       }
+       ```
+
+二、域名解析设置
+-------------
+1. 在域名控制台添加记录：
+   - www：指向你的服务器IP（前端）
+   - api：指向你的服务器IP（后端）
+
+2. SSL证书：
+   - 在宝塔面板中为两个站点分别申请SSL证书
+   - 开启强制HTTPS跳转
+
+三、测试验证
+----------
+1. 访问前端站点：
+   https://www.yourdomain.com
+
+2. 测试API接口：
+   https://api.yourdomain.com
+
+3. 检查跨域请求是否正常
+
+四、注意事项
+----------
+1. 确保PHP版本和扩展正确安装
+2. 检查防火墙是否放行80和443端口
+3. 定期备份数据库和代码
+4. 监控错误日志：
+   - 前端：/www/wwwlogs/your-frontend-domain.error.log
+   - 后端：/www/wwwlogs/your-api-domain.error.log

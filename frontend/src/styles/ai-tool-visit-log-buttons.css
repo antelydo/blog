@@ -1,0 +1,121 @@
+/**
+ * AI 工具访问日志管理页面按钮样式
+ * 适用于暗黑模式和跟随系统模式
+ */
+
+/* AI工具访问日志管理页面按钮基础样式 */
+.ai-tool-visit-log-container .ant-btn {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* 暗黑模式下的AI工具访问日志管理页面按钮样式 */
+html.dark .ai-tool-visit-log-container .ant-btn {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+html.dark .ai-tool-visit-log-container .ant-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* 暗黑模式下的AI工具访问日志管理页面主要按钮样式 */
+html.dark .ai-tool-visit-log-container .ant-btn-primary {
+  background-color: var(--el-color-primary, #409eff) !important;
+  color: #ffffff !important;
+  border-color: var(--el-color-primary, #409eff) !important;
+}
+
+html.dark .ai-tool-visit-log-container .ant-btn-primary:hover {
+  background-color: var(--el-color-primary-light-3, #79bbff) !important;
+  color: #ffffff !important;
+  border-color: var(--el-color-primary-light-3, #79bbff) !important;
+}
+
+/* 暗黑模式下的AI工具访问日志管理页面危险按钮样式 */
+html.dark .ai-tool-visit-log-container .ant-btn-danger {
+  background-color: transparent !important;
+  color: #ff4d4f !important;
+  border-color: #ff4d4f !important;
+}
+
+html.dark .ai-tool-visit-log-container .ant-btn-danger:hover {
+  background-color: rgba(255, 77, 79, 0.1) !important;
+  color: #ff4d4f !important;
+  border-color: #ff4d4f !important;
+}
+
+/* 暗黑模式下的AI工具访问日志管理页面重置按钮样式 */
+html.dark .ai-tool-visit-log-container .reset-btn,
+html.dark .ai-tool-visit-log-container .refresh-btn,
+html.dark .ai-tool-visit-log-container .clear-btn {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+html.dark .ai-tool-visit-log-container .reset-btn:hover,
+html.dark .ai-tool-visit-log-container .refresh-btn:hover,
+html.dark .ai-tool-visit-log-container .clear-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的AI工具访问日志管理页面按钮样式 */
+html.system-dark-theme .ai-tool-visit-log-container .ant-btn {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+html.system-dark-theme .ai-tool-visit-log-container .ant-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的AI工具访问日志管理页面主要按钮样式 */
+html.system-dark-theme .ai-tool-visit-log-container .ant-btn-primary {
+  background-color: var(--el-color-primary, #409eff) !important;
+  color: #ffffff !important;
+  border-color: var(--el-color-primary, #409eff) !important;
+}
+
+html.system-dark-theme .ai-tool-visit-log-container .ant-btn-primary:hover {
+  background-color: var(--el-color-primary-light-3, #79bbff) !important;
+  color: #ffffff !important;
+  border-color: var(--el-color-primary-light-3, #79bbff) !important;
+}
+
+/* 系统主题暗黑模式下的AI工具访问日志管理页面危险按钮样式 */
+html.system-dark-theme .ai-tool-visit-log-container .ant-btn-danger {
+  background-color: transparent !important;
+  color: #ff4d4f !important;
+  border-color: #ff4d4f !important;
+}
+
+html.system-dark-theme .ai-tool-visit-log-container .ant-btn-danger:hover {
+  background-color: rgba(255, 77, 79, 0.1) !important;
+  color: #ff4d4f !important;
+  border-color: #ff4d4f !important;
+}
+
+/* 系统主题暗黑模式下的AI工具访问日志管理页面重置按钮样式 */
+html.system-dark-theme .ai-tool-visit-log-container .reset-btn,
+html.system-dark-theme .ai-tool-visit-log-container .refresh-btn,
+html.system-dark-theme .ai-tool-visit-log-container .clear-btn {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+html.system-dark-theme .ai-tool-visit-log-container .reset-btn:hover,
+html.system-dark-theme .ai-tool-visit-log-container .refresh-btn:hover,
+html.system-dark-theme .ai-tool-visit-log-container .clear-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}

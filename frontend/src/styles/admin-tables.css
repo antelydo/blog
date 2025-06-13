@@ -1,0 +1,557 @@
+/**
+ * 管理页面表格统一样式
+ * 确保所有管理页面的表格背景颜色保持一致
+ */
+
+/* Element Plus 表格样式 */
+.el-table {
+  --el-table-header-bg-color: #f5f7fa !important;
+  --el-table-tr-bg-color: #ffffff !important;
+  --el-table-border-color: #ebeef5 !important;
+  --el-table-row-hover-bg-color: #f5f7fa !important;
+}
+
+.el-table th.el-table__cell {
+  background-color: #f5f7fa !important;
+}
+
+.el-table td.el-table__cell {
+  background-color: #ffffff !important;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background-color: #fafafa !important;
+}
+
+.el-table .el-table__body tr.hover-row > td.el-table__cell {
+  background-color: #f5f7fa !important;
+}
+
+/* Ant Design Vue 表格样式 */
+.ant-table-thead > tr > th {
+  background-color: #f5f7fa !important;
+}
+
+.ant-table-tbody > tr > td {
+  background-color: #ffffff !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background-color: #f5f7fa !important;
+}
+
+.ant-table-row-striped > td {
+  background-color: #fafafa !important;
+}
+
+/* 搜索表单统一样式 */
+.search-form,
+.filter-form,
+.el-card.page-header {
+  background-color: #f5f5f5 !important;
+}
+
+/* 卡片统一样式 */
+.el-card,
+.ant-card {
+  background-color: #ffffff !important;
+}
+
+.el-card__header,
+.ant-card-head {
+  background-color: #ffffff !important;
+}
+
+/* 统计卡片统一样式 */
+.statistics-card,
+.stat-card,
+.stats-card {
+  background-color: #ffffff !important;
+}
+
+/* 暗黑模式下的样式 */
+html.dark .el-table {
+  --el-table-header-bg-color: rgba(255, 255, 255, 0.05) !important;
+  --el-table-tr-bg-color: var(--el-bg-color) !important;
+  --el-table-border-color: rgba(255, 255, 255, 0.05) !important;
+  --el-table-row-hover-bg-color: rgba(255, 255, 255, 0.08) !important;
+  color: #e0e0e0 !important;
+}
+
+html.dark .el-table th.el-table__cell {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .el-table td.el-table__cell {
+  background-color: var(--el-bg-color) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+html.dark .el-table .el-table__body tr.hover-row > td.el-table__cell {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .ant-table {
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .ant-table-thead > tr > th {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .ant-table-tbody > tr > td {
+  background-color: var(--el-bg-color) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .ant-table-tbody > tr:hover > td {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .ant-table-row-striped > td {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+html.dark .ant-table-wrapper .ant-table {
+  background-color: var(--el-bg-color) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .ant-table-wrapper .ant-table-container {
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .ant-table-wrapper .ant-table-cell-fix-left,
+html.dark .ant-table-wrapper .ant-table-cell-fix-right {
+  background-color: var(--el-bg-color) !important;
+}
+
+html.dark .search-form,
+html.dark .filter-form,
+html.dark .el-card.page-header {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #e0e0e0 !important;
+}
+
+html.dark .el-card,
+html.dark .ant-card {
+  background-color: var(--el-bg-color) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .el-card__header,
+html.dark .ant-card-head {
+  background-color: var(--el-bg-color) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .ant-card-head-title {
+  color: #e0e0e0 !important;
+}
+
+html.dark .statistics-card,
+html.dark .stat-card,
+html.dark .stats-card {
+  background-color: var(--el-bg-color) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 暗黑模式下的输入框样式 */
+html.dark .el-input__wrapper,
+html.dark .el-textarea__wrapper {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset !important;
+}
+
+html.dark .el-input__inner,
+html.dark .el-textarea__inner {
+  color: #e0e0e0 !important;
+}
+
+html.dark .ant-input,
+html.dark .ant-input-number,
+html.dark .ant-select .ant-select-selector,
+html.dark .ant-picker {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark .ant-input:hover,
+html.dark .ant-input-number:hover,
+html.dark .ant-select .ant-select-selector:hover,
+html.dark .ant-picker:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+html.dark .ant-input:focus,
+html.dark .ant-input-number:focus,
+html.dark .ant-select .ant-select-selector:focus,
+html.dark .ant-picker:focus {
+  border-color: var(--el-color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.2) !important;
+}
+
+/* 系统主题模式下的样式 */
+html.system-theme .el-table,
+html.system-light-theme .el-table {
+  --el-table-header-bg-color: #f5f7fa !important;
+  --el-table-tr-bg-color: #ffffff !important;
+  --el-table-border-color: #ebeef5 !important;
+  --el-table-row-hover-bg-color: #f5f7fa !important;
+}
+
+html.system-dark-theme .el-table {
+  --el-table-header-bg-color: rgba(255, 255, 255, 0.05) !important;
+  --el-table-tr-bg-color: var(--el-bg-color) !important;
+  --el-table-border-color: rgba(255, 255, 255, 0.05) !important;
+  --el-table-row-hover-bg-color: rgba(255, 255, 255, 0.08) !important;
+  color: #e0e0e0 !important;
+}
+
+html.system-dark-theme .el-table th.el-table__cell {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .el-table td.el-table__cell {
+  background-color: var(--el-bg-color) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .ant-table {
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .ant-table-thead > tr > th {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .ant-table-tbody > tr > td {
+  background-color: var(--el-bg-color) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .ant-table-tbody > tr > td:last-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .ant-table-tbody > tr > td.ant-table-cell-fix-right {
+  border-left: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .ant-table-tbody > tr:hover > td {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.system-dark-theme .ant-table-wrapper .ant-table {
+  background-color: var(--el-bg-color) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .ant-table-wrapper .ant-table-container {
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .search-form,
+html.system-dark-theme .filter-form,
+html.system-dark-theme .el-card.page-header {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #e0e0e0 !important;
+}
+
+html.system-dark-theme .el-card,
+html.system-dark-theme .ant-card {
+  background-color: var(--el-bg-color) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .el-card__header,
+html.system-dark-theme .ant-card-head {
+  background-color: var(--el-bg-color) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .ant-card-head-title {
+  color: #e0e0e0 !important;
+}
+
+html.system-dark-theme .statistics-card,
+html.system-dark-theme .stat-card,
+html.system-dark-theme .stats-card {
+  background-color: var(--el-bg-color) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .el-input__wrapper,
+html.system-dark-theme .el-textarea__wrapper {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset !important;
+}
+
+html.system-dark-theme .el-input__inner,
+html.system-dark-theme .el-textarea__inner {
+  color: #e0e0e0 !important;
+}
+
+html.system-dark-theme .ant-input,
+html.system-dark-theme .ant-input-number,
+html.system-dark-theme .ant-select .ant-select-selector,
+html.system-dark-theme .ant-picker {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  color: #e0e0e0 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 确保表格内容文本颜色正确 */
+.el-table {
+  color: var(--el-text-color-primary) !important;
+}
+
+/* 覆盖 Ant Design 表格顶部边框样式 */
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table,
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table {
+  border-top: 1px solid #f0f0f0;
+}
+
+/* 暗黑模式下的表格顶部边框样式 */
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table,
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table {
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 系统主题暗黑模式下的表格顶部边框样式 */
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table,
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table {
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 表格页脚样式 */
+.ant-table-wrapper .ant-table-footer {
+  padding: 16px 16px;
+  color: rgba(0, 0, 0, 0.88);
+  background: #fafafa;
+}
+
+/* 表格页脚边框样式 */
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-footer {
+  border: 1px solid #f0f0f0;
+  border-top: 0;
+}
+
+/* 暗黑模式下的表格页脚样式 */
+html.dark .ant-table-wrapper .ant-table-footer {
+  color: #e0e0e0 !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 暗黑模式下的表格页脚边框样式 */
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-footer {
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-top: 0 !important;
+}
+
+/* 系统主题暗黑模式下的表格页脚样式 */
+html.system-dark-theme .ant-table-wrapper .ant-table-footer {
+  color: #e0e0e0 !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 系统主题暗黑模式下的表格页脚边框样式 */
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-footer {
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-top: 0 !important;
+}
+
+/* 时间选择框弹出层样式 */
+.ant-picker-dropdown {
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.88);
+  border-color: #f0f0f0;
+}
+
+.ant-picker-dropdown .ant-picker-header {
+  color: rgba(0, 0, 0, 0.88);
+  border-color: #f0f0f0;
+}
+
+.ant-picker-dropdown .ant-picker-content th,
+.ant-picker-dropdown .ant-picker-content td {
+  color: rgba(0, 0, 0, 0.88);
+}
+
+/* 暗黑模式下的时间选择框弹出层样式 */
+html.dark .ant-picker-dropdown {
+  background-color: var(--el-bg-color-overlay, #242424) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+
+
+html.dark .ant-picker-dropdown .ant-picker-content th,
+html.dark .ant-picker-dropdown .ant-picker-content td {
+  color: #ffffff !important;
+}
+
+html.dark .ant-picker-dropdown .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end) .ant-picker-cell-inner {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .ant-picker-dropdown .ant-picker-cell-selected .ant-picker-cell-inner,
+html.dark .ant-picker-dropdown .ant-picker-cell-range-start .ant-picker-cell-inner,
+html.dark .ant-picker-dropdown .ant-picker-cell-range-end .ant-picker-cell-inner {
+  background-color: #409eff !important;
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的时间选择框弹出层样式 */
+html.system-dark-theme .ant-picker-dropdown {
+  background-color: var(--el-bg-color-overlay, #242424) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+
+
+html.system-dark-theme .ant-picker-dropdown .ant-picker-content th,
+html.system-dark-theme .ant-picker-dropdown .ant-picker-content td {
+  color: #ffffff !important;
+}
+
+html.system-dark-theme .ant-picker-dropdown .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end) .ant-picker-cell-inner {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.system-dark-theme .ant-picker-dropdown .ant-picker-cell-selected .ant-picker-cell-inner,
+html.system-dark-theme .ant-picker-dropdown .ant-picker-cell-range-start .ant-picker-cell-inner,
+html.system-dark-theme .ant-picker-dropdown .ant-picker-cell-range-end .ant-picker-cell-inner {
+  background-color: #409eff !important;
+  color: #ffffff !important;
+}
+
+/* 表格固定列右侧边框样式 */
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > thead > tr > .ant-table-cell-fix-right-first::after,
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > thead > tr > .ant-table-cell-fix-right-first::after,
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > thead > tr > .ant-table-cell-fix-right-first::after,
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > thead > tr > .ant-table-cell-fix-right-first::after,
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > tbody > tr > .ant-table-cell-fix-right-first::after,
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > tbody > tr > .ant-table-cell-fix-right-first::after,
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > tbody > tr > .ant-table-cell-fix-right-first::after,
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > tbody > tr > .ant-table-cell-fix-right-first::after,
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > tfoot > tr > .ant-table-cell-fix-right-first::after,
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > tfoot > tr > .ant-table-cell-fix-right-first::after,
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > tfoot > tr > .ant-table-cell-fix-right-first::after,
+.ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > tfoot > tr > .ant-table-cell-fix-right-first::after {
+  border-inline-end: 1px solid #f0f0f0;
+}
+
+/* 暗黑模式下的表格固定列右侧边框样式 */
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > thead > tr > .ant-table-cell-fix-right-first::after,
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > thead > tr > .ant-table-cell-fix-right-first::after,
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > thead > tr > .ant-table-cell-fix-right-first::after,
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > thead > tr > .ant-table-cell-fix-right-first::after,
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > tbody > tr > .ant-table-cell-fix-right-first::after,
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > tbody > tr > .ant-table-cell-fix-right-first::after,
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > tbody > tr > .ant-table-cell-fix-right-first::after,
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > tbody > tr > .ant-table-cell-fix-right-first::after,
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > tfoot > tr > .ant-table-cell-fix-right-first::after,
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > tfoot > tr > .ant-table-cell-fix-right-first::after,
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > tfoot > tr > .ant-table-cell-fix-right-first::after,
+html.dark .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > tfoot > tr > .ant-table-cell-fix-right-first::after {
+  border-inline-end: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 系统主题暗黑模式下的表格固定列右侧边框样式 */
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > thead > tr > .ant-table-cell-fix-right-first::after,
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > thead > tr > .ant-table-cell-fix-right-first::after,
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > thead > tr > .ant-table-cell-fix-right-first::after,
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > thead > tr > .ant-table-cell-fix-right-first::after,
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > tbody > tr > .ant-table-cell-fix-right-first::after,
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > tbody > tr > .ant-table-cell-fix-right-first::after,
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > tbody > tr > .ant-table-cell-fix-right-first::after,
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > tbody > tr > .ant-table-cell-fix-right-first::after,
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > tfoot > tr > .ant-table-cell-fix-right-first::after,
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > tfoot > tr > .ant-table-cell-fix-right-first::after,
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > tfoot > tr > .ant-table-cell-fix-right-first::after,
+html.system-dark-theme .ant-table-wrapper .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > tfoot > tr > .ant-table-cell-fix-right-first::after {
+  border-inline-end: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.el-table th.el-table__cell {
+  color: var(--el-text-color-primary) !important;
+}
+
+.el-table td.el-table__cell {
+  color: var(--el-text-color-regular) !important;
+}
+
+.ant-table {
+  color: var(--el-text-color-primary) !important;
+}
+
+.ant-table-thead > tr > th {
+  color: var(--el-text-color-primary) !important;
+}
+
+.ant-table-tbody > tr > td {
+  color: var(--el-text-color-regular) !important;
+}
+
+/* 修复一些特定页面的样式 */
+.user-management-container .el-table,
+.article-management-container .el-table,
+.comment-management-container .el-table,
+.contact-messages-container .el-table,
+.link-management-container .el-table,
+.settings-container .el-table {
+  --el-table-header-bg-color: #f5f7fa !important;
+  --el-table-tr-bg-color: #ffffff !important;
+}
+
+.user-management-container .el-table th.el-table__cell,
+.article-management-container .el-table th.el-table__cell,
+.comment-management-container .el-table th.el-table__cell,
+.contact-messages-container .el-table th.el-table__cell,
+.link-management-container .el-table th.el-table__cell,
+.settings-container .el-table th.el-table__cell {
+  background-color: #f5f7fa !important;
+}
+
+.user-management-container .el-table td.el-table__cell,
+.article-management-container .el-table td.el-table__cell,
+.comment-management-container .el-table td.el-table__cell,
+.contact-messages-container .el-table td.el-table__cell,
+.link-management-container .el-table td.el-table__cell,
+.settings-container .el-table td.el-table__cell {
+  background-color: #ffffff !important;
+}

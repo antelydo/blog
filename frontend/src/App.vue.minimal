@@ -1,0 +1,33 @@
+<script setup>
+// 极简版App.vue - 用于解决堆栈溢出问题
+// 移除所有可能导致循环引用的代码
+
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+
+// 获取当前路由
+const route = useRoute()
+
+// 简化的初始化逻辑
+onMounted(() => {
+  // 设置页面标题
+  if (route.meta && route.meta.title) {
+    document.title = route.meta.title
+  } else {
+    document.title = route.path.startsWith('/admin') ? '管理后台' : '首页'
+  }
+})
+</script>
+
+<template>
+  <div class="app">
+    <router-view />
+  </div>
+</template>
+
+<style>
+.app {
+  width: 100%;
+  height: 100%;
+}
+</style>

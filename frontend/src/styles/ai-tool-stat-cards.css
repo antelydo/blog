@@ -1,0 +1,145 @@
+/**
+ * AI 工具管理统计卡片样式
+ * 适用于暗黑模式和跟随系统模式
+ */
+
+/* 统计卡片基础样式 */
+.ai-tool-list-container .stat-card,
+.ai-tool-tag-container .stat-card,
+.ai-tool-category-container .stat-card,
+.ai-tool-comment-container .stat-card,
+.ai-tool-favorite-container .stat-card,
+.ai-tool-like-container .stat-card,
+.ai-tool-visit-log-container .stat-card {
+  margin-bottom: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.ai-tool-list-container .stat-card-content,
+.ai-tool-tag-container .stat-card-content,
+.ai-tool-category-container .stat-card-content,
+.ai-tool-comment-container .stat-card-content,
+.ai-tool-favorite-container .stat-card-content,
+.ai-tool-like-container .stat-card-content,
+.ai-tool-visit-log-container .stat-card-content {
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.ai-tool-list-container .stat-number,
+.ai-tool-tag-container .stat-number,
+.ai-tool-category-container .stat-number,
+.ai-tool-comment-container .stat-number,
+.ai-tool-favorite-container .stat-number,
+.ai-tool-like-container .stat-number,
+.ai-tool-visit-log-container .stat-number {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.ai-tool-list-container .stat-label,
+.ai-tool-tag-container .stat-label,
+.ai-tool-category-container .stat-label,
+.ai-tool-comment-container .stat-label,
+.ai-tool-favorite-container .stat-label,
+.ai-tool-like-container .stat-label,
+.ai-tool-visit-log-container .stat-label {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* 主题颜色的统计数字 */
+.ai-tool-list-container .stat-number.theme-color,
+.ai-tool-tag-container .stat-number.theme-color,
+.ai-tool-category-container .stat-number.theme-color,
+.ai-tool-comment-container .stat-number.theme-color,
+.ai-tool-favorite-container .stat-number.theme-color,
+.ai-tool-like-container .stat-number.theme-color,
+.ai-tool-visit-log-container .stat-number.theme-color {
+  color: var(--el-color-primary, #409eff);
+}
+
+/* 暗黑模式下的统计卡片样式 */
+html.dark .ai-tool-list-container .stat-card-content,
+html.dark .ai-tool-tag-container .stat-card-content,
+html.dark .ai-tool-category-container .stat-card-content,
+html.dark .ai-tool-comment-container .stat-card-content,
+html.dark .ai-tool-favorite-container .stat-card-content,
+html.dark .ai-tool-like-container .stat-card-content,
+html.dark .ai-tool-visit-log-container .stat-card-content {
+  color: #ffffff !important;
+}
+
+html.dark .ai-tool-list-container .stat-number,
+html.dark .ai-tool-tag-container .stat-number,
+html.dark .ai-tool-category-container .stat-number,
+html.dark .ai-tool-comment-container .stat-number,
+html.dark .ai-tool-favorite-container .stat-number,
+html.dark .ai-tool-like-container .stat-number,
+html.dark .ai-tool-visit-log-container .stat-number {
+  color: #ffffff !important;
+}
+
+html.dark .ai-tool-list-container .stat-label,
+html.dark .ai-tool-tag-container .stat-label,
+html.dark .ai-tool-category-container .stat-label,
+html.dark .ai-tool-comment-container .stat-label,
+html.dark .ai-tool-favorite-container .stat-label,
+html.dark .ai-tool-like-container .stat-label,
+html.dark .ai-tool-visit-log-container .stat-label {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* 暗黑模式下的主题颜色统计数字 */
+html.dark .ai-tool-list-container .stat-number.theme-color,
+html.dark .ai-tool-tag-container .stat-number.theme-color,
+html.dark .ai-tool-category-container .stat-number.theme-color,
+html.dark .ai-tool-comment-container .stat-number.theme-color,
+html.dark .ai-tool-favorite-container .stat-number.theme-color,
+html.dark .ai-tool-like-container .stat-number.theme-color,
+html.dark .ai-tool-visit-log-container .stat-number.theme-color {
+  color: var(--el-color-primary, #409eff) !important;
+}
+
+/* 系统主题暗黑模式下的统计卡片样式 */
+html.system-dark-theme .ai-tool-list-container .stat-card-content,
+html.system-dark-theme .ai-tool-tag-container .stat-card-content,
+html.system-dark-theme .ai-tool-category-container .stat-card-content,
+html.system-dark-theme .ai-tool-comment-container .stat-card-content,
+html.system-dark-theme .ai-tool-favorite-container .stat-card-content,
+html.system-dark-theme .ai-tool-like-container .stat-card-content,
+html.system-dark-theme .ai-tool-visit-log-container .stat-card-content {
+  color: #ffffff !important;
+}
+
+html.system-dark-theme .ai-tool-list-container .stat-number,
+html.system-dark-theme .ai-tool-tag-container .stat-number,
+html.system-dark-theme .ai-tool-category-container .stat-number,
+html.system-dark-theme .ai-tool-comment-container .stat-number,
+html.system-dark-theme .ai-tool-favorite-container .stat-number,
+html.system-dark-theme .ai-tool-like-container .stat-number,
+html.system-dark-theme .ai-tool-visit-log-container .stat-number {
+  color: #ffffff !important;
+}
+
+html.system-dark-theme .ai-tool-list-container .stat-label,
+html.system-dark-theme .ai-tool-tag-container .stat-label,
+html.system-dark-theme .ai-tool-category-container .stat-label,
+html.system-dark-theme .ai-tool-comment-container .stat-label,
+html.system-dark-theme .ai-tool-favorite-container .stat-label,
+html.system-dark-theme .ai-tool-like-container .stat-label,
+html.system-dark-theme .ai-tool-visit-log-container .stat-label {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* 系统主题暗黑模式下的主题颜色统计数字 */
+html.system-dark-theme .ai-tool-list-container .stat-number.theme-color,
+html.system-dark-theme .ai-tool-tag-container .stat-number.theme-color,
+html.system-dark-theme .ai-tool-category-container .stat-number.theme-color,
+html.system-dark-theme .ai-tool-comment-container .stat-number.theme-color,
+html.system-dark-theme .ai-tool-favorite-container .stat-number.theme-color,
+html.system-dark-theme .ai-tool-like-container .stat-number.theme-color,
+html.system-dark-theme .ai-tool-visit-log-container .stat-number.theme-color {
+  color: var(--el-color-primary, #409eff) !important;
+}

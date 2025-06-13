@@ -1,0 +1,220 @@
+/**
+ * 全局主题样式和过渡效果
+ */
+
+/* 主题过渡效果 */
+.theme-transition,
+.theme-transition * {
+  transition: background-color var(--theme-transition-time, 0.1s) ease,
+              color var(--theme-transition-time, 0.1s) ease,
+              border-color var(--theme-transition-time, 0.1s) ease,
+              box-shadow var(--theme-transition-time, 0.1s) ease !important;
+}
+
+/* 主题过渡动画 */
+@keyframes theme-refresh-flash {
+  0% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+/* 用于强制重绘的工具类 */
+.theme-changed {
+  animation: theme-refresh-flash 0.1s ease-out;
+}
+
+.theme-refreshed, 
+.theme-force-repaint {
+  animation: theme-refresh-flash 0.1s ease-out;
+}
+
+.theme-global-refresh {
+  animation: theme-refresh-flash 0.15s ease;
+}
+
+/* 确保在应用主题时元素的转换行为一致 */
+.theme-changing {
+  background-color: var(--immediate-bg-color, inherit) !important;
+  color: var(--immediate-color, inherit) !important;
+  border-color: var(--immediate-border-color, inherit) !important;
+  transition: none !important;
+}
+
+/* 表格样式修复 */
+.el-table td.el-table__cell {
+  background-color: var(--immediate-td-bg-color, inherit);
+  border-color: var(--immediate-border-color, inherit);
+}
+
+.el-table th.el-table__cell {
+  background-color: var(--immediate-th-bg-color, inherit);
+  border-color: var(--immediate-border-color, inherit);
+}
+
+/* 输入框样式修复 */
+.el-input__wrapper,
+.el-textarea__wrapper,
+.el-date-editor,
+.el-select__wrapper {
+  background-color: var(--immediate-input-bg-color, inherit) !important;
+  box-shadow: var(--immediate-input-shadow, inherit) !important;
+}
+
+/* 分页组件样式修复 */
+.el-pagination {
+  background-color: var(--immediate-pagination-bg-color, inherit) !important;
+  color: var(--immediate-pagination-color, inherit) !important;
+}
+
+.el-pagination button,
+.el-pagination .btn-prev,
+.el-pagination .btn-next,
+.el-pagination .el-pager li:not(.is-active) {
+  background-color: var(--immediate-pagination-item-bg-color, inherit) !important;
+  color: var(--immediate-pagination-color, inherit) !important;
+  border-color: var(--immediate-pagination-border-color, inherit) !important;
+}
+
+/* 清理主题切换时的过渡闪烁 */
+* {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* 禁用不必要的过渡以提高性能 */
+.el-table td.el-table__cell, 
+.el-table th.el-table__cell,
+.el-card,
+.el-card__header,
+.el-card__body {
+  transition: none !important;
+}
+
+/* 确保在主题切换时图标颜色变化 */
+.el-icon {
+  color: currentColor;
+}
+
+/* 确保输入框文本颜色与主题一致 */
+input, textarea, select {
+  color: var(--app-text-color, inherit);
+}
+
+/* 确保按钮文本在主题切换后可见 */
+.el-button {
+  color: var(--app-text-color, inherit);
+}
+
+/* 修复侧边导航栏在主题切换时的布局问题 */
+.el-aside,
+.el-menu {
+  box-sizing: border-box !important;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.el-menu {
+  border-right: none !important;
+}
+
+/* 提高菜单边框和容器的层级，确保在过渡期间不会发生位置变化 */
+.el-aside {
+  z-index: 10;
+  position: relative;
+}
+
+/* 防止主题切换时菜单跳动 */
+.el-menu--vertical {
+  box-sizing: border-box;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: width;
+}
+
+/* 修复在主题切换时菜单宽度变化导致的跳动 */
+.el-menu-vertical:not(.el-menu--collapse) {
+  width: 220px !important;
+  min-width: 220px !important;
+  transform: translateZ(0);
+}
+
+.el-menu-vertical.el-menu--collapse {
+  width: 64px !important;
+  min-width: 64px !important;
+  transform: translateZ(0);
+}
+
+/* Theme-following icon buttons utility class */
+
+/* 主题跟随图标按钮工具类 */
+.theme-icon-button,
+.theme-icon-button .el-icon {
+  color: var(--toggle-icon-color) !important;
+  transition: all 0.3s;
+}
+
+.theme-icon-button:hover {
+  opacity: 0.8;
+}
+
+.theme-icon-button.is-active,
+.theme-icon-button.is-active .el-icon {
+  color: var(--toggle-icon-color) !important;
+}
+
+/* 折叠图标样式 */
+.collapse-icon {
+  color: var(--toggle-icon-color) !important;
+  transition: transform 0.3s;
+}
+
+.collapse-icon.is-active {
+  transform: rotate(180deg);
+}
+
+/* 菜单折叠按钮 */
+.menu-collapse-button {
+  color: var(--toggle-icon-color) !important;
+}
+
+/* 侧边栏折叠触发器 */
+.sidebar-collapse-trigger {
+  color: var(--toggle-icon-color) !important;
+}
+
+/* Element Plus sidebar menu compatibility */
+.el-menu-item.is-active,
+.el-sub-menu.is-active > .el-sub-menu__title {
+  color: var(--toggle-icon-color) !important;
+}
+
+.el-menu-item.is-active i,
+.el-sub-menu.is-active > .el-sub-menu__title i {
+  color: var(--toggle-icon-color) !important;
+}
+
+/* toggle-icon 样式统一处理 */
+.toggle-icon,
+.toggle-icon .el-icon,
+.el-icon.toggle-icon,
+button.toggle-icon,
+.el-button.toggle-icon,
+.el-button.is-text.toggle-icon,
+.el-button:not(.is-text).toggle-icon .el-icon {
+  color: var(--toggle-icon-color) !important;
+  transition: all 0.3s;
+}
+
+.toggle-icon:hover,
+button.toggle-icon:hover,
+.el-button.toggle-icon:hover {
+  opacity: 0.8;
+}
+
+.toggle-icon.is-active,
+.toggle-icon.is-active .el-icon,
+button.toggle-icon.is-active,
+.el-button.toggle-icon.is-active,
+.el-button.is-text.toggle-icon.is-active {
+  color: var(--toggle-icon-color) !important;
+} 

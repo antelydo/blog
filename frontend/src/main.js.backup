@@ -1,0 +1,285 @@
+/**
+ * 极简版 main.js
+ * 为了解决堆栈溢出问题，移除了所有不必要的代码
+ */
+
+// 导入基本依赖
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import { createPinia } from 'pinia'
+
+// 导入基本样式
+import './style.css'
+import './styles/index.css'
+
+// 强制设置亮色主题
+document.documentElement.setAttribute('data-theme', 'light')
+document.documentElement.classList.add('light-theme')
+document.documentElement.classList.remove('dark-theme')
+document.documentElement.classList.remove('dark')
+
+// 清除本地存储中的主题设置
+localStorage.setItem('theme', 'light')
+localStorage.removeItem('stack_overflow_recovery')
+// 创建内联样式元素
+const styleElement = document.createElement('style')
+styleElement.textContent = `
+  /* 全局样式 */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #303133;
+  }
+
+  /* 亮色主题变量 */
+  :root {
+    --el-color-primary: #409eff;
+    --el-bg-color: #ffffff;
+    --el-bg-color-page: #f2f3f5;
+    --el-text-color-primary: #303133;
+    --el-text-color-regular: #606266;
+    --el-border-color-light: #e4e7ed;
+  }
+`
+document.head.appendChild(styleElement)
+// 禁用主题切换功能
+window._disableThemeSwitch = true
+
+// 重写 useThemeStore 方法
+window.useThemeStore = function() {
+  return {
+    theme: 'light',
+    setTheme: function() { return; },
+    initialize: function() { return; },
+    getEffectiveTheme: function() { return 'light'; }
+  };
+}
+
+// 全局错误处理
+window.onerror = function(message, source, line, column, error) {
+  // 如果是堆栈溢出错误，直接刷新页面
+  if (message && message.includes('Maximum call stack size exceeded')) {
+    console.warn('检测到堆栈溢出，正在刷新页面...');
+    window.location.href = window.location.href.split('?')[0] + '?t=' + Date.now();
+    return true;
+  }
+  return false;
+}
+// 创建应用实例
+const app = createApp(App)
+
+// 使用 Pinia
+const pinia = createPinia()
+app.use(pinia)
+
+// 使用路由
+app.use(router)
+
+// 挂载应用
+app.mount('#app')
+
+// 触发应用初始化完成事件
+window.dispatchEvent(new Event('main-js-initialized'))
+// 完成极简版 main.js
+// 文件结束
+
+const app = createApp(App)
+const pinia = createPinia()
+const head = createHead() // 使用Vue的头部管理
+
+// 将app实例暴露到全局，以便在路由和其他地方使用
+window.app = app
+
+app.use(pinia)
+app.use(ElementPlus, { size: 'default' })
+app.use(Antd) // 注册Ant Design Vue
+app.use(i18n)
+app.use(head) // 注册头部管理
+
+// 注册Element Plus图标组件
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
+
+// 注册自定义组件
+app.component('CollapseToggleButton', CollapseToggleButton)
+
+// 使用浏览时长跟踪插件
+app.use(ViewTrackerPlugin, { router })
+
+// 使用访客追踪插件
+app.use(VisitorTrackerPlugin)
+
+// 应用全局错误处理
+app.config.errorHandler = (err, vm, info) => {
+  // 过滤掉 ResizeObserver 的无害警告
+  if (err && err.message && (err.message.includes('ResizeObserver loop') || err.message.includes('Maximum call stack size exceeded'))) {
+    console.warn('忽略错误:', err.message);
+    // 如果是堆栈溢出错误，尝试清理事件监听器
+    if (err.message.includes('Maximum call stack size exceeded')) {
+      console.warn('检测到堆栈溢出，正在尝试恢复...');
+      // 移除可能导致循环的事件监听器
+      document.removeEventListener('theme-changed', () => {});
+      // 尝试重置主题状态
+      try {
+        document.documentElement.classList.remove('theme-transition');
+        document.documentElement.classList.remove('theme-changed');
+        document.documentElement.classList.remove('theme-refreshed');
+        document.documentElement.classList.remove('theme-global-refresh');
+      } catch (e) {
+        console.warn('重置主题状态失败:', e);
+      }
+    }
+    return;
+  }
+  console.error('Vue Error:', err, info)
+  // 可选：将错误记录到服务器
+}
+
+// 捕获Promise中未处理的异常
+window.addEventListener('unhandledrejection', event => {
+  // 过滤掉特定的无害警告
+  if (event.reason && event.reason.message && (
+    event.reason.message.includes('ResizeObserver loop') ||
+    event.reason.message.includes('Maximum call stack size exceeded')
+  )) {
+    event.preventDefault();
+    console.warn('忽略未处理的Promise异常:', event.reason.message);
+    return;
+  }
+  console.error('Unhandled Promise Rejection:', event.reason)
+  // 可选：将错误记录到服务器
+})
+
+// 全局异常捕获 - 极简版本
+window.onerror = function(message, source, line, column, error) {
+  // 过滤掉特定的无害警告
+  if (message && (
+    message.includes('ResizeObserver loop')
+  )) {
+    console.warn('忽略全局错误:', message);
+    return true; // 返回 true 阻止默认处理
+  }
+
+  // 如果是堆栈溢出错误，直接刷新页面
+  if (message && message.includes('Maximum call stack size exceeded')) {
+    console.warn('检测到堆栈溢出，正在刷新页面...');
+
+    // 直接刷新页面，不设置任何标记
+    window.location.href = window.location.href.split('?')[0] + '?t=' + Date.now();
+    return true; // 返回 true 阻止默认处理
+  }
+
+  console.error('Global Error:', { message, source, line, column, error })
+  // 可选：将错误记录到服务器
+}
+
+// 完全禁用主题切换功能
+// 强制设置为亮色主题
+document.documentElement.setAttribute('data-theme', 'light');
+document.documentElement.classList.add('light-theme');
+document.documentElement.classList.remove('dark-theme');
+document.documentElement.classList.remove('dark');
+
+// 清除恢复标记
+localStorage.removeItem('stack_overflow_recovery');
+
+// 禁用主题切换功能
+window._disableThemeSwitch = true;
+
+// 重写 useThemeStore 方法
+window.useThemeStore = function() {
+  return {
+    theme: 'light',
+    setTheme: function() { return; },
+    initialize: function() { return; },
+    getEffectiveTheme: function() { return 'light'; }
+  };
+};
+
+// 根据当前路由决定使用哪个配置store
+const isAdminRoute = window.location.pathname.startsWith('/admin')
+// 不在全局创建配置store实例，避免循环引用
+// const configStore = isAdminRoute ? useConfigStore(pinia) : useBlogConfigStore(pinia)
+
+// 将页面标题设置函数暴露给全局，供路由使用
+window.getPageTitle = (title) => {
+  try {
+    // 简化标题设置逻辑，避免在这里创建新的store实例
+    // 直接返回标题，在App.vue中处理网站名称的添加
+    return title || '页面'
+  } catch (error) {
+    console.error('设置页面标题时出错:', error)
+    return title || '页面'
+  }
+}
+
+app.use(router)
+
+// 在main.js的app挂载之前，先初始化语言处理器
+initLanguageHandler()
+
+// Mount the app first
+app.mount('#app')
+
+// 初始化完成后立即更新页面标题，确保国际化生效
+const updateInitialTitle = async () => {
+  try {
+    // 等待组件挂载和国际化初始化完成
+    await nextTick()
+
+    // 简化标题设置逻辑，避免使用store
+    if (window.router?.currentRoute?.value?.meta?.title) {
+      const title = window.router.currentRoute.value.meta.title
+      document.title = title || (isAdminRoute ? '管理后台' : '首页')
+    } else {
+      // 使用默认标题
+      document.title = isAdminRoute ? '管理后台' : '首页'
+    }
+
+    // 触发一个事件，通知App.vue初始化完成
+    window.dispatchEvent(new CustomEvent('main-js-initialized'))
+  } catch (error) {
+    console.error('初始化标题更新失败:', error)
+    // 出错时使用默认标题
+    document.title = isAdminRoute ? '管理后台' : '首页'
+  }
+}
+
+// 执行初始化标题更新
+updateInitialTitle()
+
+// 使用新的翻译检查工具，确保在i18n初始化后加载
+if (process.env.NODE_ENV === 'development') {
+  setTimeout(() => {
+    import('./utils/i18nValidator')
+      .then(module => {
+        // 不需要手动调用，模块会自动运行
+      })
+      .catch(e => console.error('Failed to load i18n validator:', e));
+
+    import('./utils/i18nAutoFixer')
+      .then(module => {
+        // 不需要手动调用，模块会自动运行
+      })
+      .catch(e => console.error('Failed to load i18n auto-fixer:', e));
+  }, 1000);
+}
+
+// 抑制 element-plus 的控制台警告信息
+const originalConsoleWarn = console.warn;
+console.warn = function (...args) {
+  // 忽略element-plus的API废弃警告
+  if (args.length > 0 && typeof args[0] === 'string' &&
+      (args[0].includes('[element-plus]') ||
+       args[0].includes('[el-radio]') ||
+       args[0].includes('ElementPlusError'))) {
+    return;
+  }
+  return originalConsoleWarn.apply(console, args);
+};

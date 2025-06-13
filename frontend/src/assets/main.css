@@ -1,0 +1,75 @@
+/* 基础样式 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+a {
+  color: #42b983;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* 语言切换动画效果 */
+.i18n-refresh {
+  animation: i18n-flash 0.25s;
+}
+
+@keyframes i18n-flash {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* 语言切换过渡效果 */
+[lang="zh"] .lang-transition,
+[lang="en"] .lang-transition {
+  transition: all 0.3s ease;
+}
+
+/* 适应不同语言文本长度的容器 */
+.lang-flex-container {
+  display: flex;
+  align-items: center;
+  min-height: 1.5em;
+}
+
+/* 语言特定样式 - 中文 */
+[lang="zh"] .zh-text-adjust {
+  font-size: 1em;
+  letter-spacing: 0.05em;
+}
+
+/* 语言特定样式 - 英文 */
+[lang="en"] .en-text-adjust {
+  font-size: 0.95em;
+  letter-spacing: 0;
+}
+
+/* 引入自定义弹窗样式 */
+@import './styles/dialog.scss';

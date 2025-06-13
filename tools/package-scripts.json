@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "i18n:sync": "node tools/i18n-cli.js sync",
+    "i18n:optimize": "node tools/i18n-cli.js optimize",
+    "i18n:extract": "node tools/i18n-cli.js extract",
+    "i18n:snapshot": "node tools/i18n-cli.js snapshot",
+    "i18n:list": "node tools/i18n-cli.js list-versions",
+    "i18n:restore": "node tools/i18n-cli.js restore",
+    "i18n:all": "node tools/i18n-cli.js all",
+    "i18n:reload": "node tools/reload-i18n.js",
+    "precommit": "npm run i18n:all"
+  }
+}

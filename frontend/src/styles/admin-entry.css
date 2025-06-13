@@ -1,0 +1,22 @@
+/**
+ * 管理后台样式入口文件
+ * 整合所有管理后台相关的CSS文件，减少HTTP请求
+ */
+
+/* 管理后台基础样式 */
+@import './admin-card.css';
+@import './admin-tables.css';
+@import './admin-link.css';
+@import './admin-icons.css';
+@import './admin-contact-messages.css';
+@import './admin-ip-location.css';
+
+/* AI工具管理样式 */
+@import './ai-tool-form.css';
+@import './ai-tool-alert.css';
+@import './ai-tool-links.css';
+@import './ai-tool-visit-log.css';
+@import './ai-tool-buttons-pagination.css';
+@import './ai-tool-stat-cards.css';
+@import './ai-tool-comment-icons.css';
+@import './ai-tool-visit-log-buttons.css';

@@ -1,0 +1,298 @@
+// 预加载网站图标（在Vue应用初始化之前执行）
+import './utils/preloadFavicon'
+
+// 导入全局配置和日志工具
+import appConfig from './config'
+import logger, { updateLoggerConfig } from './utils/logger'
+
+import { createApp } from 'vue'
+import App from './App.vue'
+
+// 导入CSS加载优化工具
+import { initCSSOptimization, preloadCriticalCSS } from './utils/cssLoader'
+
+// 导入基础CSS文件
+import './styles/base-entry.css'  // 基础样式
+// 管理后台样式将通过cssLoader按需加载
+
+// 导入资源文件
+import './assets/css/font-awesome.css' // 导入本地Font Awesome样式
+import './assets/css/like-button.css' // 导入点赞按钮样式
+import './assets/css/favorite-button.css' // 导入收藏按钮样式
+// 导入现代化导航栏样式
+import './views/index/assets/navbar-modern.css' // 导入现代化PC端导航栏样式
+import './views/index/assets/navbar-mobile-modern.css' // 导入现代化移动端导航栏样式
+
+import router from './router'
+import { createPinia } from 'pinia'
+import i18n from './plugins/i18n'
+import { nextTick } from 'vue'
+// 使用相对路径导入 Element Plus CSS
+import './styles/element-plus-imports' // 使用我们修改过的导入方式
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
+// 注意：由于我们已经直接导入了CSS文件，不需要再预加载它们
+// preloadCriticalCSS();
+import { useConfigStore } from './stores/config' // 导入网站配置store
+import { useBlogConfigStore } from './stores/blogConfig'
+import ElementPlus from 'element-plus'
+// 导入Ant Design Vue
+import Antd from 'ant-design-vue'
+// 使用相对路径导入Ant Design Vue CSS
+import './assets/css/ant-design-reset.css' // 使用本地CSS文件替代
+import CollapseToggleButton from './components/common/CollapseToggleButton.vue' // 导入折叠切换按钮
+import { initLanguageHandler } from './language-handler'
+import { createHead } from "@vueuse/head"
+import ViewTrackerPlugin from './plugins/viewTrackerPlugin' // 导入浏览时长跟踪插件
+import VisitorTrackerPlugin from './plugins/visitorTracker' // 导入访客追踪插件
+
+// 创建全局样式元素，强制下拉框边框显示
+const styleElement = document.createElement('style')
+styleElement.textContent = `
+  /* 强制所有下拉框立即显示边框，优先级最高 */
+  .el-select .el-input__wrapper {
+    box-shadow: 0 0 0 1px #dcdfe6 inset !important;
+  }
+  .el-select:hover .el-input__wrapper {
+    box-shadow: 0 0 0 1px #c0c4cc inset !important;
+  }
+  .el-select .el-input.is-focus .el-input__wrapper {
+    box-shadow: 0 0 0 1px #409eff inset !important;
+  }
+`
+document.head.appendChild(styleElement)
+
+// 将router实例挂载到window对象，以便在API拦截器中使用
+window.router = router
+
+// 全局错误处理，捕获MetaMask或其他Web3钱包扩展可能产生的JSON-RPC错误
+window.addEventListener('error', (event) => {
+  // 检查错误是否与JSON-RPC相关
+  if (event.error && event.error.message && (
+    event.error.message.includes('JSON-RPC') ||
+    event.error.message.includes('inpage.js') ||
+    event.error.message.includes('MetaMask') ||
+    (event.error.code && event.error.code === -32603)
+  )) {
+    console.warn('捕获到Web3钱包扩展相关错误，已阻止其影响页面功能:', event.error.message)
+    // 阻止错误继续传播
+    event.preventDefault()
+    return true
+  }
+  return false
+}, { once: false, capture: true })
+
+// 捕获未处理的Promise错误，这些错误可能来自Web3钱包扩展
+window.addEventListener('unhandledrejection', (event) => {
+  if (event.reason && (
+    (typeof event.reason.message === 'string' && (
+      event.reason.message.includes('JSON-RPC') ||
+      event.reason.message.includes('inpage.js') ||
+      event.reason.message.includes('MetaMask')
+    )) ||
+    (typeof event.reason.code === 'number' && event.reason.code === -32603) ||
+    (event.reason.data && event.reason.data.originalError &&
+     event.reason.data.originalError.status === 'ERR_NETWORK')
+  )) {
+    console.warn('捕获到未处理的Web3钱包扩展相关Promise错误:', event.reason)
+    // 阻止错误继续传播
+    event.preventDefault()
+    return true
+  }
+  return false
+}, { once: false, capture: true })
+
+// 添加全局错误处理函数，用于处理Web3钱包扩展相关错误
+const handleJsonRpcError = (error) => {
+  if (error && typeof error === 'object') {
+    // 检查是否是JSON-RPC错误
+    if ((error.code === -32603 && error.message && error.message.includes('JSON-RPC')) ||
+        (error.message && error.message.includes('inpage.js')) ||
+        (error.message && error.message.includes('MetaMask')) ||
+        (error.data && error.data.originalError && error.data.originalError.status === 'ERR_NETWORK')) {
+      console.warn('捕获到Web3钱包扩展相关错误，已忽略:', error)
+      return true
+    }
+  }
+  return false
+}
+
+// 将处理函数暴露给全局，以便在其他组件中使用
+window.handleJsonRpcError = handleJsonRpcError
+
+// 从本地存储加载日志配置
+let logConfig = appConfig.LOG_CONFIG
+try {
+  const savedConfig = localStorage.getItem('logger_config')
+  if (savedConfig) {
+    const parsedConfig = JSON.parse(savedConfig)
+    logConfig = { ...logConfig, ...parsedConfig }
+  }
+} catch (e) {
+  console.error('从本地存储加载日志配置失败:', e)
+}
+
+// 初始化日志配置
+updateLoggerConfig(logConfig)
+
+// 如果配置为禁用控制台日志，则覆盖原始的console方法
+if (!logConfig.enableConsoleLog) {
+  logger.overrideConsole()
+  console.log('控制台日志已禁用，这是最后一条可见的日志消息')
+} else {
+  console.log('当前环境:', appConfig.APP_ENV, '日志级别:', logConfig.logLevel)
+}
+
+// 将logger暴露给全局，以便在其他组件中使用
+window.$logger = logger
+
+const app = createApp(App)
+const pinia = createPinia()
+const head = createHead() // 使用Vue的头部管理
+
+// 将app实例暴露到全局，以便在路由和其他地方使用
+window.app = app
+
+app.use(pinia)
+app.use(ElementPlus, { size: 'default' })
+app.use(Antd) // 注册Ant Design Vue
+app.use(i18n)
+app.use(head) // 注册头部管理
+
+// 注册Element Plus图标组件
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
+
+// 注册自定义组件
+app.component('CollapseToggleButton', CollapseToggleButton)
+
+// 使用浏览时长跟踪插件
+app.use(ViewTrackerPlugin, { router })
+
+// 使用访客追踪插件
+app.use(VisitorTrackerPlugin)
+
+// 应用全局错误处理
+app.config.errorHandler = (err, vm, info) => {
+  // 过滤掉 ResizeObserver 的无害警告
+  if (err && err.message && err.message.includes('ResizeObserver loop')) {
+    return;
+  }
+  console.error('Vue Error:', err, info)
+  // 可选：将错误记录到服务器
+}
+
+// 捕获Promise中未处理的异常
+window.addEventListener('unhandledrejection', event => {
+  // 过滤掉 ResizeObserver 的无害警告
+  if (event.reason && event.reason.message && event.reason.message.includes('ResizeObserver loop')) {
+    event.preventDefault();
+    return;
+  }
+  console.error('Unhandled Promise Rejection:', event.reason)
+  // 可选：将错误记录到服务器
+})
+
+// 全局异常捕获
+window.onerror = function(message, source, line, column, error) {
+  // 过滤掉 ResizeObserver 的无害警告
+  if (message && message.includes('ResizeObserver loop')) {
+    return true; // 返回 true 阻止默认处理
+  }
+  console.error('Global Error:', { message, source, line, column, error })
+  // 可选：将错误记录到服务器
+}
+
+// 移除主题初始化
+
+// 根据当前路由决定使用哪个配置store
+const isAdminRoute = window.location.pathname.startsWith('/admin')
+const configStore = isAdminRoute ? useConfigStore(pinia) : useBlogConfigStore(pinia)
+
+// 将页面标题设置函数暴露给全局，供路由使用
+window.getPageTitle = (title) => {
+  try {
+    // 根据当前路径动态判断使用哪个store
+    const currentPath = window.location.pathname
+    const isCurrentAdminRoute = currentPath.startsWith('/admin')
+
+    if (isCurrentAdminRoute) {
+      // 管理员路由使用configStore
+      return useConfigStore(pinia).getPageTitle(title)
+    } else {
+      // 前台路由使用blogConfigStore
+      return useBlogConfigStore(pinia).getPageTitle(title)
+    }
+  } catch (error) {
+    console.error('设置页面标题时出错:', error)
+    // 如果出错，返回默认标题
+    return title || '页面'
+  }
+}
+
+app.use(router)
+
+// 在main.js的app挂载之前，先初始化语言处理器
+initLanguageHandler()
+
+// Mount the app first
+app.mount('#app')
+
+// 初始化完成后立即更新页面标题，确保国际化生效
+const updateInitialTitle = async () => {
+  try {
+    // 等待组件挂载和国际化初始化完成
+    await nextTick()
+
+    // 获取配置并等待完成 - 由App.vue组件负责，不在这里重复调用
+    // 如果App.vue尚未初始化，我们只设置一个基本标题
+
+    // 强制更新一次页面标题
+    if (window.router?.currentRoute?.value?.meta?.title) {
+      const title = window.router.currentRoute.value.meta.title
+      document.title = window.getPageTitle(title)
+    } else {
+      // 使用一个默认标题，等待App.vue完成配置初始化
+      document.title = isAdminRoute ? '管理后台' : '首页'
+    }
+  } catch (error) {
+    console.error('初始化标题更新失败:', error)
+  }
+}
+
+// 执行初始化标题更新
+updateInitialTitle()
+
+// 初始化CSS加载优化
+initCSSOptimization(router)
+
+// 使用新的翻译检查工具，确保在i18n初始化后加载
+if (process.env.NODE_ENV === 'development') {
+  setTimeout(() => {
+    import('./utils/i18nValidator')
+      .then(module => {
+        // 不需要手动调用，模块会自动运行
+      })
+      .catch(e => console.error('Failed to load i18n validator:', e));
+
+    import('./utils/i18nAutoFixer')
+      .then(module => {
+        // 不需要手动调用，模块会自动运行
+      })
+      .catch(e => console.error('Failed to load i18n auto-fixer:', e));
+  }, 1000);
+}
+
+// 抑制 element-plus 的控制台警告信息
+const originalConsoleWarn = console.warn;
+console.warn = function (...args) {
+  // 忽略element-plus的API废弃警告
+  if (args.length > 0 && typeof args[0] === 'string' &&
+      (args[0].includes('[element-plus]') ||
+       args[0].includes('[el-radio]') ||
+       args[0].includes('ElementPlusError'))) {
+    return;
+  }
+  return originalConsoleWarn.apply(console, args);
+};

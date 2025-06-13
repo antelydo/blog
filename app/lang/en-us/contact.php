@@ -1,0 +1,83 @@
+<?php
+
+return [
+    'contact' => [
+        // API responses
+        'form_disabled' => 'Contact form is currently disabled',
+        'submit_success' => 'Your message has been sent successfully',
+        'submit_failed' => 'Failed to send your message, please try again later',
+        'id_required' => 'Message ID is required',
+        'message_not_found' => 'Message not found',
+        'get_success' => 'Message retrieved successfully',
+        'update_success' => 'Message status updated successfully',
+        'update_failed' => 'Failed to update message status',
+        'invalid_status' => 'Invalid status value',
+        'reply_required' => 'Reply content is required',
+        'reply_success' => 'Reply sent successfully',
+        'reply_failed' => 'Failed to send reply',
+        'delete_success' => 'Message deleted successfully',
+        'delete_failed' => 'Failed to delete message',
+        'email_notification_disabled' => 'Email notification is disabled',
+        'email_notification_failed' => 'Failed to send email notification',
+        'email_notification_success' => 'Email notification sent successfully',
+
+        // Admin panel
+        'contact_management' => 'Contact Management',
+        'messages' => 'Messages',
+        'message_details' => 'Message Details',
+        'new_messages' => 'New Messages',
+        'processed_messages' => 'Processed Messages',
+        'replied_messages' => 'Replied Messages',
+        'sender_name' => 'Sender Name',
+        'sender_email' => 'Sender Email',
+        'subject' => 'Subject',
+        'content' => 'Content',
+        'status' => 'Status',
+        'status_0' => 'Unprocessed',
+        'status_1' => 'Processed',
+        'status_2' => 'Replied',
+        'sent_time' => 'Sent Time',
+        'ip_address' => 'IP Address',
+        'mark_as_processed' => 'Mark as Processed',
+        'reply' => 'Reply',
+        'reply_content' => 'Reply Content',
+        'reply_message' => 'Reply to this message',
+        'replied_by' => 'Replied by',
+        'replied_time' => 'Replied Time',
+        'actions' => 'Actions',
+        'view' => 'View',
+        'delete' => 'Delete',
+        'confirm_delete' => 'Are you sure you want to delete this message?',
+        'no_messages' => 'No messages found',
+        'search_placeholder' => 'Search by name, email, subject or content',
+
+        // Email notification
+        'email_subject' => 'New Contact Form Message: {subject}',
+        'email_title' => 'New Contact Form Message',
+        'email_received' => 'You have received a new contact form message',
+        'email_sender' => 'From:',
+        'email_sender_email' => 'Email:',
+        'email_subject_label' => 'Subject:',
+        'email_time' => 'Time:',
+        'email_ip' => 'IP Address:',
+        'email_message' => 'Message Content:',
+        'email_admin_note' => 'You can view and reply to this message in the admin dashboard.',
+
+        // Logs
+        'log_email_success' => 'Contact form notification email sent successfully, recipients: {recipients}',
+        'log_email_unavailable' => 'Mail function is unavailable, please configure server mail sending capability',
+        'log_email_failed' => 'Failed to send contact form notification email: {error}'
+    ],
+    // Compatibility keys for supporting existing controller calls
+    'id_required' => 'Message ID is required',
+    'message_not_found' => 'Message not found',
+    'get_success' => 'Message retrieved successfully',
+    'update_success' => 'Message status updated successfully',
+    'update_failed' => 'Failed to update message status',
+    'invalid_status' => 'Invalid status value',
+    'reply_required' => 'Reply content is required',
+    'reply_success' => 'Reply sent successfully',
+    'reply_failed' => 'Failed to send reply',
+    'delete_success' => 'Message deleted successfully',
+    'delete_failed' => 'Failed to delete message'
+];

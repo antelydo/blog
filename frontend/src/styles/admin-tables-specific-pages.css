@@ -1,0 +1,270 @@
+/**
+ * 管理后台特定页面表格样式优化
+ * 针对不同页面的表格进行特定优化
+ */
+
+/* ========= 用户管理页面表格优化 ========= */
+
+/* 用户管理表格边框 */
+.user-management-container .el-table {
+  border-color: #edf0f7 !important;
+}
+
+.user-management-container .el-table--border::after,
+.user-management-container .el-table--border::before,
+.user-management-container .el-table__inner-wrapper::after,
+.user-management-container .el-table__inner-wrapper::before {
+  background-color: #edf0f7 !important;
+}
+
+/* 用户管理表格头部 */
+.user-management-container .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+}
+
+/* 用户管理表格状态列 */
+.user-management-container .el-table .status-column .el-tag {
+  border-radius: 12px !important;
+  padding: 0 10px !important;
+}
+
+/* ========= 文章管理页面表格优化 ========= */
+
+/* 文章管理表格边框 */
+.article-management-container .el-table {
+  border-color: #edf0f7 !important;
+}
+
+.article-management-container .el-table--border::after,
+.article-management-container .el-table--border::before,
+.article-management-container .el-table__inner-wrapper::after,
+.article-management-container .el-table__inner-wrapper::before {
+  background-color: #edf0f7 !important;
+}
+
+/* 文章管理表格头部 */
+.article-management-container .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+}
+
+/* 文章管理表格标题列 */
+.article-management-container .el-table .article-title-cell {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.article-management-container .el-table .article-title-cell .article-title {
+  font-weight: 500 !important;
+  color: #303133 !important;
+}
+
+/* ========= AI工具管理页面表格优化 ========= */
+
+/* AI工具列表表格边框 */
+.tool-table {
+  border-color: #edf0f7 !important;
+}
+
+.tool-table .ant-table-thead > tr > th {
+  background-color: #f8fafc !important;
+  border-bottom: 1px solid #e6e9f0 !important;
+}
+
+.tool-table .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #edf0f7 !important;
+}
+
+/* AI工具标签表格边框 */
+.tag-table {
+  border-color: #edf0f7 !important;
+}
+
+.tag-table .ant-table-thead > tr > th {
+  background-color: #f8fafc !important;
+  border-bottom: 1px solid #e6e9f0 !important;
+}
+
+.tag-table .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #edf0f7 !important;
+}
+
+/* AI工具评论表格边框 */
+.comment-table {
+  border-color: #edf0f7 !important;
+}
+
+.comment-table .ant-table-thead > tr > th {
+  background-color: #f8fafc !important;
+  border-bottom: 1px solid #e6e9f0 !important;
+}
+
+.comment-table .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #edf0f7 !important;
+}
+
+/* AI工具访问日志表格边框 */
+.visit-log-table {
+  border-color: #edf0f7 !important;
+}
+
+.visit-log-table .ant-table-thead > tr > th {
+  background-color: #f8fafc !important;
+  border-bottom: 1px solid #e6e9f0 !important;
+}
+
+.visit-log-table .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #edf0f7 !important;
+}
+
+/* ========= 留言管理页面表格优化 ========= */
+
+/* 留言管理表格边框 */
+.contact-messages-container .el-table {
+  border-color: #edf0f7 !important;
+}
+
+.contact-messages-container .el-table--border::after,
+.contact-messages-container .el-table--border::before,
+.contact-messages-container .el-table__inner-wrapper::after,
+.contact-messages-container .el-table__inner-wrapper::before {
+  background-color: #edf0f7 !important;
+}
+
+/* 留言管理表格头部 */
+.contact-messages-container .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+}
+
+/* 留言管理表格内容列 */
+.contact-messages-container .el-table .message-content {
+  max-height: 60px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+}
+
+/* ========= 友情链接管理页面表格优化 ========= */
+
+/* 友情链接管理表格边框 */
+.link-management-container .el-table {
+  border-color: #edf0f7 !important;
+}
+
+.link-management-container .el-table--border::after,
+.link-management-container .el-table--border::before,
+.link-management-container .el-table__inner-wrapper::after,
+.link-management-container .el-table__inner-wrapper::before {
+  background-color: #edf0f7 !important;
+}
+
+/* 友情链接管理表格头部 */
+.link-management-container .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+}
+
+/* 友情链接管理表格图标列 */
+.link-management-container .el-table .link-icon {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 4px !important;
+  object-fit: contain !important;
+}
+
+/* ========= 设置页面表格优化 ========= */
+
+/* 设置页面表格边框 */
+.settings-container .el-table {
+  border-color: #edf0f7 !important;
+}
+
+.settings-container .el-table--border::after,
+.settings-container .el-table--border::before,
+.settings-container .el-table__inner-wrapper::after,
+.settings-container .el-table__inner-wrapper::before {
+  background-color: #edf0f7 !important;
+}
+
+/* 设置页面表格头部 */
+.settings-container .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+}
+
+/* ========= 统计页面表格优化 ========= */
+
+/* 统计页面表格边框 */
+.statistics-container .el-table {
+  border-color: #edf0f7 !important;
+}
+
+.statistics-container .el-table--border::after,
+.statistics-container .el-table--border::before,
+.statistics-container .el-table__inner-wrapper::after,
+.statistics-container .el-table__inner-wrapper::before {
+  background-color: #edf0f7 !important;
+}
+
+/* 统计页面表格头部 */
+.statistics-container .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+}
+
+/* 统计页面表格数值列 */
+.statistics-container .el-table .number-column {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
+  text-align: right !important;
+}
+
+/* ========= 活动日志页面表格优化 ========= */
+
+/* 活动日志表格边框 */
+.activity-log-container .el-table {
+  border-color: #edf0f7 !important;
+}
+
+.activity-log-container .el-table--border::after,
+.activity-log-container .el-table--border::before,
+.activity-log-container .el-table__inner-wrapper::after,
+.activity-log-container .el-table__inner-wrapper::before {
+  background-color: #edf0f7 !important;
+}
+
+/* 活动日志表格头部 */
+.activity-log-container .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+}
+
+/* 活动日志表格操作列 */
+.activity-log-container .el-table .operation-column {
+  color: #606266 !important;
+}
+
+/* 活动日志表格IP列 */
+.activity-log-container .el-table .ip-column {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
+}
+
+/* ========= IP地理位置查询工具页面表格优化 ========= */
+
+/* IP地理位置查询工具表格边框 */
+.ip-location-container .el-table {
+  border-color: #edf0f7 !important;
+}
+
+.ip-location-container .el-table--border::after,
+.ip-location-container .el-table--border::before,
+.ip-location-container .el-table__inner-wrapper::after,
+.ip-location-container .el-table__inner-wrapper::before {
+  background-color: #edf0f7 !important;
+}
+
+/* IP地理位置查询工具表格头部 */
+.ip-location-container .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+}
+
+/* IP地理位置查询工具表格IP列 */
+.ip-location-container .el-table .ip-column {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
+}

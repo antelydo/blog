@@ -1,0 +1,258 @@
+/**
+ * AI 工具管理列表 A 标签样式
+ * 使 A 标签文字颜色跟随选择的主题配色方案
+ */
+
+/* A 标签基础样式 */
+.ai-tool-list-container a,
+.ai-tool-tag-container a,
+.ai-tool-category-container a,
+.ai-tool-comment-container a,
+.ai-tool-favorite-container a,
+.ai-tool-like-container a,
+.ai-tool-visit-log-container a {
+  color: var(--el-color-primary, #409eff);
+  text-decoration: none;
+  transition: color 0.3s;
+  background-color: transparent;
+}
+
+.ai-tool-list-container a:hover,
+.ai-tool-tag-container a:hover,
+.ai-tool-category-container a:hover,
+.ai-tool-comment-container a:hover,
+.ai-tool-favorite-container a:hover,
+.ai-tool-like-container a:hover,
+.ai-tool-visit-log-container a:hover {
+  color: var(--el-color-primary-light-3, #79bbff);
+}
+
+.ai-tool-list-container a:active,
+.ai-tool-tag-container a:active,
+.ai-tool-category-container a:active,
+.ai-tool-comment-container a:active,
+.ai-tool-favorite-container a:active,
+.ai-tool-like-container a:active,
+.ai-tool-visit-log-container a:active {
+  color: var(--el-color-primary-dark-2, #337ecc);
+}
+
+/* Ant Design 组件中的 A 标签样式 */
+.ai-tool-list-container .ant-btn-link,
+.ai-tool-tag-container .ant-btn-link,
+.ai-tool-category-container .ant-btn-link,
+.ai-tool-comment-container .ant-btn-link,
+.ai-tool-favorite-container .ant-btn-link,
+.ai-tool-like-container .ant-btn-link,
+.ai-tool-visit-log-container .ant-btn-link {
+  color: var(--el-color-primary, #409eff);
+}
+
+.ai-tool-list-container .ant-btn-link:hover,
+.ai-tool-tag-container .ant-btn-link:hover,
+.ai-tool-category-container .ant-btn-link:hover,
+.ai-tool-comment-container .ant-btn-link:hover,
+.ai-tool-favorite-container .ant-btn-link:hover,
+.ai-tool-like-container .ant-btn-link:hover,
+.ai-tool-visit-log-container .ant-btn-link:hover {
+  color: var(--el-color-primary-light-3, #79bbff);
+}
+
+.ai-tool-list-container .ant-btn-link:active,
+.ai-tool-tag-container .ant-btn-link:active,
+.ai-tool-category-container .ant-btn-link:active,
+.ai-tool-comment-container .ant-btn-link:active,
+.ai-tool-favorite-container .ant-btn-link:active,
+.ai-tool-like-container .ant-btn-link:active,
+.ai-tool-visit-log-container .ant-btn-link:active {
+  color: var(--el-color-primary-dark-2, #337ecc);
+}
+
+/* 表格中的 A 标签样式 */
+.ai-tool-list-container .ant-table a,
+.ai-tool-tag-container .ant-table a,
+.ai-tool-category-container .ant-table a,
+.ai-tool-comment-container .ant-table a,
+.ai-tool-favorite-container .ant-table a,
+.ai-tool-like-container .ant-table a,
+.ai-tool-visit-log-container .ant-table a {
+  color: var(--el-color-primary, #409eff);
+}
+
+.ai-tool-list-container .ant-table a:hover,
+.ai-tool-tag-container .ant-table a:hover,
+.ai-tool-category-container .ant-table a:hover,
+.ai-tool-comment-container .ant-table a:hover,
+.ai-tool-favorite-container .ant-table a:hover,
+.ai-tool-like-container .ant-table a:hover,
+.ai-tool-visit-log-container .ant-table a:hover {
+  color: var(--el-color-primary-light-3, #79bbff);
+}
+
+.ai-tool-list-container .ant-table a:active,
+.ai-tool-tag-container .ant-table a:active,
+.ai-tool-category-container .ant-table a:active,
+.ai-tool-comment-container .ant-table a:active,
+.ai-tool-favorite-container .ant-table a:active,
+.ai-tool-like-container .ant-table a:active,
+.ai-tool-visit-log-container .ant-table a:active {
+  color: var(--el-color-primary-dark-2, #337ecc);
+}
+
+/* 操作列中的 A 标签样式 */
+.ai-tool-list-container .ant-table .operation-column a,
+.ai-tool-tag-container .ant-table .operation-column a,
+.ai-tool-category-container .ant-table .operation-column a,
+.ai-tool-comment-container .ant-table .operation-column a,
+.ai-tool-favorite-container .ant-table .operation-column a,
+.ai-tool-like-container .ant-table .operation-column a,
+.ai-tool-visit-log-container .ant-table .operation-column a {
+  color: var(--el-color-primary, #409eff);
+  margin-right: 8px;
+}
+
+.ai-tool-list-container .ant-table .operation-column a:hover,
+.ai-tool-tag-container .ant-table .operation-column a:hover,
+.ai-tool-category-container .ant-table .operation-column a:hover,
+.ai-tool-comment-container .ant-table .operation-column a:hover,
+.ai-tool-favorite-container .ant-table .operation-column a:hover,
+.ai-tool-like-container .ant-table .operation-column a:hover,
+.ai-tool-visit-log-container .ant-table .operation-column a:hover {
+  color: var(--el-color-primary-light-3, #79bbff);
+}
+
+.ai-tool-list-container .ant-table .operation-column a:active,
+.ai-tool-tag-container .ant-table .operation-column a:active,
+.ai-tool-category-container .ant-table .operation-column a:active,
+.ai-tool-comment-container .ant-table .operation-column a:active,
+.ai-tool-favorite-container .ant-table .operation-column a:active,
+.ai-tool-like-container .ant-table .operation-column a:active,
+.ai-tool-visit-log-container .ant-table .operation-column a:active {
+  color: var(--el-color-primary-dark-2, #337ecc);
+}
+
+/* 暗黑模式下的 A 标签样式 */
+html.dark .ai-tool-list-container a,
+html.dark .ai-tool-tag-container a,
+html.dark .ai-tool-category-container a,
+html.dark .ai-tool-comment-container a,
+html.dark .ai-tool-favorite-container a,
+html.dark .ai-tool-like-container a,
+html.dark .ai-tool-visit-log-container a,
+html.dark .ai-tool-list-container .ant-btn-link,
+html.dark .ai-tool-tag-container .ant-btn-link,
+html.dark .ai-tool-category-container .ant-btn-link,
+html.dark .ai-tool-comment-container .ant-btn-link,
+html.dark .ai-tool-favorite-container .ant-btn-link,
+html.dark .ai-tool-like-container .ant-btn-link,
+html.dark .ai-tool-visit-log-container .ant-btn-link,
+html.dark .ai-tool-list-container .ant-table a,
+html.dark .ai-tool-tag-container .ant-table a,
+html.dark .ai-tool-category-container .ant-table a,
+html.dark .ai-tool-comment-container .ant-table a,
+html.dark .ai-tool-favorite-container .ant-table a,
+html.dark .ai-tool-like-container .ant-table a,
+html.dark .ai-tool-visit-log-container .ant-table a,
+html.dark .ai-tool-list-container .ant-table .operation-column a,
+html.dark .ai-tool-tag-container .ant-table .operation-column a,
+html.dark .ai-tool-category-container .ant-table .operation-column a,
+html.dark .ai-tool-comment-container .ant-table .operation-column a,
+html.dark .ai-tool-favorite-container .ant-table .operation-column a,
+html.dark .ai-tool-like-container .ant-table .operation-column a,
+html.dark .ai-tool-visit-log-container .ant-table .operation-column a {
+  color: var(--el-color-primary, #409eff);
+}
+
+html.dark .ai-tool-list-container a:hover,
+html.dark .ai-tool-tag-container a:hover,
+html.dark .ai-tool-category-container a:hover,
+html.dark .ai-tool-comment-container a:hover,
+html.dark .ai-tool-favorite-container a:hover,
+html.dark .ai-tool-like-container a:hover,
+html.dark .ai-tool-visit-log-container a:hover,
+html.dark .ai-tool-list-container .ant-btn-link:hover,
+html.dark .ai-tool-tag-container .ant-btn-link:hover,
+html.dark .ai-tool-category-container .ant-btn-link:hover,
+html.dark .ai-tool-comment-container .ant-btn-link:hover,
+html.dark .ai-tool-favorite-container .ant-btn-link:hover,
+html.dark .ai-tool-like-container .ant-btn-link:hover,
+html.dark .ai-tool-visit-log-container .ant-btn-link:hover,
+html.dark .ai-tool-list-container .ant-table a:hover,
+html.dark .ai-tool-tag-container .ant-table a:hover,
+html.dark .ai-tool-category-container .ant-table a:hover,
+html.dark .ai-tool-comment-container .ant-table a:hover,
+html.dark .ai-tool-favorite-container .ant-table a:hover,
+html.dark .ai-tool-like-container .ant-table a:hover,
+html.dark .ai-tool-visit-log-container .ant-table a:hover,
+html.dark .ai-tool-list-container .ant-table .operation-column a:hover,
+html.dark .ai-tool-tag-container .ant-table .operation-column a:hover,
+html.dark .ai-tool-category-container .ant-table .operation-column a:hover,
+html.dark .ai-tool-comment-container .ant-table .operation-column a:hover,
+html.dark .ai-tool-favorite-container .ant-table .operation-column a:hover,
+html.dark .ai-tool-like-container .ant-table .operation-column a:hover,
+html.dark .ai-tool-visit-log-container .ant-table .operation-column a:hover {
+  color: var(--el-color-primary-light-3, #79bbff);
+}
+
+/* 系统主题模式下的 A 标签样式 */
+html.system-theme .ai-tool-list-container a,
+html.system-theme .ai-tool-tag-container a,
+html.system-theme .ai-tool-category-container a,
+html.system-theme .ai-tool-comment-container a,
+html.system-theme .ai-tool-favorite-container a,
+html.system-theme .ai-tool-like-container a,
+html.system-theme .ai-tool-visit-log-container a,
+html.system-theme .ai-tool-list-container .ant-btn-link,
+html.system-theme .ai-tool-tag-container .ant-btn-link,
+html.system-theme .ai-tool-category-container .ant-btn-link,
+html.system-theme .ai-tool-comment-container .ant-btn-link,
+html.system-theme .ai-tool-favorite-container .ant-btn-link,
+html.system-theme .ai-tool-like-container .ant-btn-link,
+html.system-theme .ai-tool-visit-log-container .ant-btn-link,
+html.system-theme .ai-tool-list-container .ant-table a,
+html.system-theme .ai-tool-tag-container .ant-table a,
+html.system-theme .ai-tool-category-container .ant-table a,
+html.system-theme .ai-tool-comment-container .ant-table a,
+html.system-theme .ai-tool-favorite-container .ant-table a,
+html.system-theme .ai-tool-like-container .ant-table a,
+html.system-theme .ai-tool-visit-log-container .ant-table a,
+html.system-theme .ai-tool-list-container .ant-table .operation-column a,
+html.system-theme .ai-tool-tag-container .ant-table .operation-column a,
+html.system-theme .ai-tool-category-container .ant-table .operation-column a,
+html.system-theme .ai-tool-comment-container .ant-table .operation-column a,
+html.system-theme .ai-tool-favorite-container .ant-table .operation-column a,
+html.system-theme .ai-tool-like-container .ant-table .operation-column a,
+html.system-theme .ai-tool-visit-log-container .ant-table .operation-column a {
+  color: var(--el-color-primary, #409eff);
+}
+
+html.system-theme .ai-tool-list-container a:hover,
+html.system-theme .ai-tool-tag-container a:hover,
+html.system-theme .ai-tool-category-container a:hover,
+html.system-theme .ai-tool-comment-container a:hover,
+html.system-theme .ai-tool-favorite-container a:hover,
+html.system-theme .ai-tool-like-container a:hover,
+html.system-theme .ai-tool-visit-log-container a:hover,
+html.system-theme .ai-tool-list-container .ant-btn-link:hover,
+html.system-theme .ai-tool-tag-container .ant-btn-link:hover,
+html.system-theme .ai-tool-category-container .ant-btn-link:hover,
+html.system-theme .ai-tool-comment-container .ant-btn-link:hover,
+html.system-theme .ai-tool-favorite-container .ant-btn-link:hover,
+html.system-theme .ai-tool-like-container .ant-btn-link:hover,
+html.system-theme .ai-tool-visit-log-container .ant-btn-link:hover,
+html.system-theme .ai-tool-list-container .ant-table a:hover,
+html.system-theme .ai-tool-tag-container .ant-table a:hover,
+html.system-theme .ai-tool-category-container .ant-table a:hover,
+html.system-theme .ai-tool-comment-container .ant-table a:hover,
+html.system-theme .ai-tool-favorite-container .ant-table a:hover,
+html.system-theme .ai-tool-like-container .ant-table a:hover,
+html.system-theme .ai-tool-visit-log-container .ant-table a:hover,
+html.system-theme .ai-tool-list-container .ant-table .operation-column a:hover,
+html.system-theme .ai-tool-tag-container .ant-table .operation-column a:hover,
+html.system-theme .ai-tool-category-container .ant-table .operation-column a:hover,
+html.system-theme .ai-tool-comment-container .ant-table .operation-column a:hover,
+html.system-theme .ai-tool-favorite-container .ant-table .operation-column a:hover,
+html.system-theme .ai-tool-like-container .ant-table .operation-column a:hover,
+html.system-theme .ai-tool-visit-log-container .ant-table .operation-column a:hover {
+  color: var(--el-color-primary-light-3, #79bbff);
+}

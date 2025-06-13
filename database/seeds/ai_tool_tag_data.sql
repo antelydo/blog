@@ -1,0 +1,22 @@
+-- AI工具标签表模拟数据
+INSERT INTO `ai_ai_tool_tag` (`id`, `name`, `slug`, `description`, `count`, `seo_title`, `seo_keywords`, `seo_description`, `create_time`, `update_time`, `is_show`) VALUES
+(1, 'GPT', 'gpt', 'GPT相关的AI工具和应用', 0, 'GPT AI工具', 'GPT,GPT工具,人工智能', '探索基于GPT技术的AI工具和应用', UNIX_TIMESTAMP(), UNIX_TIMESTAMP(), 1),
+(2, '免费', 'free', '免费使用的AI工具', 0, '免费AI工具', '免费AI,免费工具,免费应用', '发现最佳免费AI工具，无需付费即可使用', UNIX_TIMESTAMP(), UNIX_TIMESTAMP(), 1),
+(3, '付费', 'paid', '需要付费的专业AI工具', 0, '付费AI工具', '付费AI,专业工具,高级功能', '探索专业的付费AI工具，获取高级功能', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(4, '初学者友好', 'beginner-friendly', '适合初学者使用的简单AI工具', 0, '初学者友好AI工具', '初学者AI,简单工具,易用AI', '发现适合初学者的简单易用AI工具', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(5, '专业级', 'professional', '面向专业用户的高级AI工具', 0, '专业级AI工具', '专业AI,高级工具,专业应用', '探索面向专业用户的高级AI工具和应用', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(6, '创意', 'creative', '激发创意的AI工具', 0, '创意AI工具', '创意AI,创意工具,创意应用', '发现激发创意的AI工具，释放想象力', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(7, '效率', 'efficiency', '提高工作效率的AI工具', 0, '效率AI工具', '效率AI,效率工具,生产力', '探索提高工作效率的AI工具，优化工作流程', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(8, '教育', 'education', '用于教育和学习的AI工具', 0, '教育AI工具', '教育AI,学习工具,教育应用', '发现革新教育的AI工具，提升学习体验', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(9, '商业', 'business', '适用于商业和企业的AI工具', 0, '商业AI工具', '商业AI,企业工具,商业应用', '探索适用于商业和企业的AI工具，提升业务能力', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(10, '设计', 'design', '用于设计和创意工作的AI工具', 0, '设计AI工具', '设计AI,创意工具,设计应用', '发现革新设计流程的AI工具，提升创意表达', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(11, '写作', 'writing', '辅助写作和内容创作的AI工具', 0, '写作AI工具', '写作AI,内容工具,写作助手', '探索辅助写作的AI工具，提升内容质量', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(12, '编程', 'programming', '用于编程和开发的AI工具', 0, '编程AI工具', '编程AI,开发工具,代码助手', '发现提升编程效率的AI工具，优化开发流程', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(13, '营销', 'marketing', '用于市场营销的AI工具', 0, '营销AI工具', '营销AI,市场工具,营销助手', '探索革新营销策略的AI工具，提升市场效果', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(14, '数据分析', 'data-analysis', '用于数据处理和分析的AI工具', 0, '数据分析AI工具', '数据AI,分析工具,数据处理', '发现强大的数据分析AI工具，从数据中获取洞见', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(15, '语音', 'voice', '处理和生成语音的AI工具', 0, '语音AI工具', '语音AI,语音工具,语音处理', '探索语音处理和生成的AI工具，创建自然语音内容', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(16, '图像', 'image', '处理和生成图像的AI工具', 0, '图像AI工具', '图像AI,图像工具,图像处理', '发现图像处理和生成的AI工具，创建视觉内容', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(17, '视频', 'video', '处理和生成视频的AI工具', 0, '视频AI工具', '视频AI,视频工具,视频处理', '探索视频处理和生成的AI工具，创建视频内容', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(18, '聊天机器人', 'chatbot', '智能聊天和对话系统', 0, '聊天机器人AI工具', '聊天AI,对话工具,聊天机器人', '发现智能聊天和对话系统，提升用户交互体验', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(19, '自动化', 'automation', '流程自动化的AI工具', 0, '自动化AI工具', '自动化AI,流程工具,自动处理', '探索流程自动化的AI工具，减少重复工作', UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
+(20, '研究', 'research', '用于研究和学术工作的AI工具', 0, '研究AI工具', '研究AI,学术工具,研究助手', '发现辅助研究和学术工作的AI工具，提升研究效率', UNIX_TIMESTAMP(), UNIX_TIMESTAMP());

@@ -1,0 +1,207 @@
+/* 自定义弹窗样式 */
+.custom-alert-dialog,
+.custom-confirm-dialog,
+.custom-modal-dialog {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px 4px rgba(0, 0, 0, 0.04), 0 8px 20px rgba(0, 0, 0, 0.08);
+  
+  .el-dialog__header {
+    margin: 0;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--el-border-color-lighter);
+    background-color: var(--el-bg-color);
+    
+    .el-dialog__title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--el-text-color-primary);
+    }
+    
+    .el-dialog__headerbtn {
+      top: 16px;
+      right: 16px;
+      
+      .el-dialog__close {
+        font-size: 18px;
+        color: var(--el-text-color-secondary);
+        transition: color 0.3s;
+        
+        &:hover {
+          color: var(--el-color-primary);
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+  
+  .el-dialog__body {
+    padding: 20px;
+    color: var(--el-text-color-regular);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .el-dialog__footer {
+    padding: 10px 20px 20px;
+    border-top: 1px solid var(--el-border-color-lighter);
+    background-color: var(--el-bg-color-page);
+  }
+}
+
+/* 弹窗动画 */
+.el-overlay-dialog {
+  .el-overlay-dialog-fade-enter-active {
+    animation: overlay-fade-in 0.3s;
+  }
+  
+  .el-overlay-dialog-fade-leave-active {
+    animation: overlay-fade-out 0.3s;
+  }
+  
+  .el-dialog-fade-enter-active {
+    animation: dialog-fade-in 0.3s;
+  }
+  
+  .el-dialog-fade-leave-active {
+    animation: dialog-fade-out 0.3s;
+  }
+}
+
+@keyframes overlay-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes overlay-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dialog-fade-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* 弹窗内容样式 */
+.alert-content,
+.confirm-content {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 0;
+  
+  .alert-icon,
+  .confirm-icon {
+    margin-right: 15px;
+    font-size: 24px;
+    
+    &.success {
+      color: var(--el-color-success);
+    }
+    
+    &.warning {
+      color: var(--el-color-warning);
+    }
+    
+    &.error {
+      color: var(--el-color-danger);
+    }
+    
+    &.info {
+      color: var(--el-color-info);
+    }
+  }
+  
+  .alert-message,
+  .confirm-message {
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--el-text-color-primary);
+  }
+}
+
+/* 弹窗按钮样式 */
+.dialog-footer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  
+  .el-button {
+    min-width: 80px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s;
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* 全屏弹窗样式 */
+.el-dialog.is-fullscreen {
+  border-radius: 0;
+  
+  .el-dialog__header {
+    padding: 16px 24px;
+  }
+  
+  .el-dialog__body {
+    padding: 24px;
+  }
+  
+  .el-dialog__footer {
+    padding: 16px 24px;
+  }
+}
+
+/* 响应式弹窗 */
+@media screen and (max-width: 768px) {
+  .el-dialog {
+    width: 90% !important;
+    margin: 0 auto !important;
+  }
+  
+  .el-dialog__body {
+    padding: 15px;
+  }
+  
+  .dialog-footer {
+    flex-direction: column;
+    
+    .el-button {
+      width: 100%;
+    }
+  }
+} 

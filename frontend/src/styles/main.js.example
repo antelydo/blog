@@ -1,0 +1,63 @@
+/**
+ * 主入口文件示例
+ * 展示如何使用优化后的主题文件
+ * 
+ * 注意：这只是一个示例文件，不要直接替换现有的main.js
+ */
+
+import { createApp } from 'vue'
+import App from './App.vue'
+
+// 方法一：使用优化后的主题捆绑文件（推荐）
+import './styles/optimized-theme-bundle.css'
+
+// 方法二：逐个导入优化文件
+// import './styles/unified-theme-variables.css'
+// import './styles/optimized-theme-styles.css'
+// import './styles/optimized-selectors.css'
+// import './styles/theme-performance.css'
+
+// 保留原有样式文件，确保兼容性
+// 这些文件可以在确认优化文件工作正常后逐步移除
+import './styles/variables.css'  // 原始CSS变量
+import './styles/theme.scss'  // 原始主题样式
+import './styles/dark-theme.css' // 原始暗黑模式样式
+
+// 导入其他必要的样式和库
+import './style.css'
+import './styles/index.css'
+import './assets/css/font-awesome.css'
+import './assets/css/like-button.css'
+import './assets/css/favorite-button.css'
+import './styles/ai-tool-theme.css'
+import './styles/admin-tables.css'
+
+// 导入路由和状态管理
+import router from './router'
+import { createPinia } from 'pinia'
+import i18n from './plugins/i18n'
+
+// 导入UI库
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/reset.css'
+
+// 创建应用实例
+const app = createApp(App)
+
+// 注册插件
+app.use(router)
+app.use(createPinia())
+app.use(i18n)
+app.use(ElementPlus)
+app.use(Antd)
+
+// 注册Element Plus图标
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
+
+// 挂载应用
+app.mount('#app')

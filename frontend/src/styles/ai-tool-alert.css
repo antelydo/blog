@@ -1,0 +1,149 @@
+/**
+ * AI 工具管理列表 Alert 组件样式
+ * 适用于暗黑模式和跟随系统模式
+ */
+
+/* Alert 组件基础样式 */
+:where(.css-dev-only-do-not-override-1p3hq3p).ant-alert,
+:where(.css-*).ant-alert {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 8px 12px;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  line-height: 1.5714285714285714;
+  list-style: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  position: relative;
+  display: flex;
+  align-items: center;
+  word-wrap: break-word;
+  border-radius: 8px;
+}
+
+/* Alert 信息类型样式 */
+:where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+:where(.css-*).ant-alert-info {
+  background-color: #e6f4ff;
+  border: 1px solid #91caff;
+}
+
+/* 暗黑模式下的 Alert 组件样式 */
+html.dark :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert,
+html.dark :where(.css-*).ant-alert {
+  color: rgb(244 236 236 / 88%);
+}
+
+/* 暗黑模式下的 Alert 信息类型样式 */
+html.dark :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.dark :where(.css-*).ant-alert-info {
+  background-color: #202020;
+  border: 1px solid #494a4b;
+}
+
+/* 暗黑模式下的 Alert 消息样式 */
+html.dark :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-message,
+html.dark :where(.css-*).ant-alert-message {
+  color: rgb(244 236 236 / 88%);
+}
+
+/* 暗黑模式下的 Alert 描述样式 */
+html.dark :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-description,
+html.dark :where(.css-*).ant-alert-description {
+  color: rgb(244 236 236 / 88%);
+}
+
+/* 暗黑模式下的 Alert 图标样式 */
+html.dark :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert .anticon,
+html.dark :where(.css-*).ant-alert .anticon {
+  color: rgb(244 236 236 / 88%);
+}
+
+/* 系统主题暗黑模式下的 Alert 组件样式 */
+html.system-dark-theme :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert,
+html.system-dark-theme :where(.css-*).ant-alert {
+  color: rgb(244 236 236 / 88%);
+}
+
+/* 系统主题暗黑模式下的 Alert 信息类型样式 */
+html.system-dark-theme :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.system-dark-theme :where(.css-*).ant-alert-info {
+  background-color: #202020;
+  border: 1px solid #494a4b;
+}
+
+/* 系统主题暗黑模式下的 Alert 消息样式 */
+html.system-dark-theme :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-message,
+html.system-dark-theme :where(.css-*).ant-alert-message {
+  color: rgb(244 236 236 / 88%);
+}
+
+/* 系统主题暗黑模式下的 Alert 描述样式 */
+html.system-dark-theme :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-description,
+html.system-dark-theme :where(.css-*).ant-alert-description {
+  color: rgb(244 236 236 / 88%);
+}
+
+/* 系统主题暗黑模式下的 Alert 图标样式 */
+html.system-dark-theme :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert .anticon,
+html.system-dark-theme :where(.css-*).ant-alert .anticon {
+  color: rgb(244 236 236 / 88%);
+}
+
+/* AI 工具管理列表特定的 Alert 样式 */
+.ai-tool-list-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert,
+.ai-tool-tag-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert,
+.ai-tool-category-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert,
+.ai-tool-comment-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert,
+.ai-tool-favorite-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert,
+.ai-tool-like-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert,
+.ai-tool-visit-log-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert,
+.ai-tool-list-container :where(.css-*).ant-alert,
+.ai-tool-tag-container :where(.css-*).ant-alert,
+.ai-tool-category-container :where(.css-*).ant-alert,
+.ai-tool-comment-container :where(.css-*).ant-alert,
+.ai-tool-favorite-container :where(.css-*).ant-alert,
+.ai-tool-like-container :where(.css-*).ant-alert,
+.ai-tool-visit-log-container :where(.css-*).ant-alert {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* 暗黑模式下的 AI 工具管理列表特定的 Alert 样式 */
+html.dark .ai-tool-list-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.dark .ai-tool-tag-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.dark .ai-tool-category-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.dark .ai-tool-comment-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.dark .ai-tool-favorite-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.dark .ai-tool-like-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.dark .ai-tool-visit-log-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.dark .ai-tool-list-container :where(.css-*).ant-alert-info,
+html.dark .ai-tool-tag-container :where(.css-*).ant-alert-info,
+html.dark .ai-tool-category-container :where(.css-*).ant-alert-info,
+html.dark .ai-tool-comment-container :where(.css-*).ant-alert-info,
+html.dark .ai-tool-favorite-container :where(.css-*).ant-alert-info,
+html.dark .ai-tool-like-container :where(.css-*).ant-alert-info,
+html.dark .ai-tool-visit-log-container :where(.css-*).ant-alert-info {
+  background-color: #202020;
+  border: 1px solid #494a4b;
+  color: rgb(244 236 236 / 88%);
+}
+
+/* 系统主题暗黑模式下的 AI 工具管理列表特定的 Alert 样式 */
+html.system-dark-theme .ai-tool-list-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.system-dark-theme .ai-tool-tag-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.system-dark-theme .ai-tool-category-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.system-dark-theme .ai-tool-comment-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.system-dark-theme .ai-tool-favorite-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.system-dark-theme .ai-tool-like-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.system-dark-theme .ai-tool-visit-log-container :where(.css-dev-only-do-not-override-1p3hq3p).ant-alert-info,
+html.system-dark-theme .ai-tool-list-container :where(.css-*).ant-alert-info,
+html.system-dark-theme .ai-tool-tag-container :where(.css-*).ant-alert-info,
+html.system-dark-theme .ai-tool-category-container :where(.css-*).ant-alert-info,
+html.system-dark-theme .ai-tool-comment-container :where(.css-*).ant-alert-info,
+html.system-dark-theme .ai-tool-favorite-container :where(.css-*).ant-alert-info,
+html.system-dark-theme .ai-tool-like-container :where(.css-*).ant-alert-info,
+html.system-dark-theme .ai-tool-visit-log-container :where(.css-*).ant-alert-info {
+  background-color: #202020;
+  border: 1px solid #494a4b;
+  color: rgb(244 236 236 / 88%);
+}

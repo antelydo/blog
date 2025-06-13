@@ -1,0 +1,127 @@
+/**
+ * 管理后台输入框和下拉列表边框修复
+ * 确保在管理后台的表格中的输入框和下拉列表边框正确显示
+ */
+
+/* 强制所有输入框显示边框 */
+.el-input .el-input__wrapper {
+  box-shadow: 0 0 0 1px #dcdfe6 inset !important;
+}
+
+.el-input:hover .el-input__wrapper {
+  box-shadow: 0 0 0 1px #c0c4cc inset !important;
+}
+
+.el-input.is-focus .el-input__wrapper {
+  box-shadow: 0 0 0 1px #409eff inset !important;
+}
+
+/* 强制所有下拉框显示边框 */
+.el-select .el-input__wrapper {
+  box-shadow: 0 0 0 1px #dcdfe6 inset !important;
+}
+
+.el-select:hover .el-input__wrapper {
+  box-shadow: 0 0 0 1px #c0c4cc inset !important;
+}
+
+.el-select .el-input.is-focus .el-input__wrapper {
+  box-shadow: 0 0 0 1px #409eff inset !important;
+}
+
+/* 强制所有文本域显示边框 */
+.el-textarea .el-textarea__inner {
+  border: 1px solid #dcdfe6 !important;
+}
+
+.el-textarea:hover .el-textarea__inner {
+  border: 1px solid #c0c4cc !important;
+}
+
+.el-textarea.is-focus .el-textarea__inner {
+  border: 1px solid #409eff !important;
+}
+
+/* 强制所有日期选择器显示边框 */
+.el-date-editor .el-input__wrapper {
+  box-shadow: 0 0 0 1px #dcdfe6 inset !important;
+}
+
+.el-date-editor:hover .el-input__wrapper {
+  box-shadow: 0 0 0 1px #c0c4cc inset !important;
+}
+
+.el-date-editor .el-input.is-focus .el-input__wrapper {
+  box-shadow: 0 0 0 1px #409eff inset !important;
+}
+
+/* 强制所有数字输入框显示边框 */
+.el-input-number .el-input__wrapper {
+  box-shadow: 0 0 0 1px #dcdfe6 inset !important;
+}
+
+.el-input-number:hover .el-input__wrapper {
+  box-shadow: 0 0 0 1px #c0c4cc inset !important;
+}
+
+.el-input-number .el-input.is-focus .el-input__wrapper {
+  box-shadow: 0 0 0 1px #409eff inset !important;
+}
+
+/* 表格中的输入框和下拉列表 */
+.el-table .cell .el-input .el-input__wrapper,
+.el-table .cell .el-select .el-input__wrapper,
+.el-table .cell .el-date-editor .el-input__wrapper,
+.el-table .cell .el-input-number .el-input__wrapper {
+  box-shadow: 0 0 0 1px #dcdfe6 inset !important;
+}
+
+.el-table .cell .el-input:hover .el-input__wrapper,
+.el-table .cell .el-select:hover .el-input__wrapper,
+.el-table .cell .el-date-editor:hover .el-input__wrapper,
+.el-table .cell .el-input-number:hover .el-input__wrapper {
+  box-shadow: 0 0 0 1px #c0c4cc inset !important;
+}
+
+.el-table .cell .el-input.is-focus .el-input__wrapper,
+.el-table .cell .el-select .el-input.is-focus .el-input__wrapper,
+.el-table .cell .el-date-editor .el-input.is-focus .el-input__wrapper,
+.el-table .cell .el-input-number .el-input.is-focus .el-input__wrapper {
+  box-shadow: 0 0 0 1px #409eff inset !important;
+}
+
+/* 对话框中的输入框和下拉列表 */
+.el-dialog .el-input .el-input__wrapper,
+.el-dialog .el-select .el-input__wrapper,
+.el-dialog .el-date-editor .el-input__wrapper,
+.el-dialog .el-input-number .el-input__wrapper,
+.el-dialog .el-textarea .el-textarea__inner {
+  box-shadow: 0 0 0 1px #dcdfe6 inset !important;
+}
+
+/* 抽屉中的输入框和下拉列表 */
+.el-drawer .el-input .el-input__wrapper,
+.el-drawer .el-select .el-input__wrapper,
+.el-drawer .el-date-editor .el-input__wrapper,
+.el-drawer .el-input-number .el-input__wrapper,
+.el-drawer .el-textarea .el-textarea__inner {
+  box-shadow: 0 0 0 1px #dcdfe6 inset !important;
+}
+
+/* 卡片中的输入框和下拉列表 */
+.el-card .el-input .el-input__wrapper,
+.el-card .el-select .el-input__wrapper,
+.el-card .el-date-editor .el-input__wrapper,
+.el-card .el-input-number .el-input__wrapper,
+.el-card .el-textarea .el-textarea__inner {
+  box-shadow: 0 0 0 1px #dcdfe6 inset !important;
+}
+
+/* 弹出框中的输入框和下拉列表 */
+.el-popover .el-input .el-input__wrapper,
+.el-popover .el-select .el-input__wrapper,
+.el-popover .el-date-editor .el-input__wrapper,
+.el-popover .el-input-number .el-input__wrapper,
+.el-popover .el-textarea .el-textarea__inner {
+  box-shadow: 0 0 0 1px #dcdfe6 inset !important;
+}

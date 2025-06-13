@@ -1,0 +1,679 @@
+/**
+ * 管理后台表格亮光模式边框统一优化
+ * 专门解决亮光模式下表格边框颜色不统一的问题
+ * 确保所有admin页面下的表格边框颜色一致
+ * 特别修复el-table__cell产生的黑边框问题
+ */
+
+/* ========= 全局表格边框统一样式 ========= */
+
+/* 表格容器边框统一样式 */
+.el-table {
+  border: 1px solid #edf0f7 !important;
+  --el-table-border-color: #edf0f7 !important;
+  --el-border-color: #edf0f7 !important;
+  --el-border-color-light: #edf0f7 !important;
+  --el-border-color-lighter: #edf0f7 !important;
+  --el-border-color-extra-light: #edf0f7 !important;
+}
+
+/* 表格内部边框线统一样式 */
+.el-table--border::after,
+.el-table--border::before,
+.el-table__inner-wrapper::after,
+.el-table__inner-wrapper::before {
+  background-color: #edf0f7 !important;
+}
+
+/* 表格单元格边框统一样式 - 强化选择器 */
+.el-table td.el-table__cell,
+.el-table th.el-table__cell.is-leaf,
+.el-table .el-table__cell,
+.el-table tr td.el-table__cell,
+.el-table tr th.el-table__cell,
+.el-table tbody td.el-table__cell,
+.el-table tbody th.el-table__cell,
+.el-table thead td.el-table__cell,
+.el-table thead th.el-table__cell,
+.el-table__body td.el-table__cell,
+.el-table__header th.el-table__cell {
+  border: none !important;
+  border-bottom: 1px solid #edf0f7 !important;
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* 表格单元格右侧边框统一样式 - 强化选择器 */
+.el-table--border .el-table__cell,
+.el-table--border td.el-table__cell,
+.el-table--border th.el-table__cell,
+.el-table--border tr .el-table__cell,
+.el-table--border tbody .el-table__cell,
+.el-table--border thead .el-table__cell,
+.el-table--border .el-table__body .el-table__cell,
+.el-table--border .el-table__header .el-table__cell {
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* 表头底部边框统一样式 - 强化选择器 */
+.el-table__header th.el-table__cell,
+.el-table__header tr th.el-table__cell,
+.el-table__header thead th.el-table__cell,
+.el-table thead th.el-table__cell,
+.el-table tr th.el-table__cell {
+  border-bottom: 1px solid #edf0f7 !important;
+}
+
+/* 表格固定列边框统一样式 - 强化选择器 */
+.el-table__fixed::before,
+.el-table__fixed-right::before,
+.el-table .el-table__fixed::before,
+.el-table .el-table__fixed-right::before {
+  background-color: #edf0f7 !important;
+  opacity: 0.8 !important;
+}
+
+/* 表格固定列右侧边框统一样式 - 强化选择器 */
+.el-table__fixed,
+.el-table .el-table__fixed {
+  border-right: 1px solid #edf0f7 !important;
+  box-shadow: none !important;
+}
+
+.el-table__fixed-right,
+.el-table .el-table__fixed-right {
+  border-left: 1px solid #edf0f7 !important;
+  box-shadow: none !important;
+}
+
+/* 表格固定列单元格边框统一样式 - 强化选择器 */
+.el-table .el-table__fixed .el-table__cell,
+.el-table .el-table__fixed-right .el-table__cell,
+.el-table__fixed .el-table__cell,
+.el-table__fixed-right .el-table__cell,
+.el-table__fixed td.el-table__cell,
+.el-table__fixed th.el-table__cell,
+.el-table__fixed-right td.el-table__cell,
+.el-table__fixed-right th.el-table__cell {
+  border: none !important;
+  border-right: 1px solid #edf0f7 !important;
+  border-bottom: 1px solid #edf0f7 !important;
+}
+
+/* 表格固定列右侧补丁统一样式 - 强化选择器 */
+.el-table__fixed-right-patch,
+.el-table .el-table__fixed-right-patch {
+  background-color: #f8fafc !important;
+  border-bottom: 1px solid #edf0f7 !important;
+}
+
+/* ========= 表格不同状态下的边框统一样式 ========= */
+
+/* 表格悬停状态下的边框统一样式 - 强化选择器 */
+.el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell,
+.el-table--enable-row-hover .el-table__body tr:hover td.el-table__cell,
+.el-table--enable-row-hover tr:hover td.el-table__cell,
+.el-table--enable-row-hover tr:hover > td.el-table__cell,
+.el-table tr:hover td.el-table__cell,
+.el-table tr:hover > td.el-table__cell,
+.el-table tbody tr:hover td.el-table__cell,
+.el-table__body tr:hover td.el-table__cell {
+  border: none !important;
+  border-bottom: 1px solid #edf0f7 !important;
+  border-right: 1px solid #edf0f7 !important;
+  background-color: #f8fafc !important;
+}
+
+/* 表格条纹行的边框统一样式 - 强化选择器 */
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell,
+.el-table--striped tr.el-table__row--striped td.el-table__cell,
+.el-table--striped .el-table__row--striped td.el-table__cell,
+.el-table--striped .el-table__body .el-table__row--striped td.el-table__cell,
+.el-table .el-table__row--striped td.el-table__cell,
+.el-table tbody tr.el-table__row--striped td.el-table__cell {
+  border: none !important;
+  border-bottom: 1px solid #edf0f7 !important;
+  border-right: 1px solid #edf0f7 !important;
+  background-color: #fafbfd !important;
+}
+
+/* 表格选中行的边框统一样式 - 强化选择器 */
+.el-table__body tr.current-row > td.el-table__cell,
+.el-table__body tr.current-row td.el-table__cell,
+.el-table tr.current-row td.el-table__cell,
+.el-table tr.current-row > td.el-table__cell,
+.el-table .current-row td.el-table__cell,
+.el-table .current-row > td.el-table__cell,
+.el-table tbody tr.current-row td.el-table__cell {
+  border: none !important;
+  border-bottom: 1px solid #edf0f7 !important;
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* ========= 特定页面表格边框统一样式 ========= */
+
+/* 用户管理页面表格边框统一样式 - 强化选择器 */
+.user-management-container .el-table,
+.user-management-container table,
+.user-management-container .el-table--border {
+  border: 1px solid #edf0f7 !important;
+  border-color: #edf0f7 !important;
+  --el-table-border-color: #edf0f7 !important;
+  --el-border-color: #edf0f7 !important;
+  --el-border-color-light: #edf0f7 !important;
+  --el-border-color-lighter: #edf0f7 !important;
+}
+
+.user-management-container .el-table td.el-table__cell,
+.user-management-container .el-table th.el-table__cell.is-leaf,
+.user-management-container .el-table .el-table__cell,
+.user-management-container .el-table tr td.el-table__cell,
+.user-management-container .el-table tr th.el-table__cell,
+.user-management-container .el-table tbody td.el-table__cell,
+.user-management-container .el-table tbody th.el-table__cell,
+.user-management-container .el-table thead td.el-table__cell,
+.user-management-container .el-table thead th.el-table__cell,
+.user-management-container .el-table__body td.el-table__cell,
+.user-management-container .el-table__header th.el-table__cell {
+  border: none !important;
+  border-bottom: 1px solid #edf0f7 !important;
+  border-right: 1px solid #edf0f7 !important;
+}
+
+.user-management-container .el-table--border .el-table__cell,
+.user-management-container .el-table--border td.el-table__cell,
+.user-management-container .el-table--border th.el-table__cell {
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* 文章管理页面表格边框统一样式 - 强化选择器 */
+.article-management-container .el-table,
+.article-management-container table,
+.article-management-container .el-table--border {
+  border: 1px solid #edf0f7 !important;
+  border-color: #edf0f7 !important;
+  --el-table-border-color: #edf0f7 !important;
+  --el-border-color: #edf0f7 !important;
+  --el-border-color-light: #edf0f7 !important;
+  --el-border-color-lighter: #edf0f7 !important;
+}
+
+.article-management-container .el-table td.el-table__cell,
+.article-management-container .el-table th.el-table__cell.is-leaf,
+.article-management-container .el-table .el-table__cell,
+.article-management-container .el-table tr td.el-table__cell,
+.article-management-container .el-table tr th.el-table__cell,
+.article-management-container .el-table tbody td.el-table__cell,
+.article-management-container .el-table tbody th.el-table__cell,
+.article-management-container .el-table thead td.el-table__cell,
+.article-management-container .el-table thead th.el-table__cell,
+.article-management-container .el-table__body td.el-table__cell,
+.article-management-container .el-table__header th.el-table__cell {
+  border: none !important;
+  border-bottom: 1px solid #edf0f7 !important;
+  border-right: 1px solid #edf0f7 !important;
+}
+
+.article-management-container .el-table--border .el-table__cell,
+.article-management-container .el-table--border td.el-table__cell,
+.article-management-container .el-table--border th.el-table__cell {
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* 留言管理页面表格边框统一样式 - 强化选择器 */
+.contact-messages-container .el-table,
+.contact-messages-container table,
+.contact-messages-container .el-table--border {
+  border: 1px solid #edf0f7 !important;
+  border-color: #edf0f7 !important;
+  --el-table-border-color: #edf0f7 !important;
+  --el-border-color: #edf0f7 !important;
+  --el-border-color-light: #edf0f7 !important;
+  --el-border-color-lighter: #edf0f7 !important;
+}
+
+.contact-messages-container .el-table td.el-table__cell,
+.contact-messages-container .el-table th.el-table__cell.is-leaf,
+.contact-messages-container .el-table .el-table__cell,
+.contact-messages-container .el-table tr td.el-table__cell,
+.contact-messages-container .el-table tr th.el-table__cell,
+.contact-messages-container .el-table tbody td.el-table__cell,
+.contact-messages-container .el-table tbody th.el-table__cell,
+.contact-messages-container .el-table thead td.el-table__cell,
+.contact-messages-container .el-table thead th.el-table__cell,
+.contact-messages-container .el-table__body td.el-table__cell,
+.contact-messages-container .el-table__header th.el-table__cell {
+  border: none !important;
+  border-bottom: 1px solid #edf0f7 !important;
+  border-right: 1px solid #edf0f7 !important;
+}
+
+.contact-messages-container .el-table--border .el-table__cell,
+.contact-messages-container .el-table--border td.el-table__cell,
+.contact-messages-container .el-table--border th.el-table__cell {
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* 友情链接管理页面表格边框统一样式 - 强化选择器 */
+.link-management-container .el-table,
+.link-management-container table,
+.link-management-container .el-table--border {
+  border: 1px solid #edf0f7 !important;
+  border-color: #edf0f7 !important;
+  --el-table-border-color: #edf0f7 !important;
+  --el-border-color: #edf0f7 !important;
+  --el-border-color-light: #edf0f7 !important;
+  --el-border-color-lighter: #edf0f7 !important;
+}
+
+.link-management-container .el-table td.el-table__cell,
+.link-management-container .el-table th.el-table__cell.is-leaf,
+.link-management-container .el-table .el-table__cell,
+.link-management-container .el-table tr td.el-table__cell,
+.link-management-container .el-table tr th.el-table__cell,
+.link-management-container .el-table tbody td.el-table__cell,
+.link-management-container .el-table tbody th.el-table__cell,
+.link-management-container .el-table thead td.el-table__cell,
+.link-management-container .el-table thead th.el-table__cell,
+.link-management-container .el-table__body td.el-table__cell,
+.link-management-container .el-table__header th.el-table__cell {
+  border: none !important;
+  border-bottom: 1px solid #edf0f7 !important;
+  border-right: 1px solid #edf0f7 !important;
+}
+
+.link-management-container .el-table--border .el-table__cell,
+.link-management-container .el-table--border td.el-table__cell,
+.link-management-container .el-table--border th.el-table__cell {
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* 设置页面表格边框统一样式 - 强化选择器 */
+.settings-container .el-table,
+.settings-container table,
+.settings-container .el-table--border {
+  border: 1px solid #edf0f7 !important;
+  border-color: #edf0f7 !important;
+  --el-table-border-color: #edf0f7 !important;
+  --el-border-color: #edf0f7 !important;
+  --el-border-color-light: #edf0f7 !important;
+  --el-border-color-lighter: #edf0f7 !important;
+}
+
+.settings-container .el-table td.el-table__cell,
+.settings-container .el-table th.el-table__cell.is-leaf,
+.settings-container .el-table .el-table__cell,
+.settings-container .el-table tr td.el-table__cell,
+.settings-container .el-table tr th.el-table__cell,
+.settings-container .el-table tbody td.el-table__cell,
+.settings-container .el-table tbody th.el-table__cell,
+.settings-container .el-table thead td.el-table__cell,
+.settings-container .el-table thead th.el-table__cell,
+.settings-container .el-table__body td.el-table__cell,
+.settings-container .el-table__header th.el-table__cell {
+  border: none !important;
+  border-bottom: 1px solid #edf0f7 !important;
+  border-right: 1px solid #edf0f7 !important;
+}
+
+.settings-container .el-table--border .el-table__cell,
+.settings-container .el-table--border td.el-table__cell,
+.settings-container .el-table--border th.el-table__cell {
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* AI工具管理页面表格边框统一样式 - 强化选择器 */
+.tool-table,
+.ai-tool-list-container .ant-table,
+.ai-tool-list-container .ant-table-wrapper .ant-table {
+  border: 1px solid #edf0f7 !important;
+  border-color: #edf0f7 !important;
+}
+
+.tool-table .ant-table-thead > tr > th,
+.ai-tool-list-container .ant-table-thead > tr > th,
+.ai-tool-list-container .ant-table-wrapper .ant-table-thead > tr > th {
+  border-bottom: 1px solid #edf0f7 !important;
+  border-bottom-color: #edf0f7 !important;
+  background-color: #f8fafc !important;
+}
+
+.tool-table .ant-table-tbody > tr > td,
+.ai-tool-list-container .ant-table-tbody > tr > td,
+.ai-tool-list-container .ant-table-wrapper .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #edf0f7 !important;
+  border-bottom-color: #edf0f7 !important;
+}
+
+/* 表格单元格边框线 */
+.tool-table .ant-table-cell,
+.ai-tool-list-container .ant-table-cell {
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* AI工具标签管理页面表格边框统一样式 - 强化选择器 */
+.tag-table,
+.ai-tool-tag-container .ant-table,
+.ai-tool-tag-container .ant-table-wrapper .ant-table {
+  border: 1px solid #edf0f7 !important;
+  border-color: #edf0f7 !important;
+}
+
+.tag-table .ant-table-thead > tr > th,
+.ai-tool-tag-container .ant-table-thead > tr > th,
+.ai-tool-tag-container .ant-table-wrapper .ant-table-thead > tr > th {
+  border-bottom: 1px solid #edf0f7 !important;
+  border-bottom-color: #edf0f7 !important;
+  background-color: #f8fafc !important;
+}
+
+.tag-table .ant-table-tbody > tr > td,
+.ai-tool-tag-container .ant-table-tbody > tr > td,
+.ai-tool-tag-container .ant-table-wrapper .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #edf0f7 !important;
+  border-bottom-color: #edf0f7 !important;
+}
+
+/* 表格单元格边框线 */
+.tag-table .ant-table-cell,
+.ai-tool-tag-container .ant-table-cell {
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* AI工具评论管理页面表格边框统一样式 - 强化选择器 */
+.comment-table,
+.ai-tool-comment-container .ant-table,
+.ai-tool-comment-container .ant-table-wrapper .ant-table {
+  border: 1px solid #edf0f7 !important;
+  border-color: #edf0f7 !important;
+}
+
+.comment-table .ant-table-thead > tr > th,
+.ai-tool-comment-container .ant-table-thead > tr > th,
+.ai-tool-comment-container .ant-table-wrapper .ant-table-thead > tr > th {
+  border-bottom: 1px solid #edf0f7 !important;
+  border-bottom-color: #edf0f7 !important;
+  background-color: #f8fafc !important;
+}
+
+.comment-table .ant-table-tbody > tr > td,
+.ai-tool-comment-container .ant-table-tbody > tr > td,
+.ai-tool-comment-container .ant-table-wrapper .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #edf0f7 !important;
+  border-bottom-color: #edf0f7 !important;
+}
+
+/* 表格单元格边框线 */
+.comment-table .ant-table-cell,
+.ai-tool-comment-container .ant-table-cell {
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* AI工具访问日志管理页面表格边框统一样式 - 强化选择器 */
+.visit-log-table,
+.ai-tool-visit-log-container .ant-table,
+.ai-tool-visit-log-container .ant-table-wrapper .ant-table {
+  border: 1px solid #edf0f7 !important;
+  border-color: #edf0f7 !important;
+}
+
+.visit-log-table .ant-table-thead > tr > th,
+.ai-tool-visit-log-container .ant-table-thead > tr > th,
+.ai-tool-visit-log-container .ant-table-wrapper .ant-table-thead > tr > th {
+  border-bottom: 1px solid #edf0f7 !important;
+  border-bottom-color: #edf0f7 !important;
+  background-color: #f8fafc !important;
+}
+
+.visit-log-table .ant-table-tbody > tr > td,
+.ai-tool-visit-log-container .ant-table-tbody > tr > td,
+.ai-tool-visit-log-container .ant-table-wrapper .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #edf0f7 !important;
+  border-bottom-color: #edf0f7 !important;
+}
+
+/* 表格单元格边框线 */
+.visit-log-table .ant-table-cell,
+.ai-tool-visit-log-container .ant-table-cell {
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* ========= Ant Design 表格边框统一样式 ========= */
+
+/* Ant Design 表格容器边框统一样式 - 强化选择器 */
+.ant-table-wrapper .ant-table,
+.ant-table,
+.ant-table-container,
+.ant-table-wrapper .ant-table-container {
+  border: 1px solid #edf0f7 !important;
+  border-color: #edf0f7 !important;
+}
+
+/* Ant Design 表格单元格边框统一样式 - 强化选择器 */
+.ant-table-wrapper .ant-table-thead > tr > th,
+.ant-table-thead > tr > th,
+.ant-table-container .ant-table-thead > tr > th,
+.ant-table .ant-table-thead > tr > th {
+  border-bottom: 1px solid #edf0f7 !important;
+  border-bottom-color: #edf0f7 !important;
+  background-color: #f8fafc !important;
+}
+
+.ant-table-wrapper .ant-table-tbody > tr > td,
+.ant-table-tbody > tr > td,
+.ant-table-container .ant-table-tbody > tr > td,
+.ant-table .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #edf0f7 !important;
+  border-bottom-color: #edf0f7 !important;
+}
+
+/* Ant Design 表格单元格边框线 - 强化选择器 */
+.ant-table-cell,
+.ant-table-wrapper .ant-table-cell,
+.ant-table .ant-table-cell,
+.ant-table-container .ant-table-cell {
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* Ant Design 表格固定列边框统一样式 - 强化选择器 */
+.ant-table-wrapper .ant-table-cell-fix-left-last::after,
+.ant-table-wrapper .ant-table-cell-fix-right-first::after,
+.ant-table-cell-fix-left-last::after,
+.ant-table-cell-fix-right-first::after {
+  border-color: #edf0f7 !important;
+  border: 1px solid #edf0f7 !important;
+}
+
+/* Ant Design 表格悬停状态下的边框统一样式 - 强化选择器 */
+.ant-table-wrapper .ant-table-tbody > tr:hover > td,
+.ant-table-tbody > tr:hover > td,
+.ant-table-container .ant-table-tbody > tr:hover > td,
+.ant-table .ant-table-tbody > tr:hover > td {
+  background-color: #f8fafc !important;
+  border-bottom: 1px solid #edf0f7 !important;
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* Ant Design 表格条纹行的边框统一样式 - 强化选择器 */
+.ant-table-wrapper .ant-table-tbody > tr.ant-table-row-striped > td,
+.ant-table-tbody > tr.ant-table-row-striped > td,
+.ant-table-container .ant-table-tbody > tr.ant-table-row-striped > td,
+.ant-table .ant-table-tbody > tr.ant-table-row-striped > td {
+  background-color: #fafbfd !important;
+  border-bottom: 1px solid #edf0f7 !important;
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* ========= 表格内部组件边框统一样式 ========= */
+
+/* 表格内部输入框边框统一样式 - 强化选择器 */
+.el-table .el-input__wrapper,
+.el-table__cell .el-input__wrapper,
+td.el-table__cell .el-input__wrapper,
+.el-table tr td.el-table__cell .el-input__wrapper {
+  box-shadow: 0 0 0 1px #edf0f7 inset !important;
+  border: none !important;
+  border-color: #edf0f7 !important;
+}
+
+.el-table .el-input__wrapper:hover,
+.el-table__cell .el-input__wrapper:hover,
+td.el-table__cell .el-input__wrapper:hover,
+.el-table tr td.el-table__cell .el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px #e6e9f0 inset !important;
+}
+
+/* 表格内部选择器边框统一样式 - 强化选择器 */
+.el-table .el-select .el-input__wrapper,
+.el-table__cell .el-select .el-input__wrapper,
+td.el-table__cell .el-select .el-input__wrapper,
+.el-table tr td.el-table__cell .el-select .el-input__wrapper {
+  box-shadow: 0 0 0 1px #edf0f7 inset !important;
+  border: none !important;
+  border-color: #edf0f7 !important;
+}
+
+.el-table .el-select .el-input__wrapper:hover,
+.el-table__cell .el-select .el-input__wrapper:hover,
+td.el-table__cell .el-select .el-input__wrapper:hover,
+.el-table tr td.el-table__cell .el-select .el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px #e6e9f0 inset !important;
+}
+
+/* 表格内部日期选择器边框统一样式 - 强化选择器 */
+.el-table .el-date-editor .el-input__wrapper,
+.el-table__cell .el-date-editor .el-input__wrapper,
+td.el-table__cell .el-date-editor .el-input__wrapper,
+.el-table tr td.el-table__cell .el-date-editor .el-input__wrapper {
+  box-shadow: 0 0 0 1px #edf0f7 inset !important;
+  border: none !important;
+  border-color: #edf0f7 !important;
+}
+
+.el-table .el-date-editor .el-input__wrapper:hover,
+.el-table__cell .el-date-editor .el-input__wrapper:hover,
+td.el-table__cell .el-date-editor .el-input__wrapper:hover,
+.el-table tr td.el-table__cell .el-date-editor .el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px #e6e9f0 inset !important;
+}
+
+/* 表格内部按钮边框统一样式 - 强化选择器 */
+.el-table .el-button,
+.el-table__cell .el-button,
+td.el-table__cell .el-button,
+.el-table tr td.el-table__cell .el-button {
+  border-color: #edf0f7 !important;
+}
+
+/* ========= 表格阴影效果优化 ========= */
+
+/* 表格阴影效果优化 - 更加轻柔 - 强化选择器 */
+.el-table,
+.user-management-container .el-table,
+.article-management-container .el-table,
+.contact-messages-container .el-table,
+.link-management-container .el-table,
+.settings-container .el-table {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Ant Design 表格阴影效果优化 - 强化选择器 */
+.ant-table-wrapper,
+.tool-table,
+.tag-table,
+.comment-table,
+.visit-log-table,
+.ai-tool-list-container .ant-table-wrapper,
+.ai-tool-tag-container .ant-table-wrapper,
+.ai-tool-comment-container .ant-table-wrapper,
+.ai-tool-visit-log-container .ant-table-wrapper {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.02) !important;
+}
+
+/* ========= 表格固定列阴影效果优化 ========= */
+
+/* 表格固定列左侧阴影效果优化 - 强化选择器 */
+.el-table__fixed::after,
+.el-table .el-table__fixed::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -10px;
+  width: 10px;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0)) !important;
+}
+
+/* 表格固定列右侧阴影效果优化 - 强化选择器 */
+.el-table__fixed-right::after,
+.el-table .el-table__fixed-right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -10px;
+  width: 10px;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0)) !important;
+}
+
+/* ========= 全局表格边框强制覆盖 ========= */
+
+/* 强制覆盖所有表格边框颜色 */
+.el-table,
+.el-table--border,
+.el-table--striped,
+.el-table__fixed,
+.el-table__fixed-right,
+.el-table__header,
+.el-table__body,
+.el-table__footer,
+.el-table__header-wrapper,
+.el-table__body-wrapper,
+.el-table__footer-wrapper,
+.el-table__fixed-header-wrapper,
+.el-table__fixed-body-wrapper,
+.el-table__fixed-footer-wrapper,
+.el-table__append-wrapper,
+.el-table__fixed-right-patch {
+  --el-table-border-color: #edf0f7 !important;
+  --el-border-color: #edf0f7 !important;
+  --el-border-color-light: #edf0f7 !important;
+  --el-border-color-lighter: #edf0f7 !important;
+  --el-border-color-extra-light: #edf0f7 !important;
+}
+
+/* 强制覆盖所有表格单元格边框颜色 */
+.el-table td.el-table__cell,
+.el-table th.el-table__cell,
+.el-table .el-table__cell,
+.el-table__cell {
+  border-color: #edf0f7 !important;
+}
+
+/* ========= 全局表格边框最终覆盖 ========= */
+
+/* 最终全局覆盖所有表格边框颜色 */
+:root {
+  --el-table-border-color: #edf0f7 !important;
+  --el-border-color: #edf0f7 !important;
+  --el-border-color-light: #edf0f7 !important;
+  --el-border-color-lighter: #edf0f7 !important;
+  --el-border-color-extra-light: #edf0f7 !important;
+}
+
+/* 最终全局覆盖所有表格单元格边框 */
+.el-table__cell {
+  border: none !important;
+  border-bottom: 1px solid #edf0f7 !important;
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* 最终全局覆盖所有Ant Design表格单元格边框 */
+.ant-table-cell {
+  border: none !important;
+  border-bottom: 1px solid #edf0f7 !important;
+  border-right: 1px solid #edf0f7 !important;
+}

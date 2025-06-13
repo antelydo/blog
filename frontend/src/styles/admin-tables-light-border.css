@@ -1,0 +1,277 @@
+/**
+ * 管理后台表格边框颜色优化
+ * 专门优化亮光模式下的表格边框颜色，使其更加淡雅
+ */
+
+/* ========= Element Plus 表格边框颜色优化 ========= */
+
+/* 表格容器边框样式 */
+.el-table {
+  border: 1px solid #edf0f7 !important;
+  --el-table-border-color: #edf0f7 !important;
+}
+
+/* 表格内部边框线样式 */
+.el-table--border::after,
+.el-table--border::before,
+.el-table__inner-wrapper::after,
+.el-table__inner-wrapper::before {
+  background-color: #edf0f7 !important;
+}
+
+/* 表格单元格边框样式 */
+.el-table td.el-table__cell,
+.el-table th.el-table__cell.is-leaf {
+  border-bottom: 1px solid #edf0f7 !important;
+}
+
+.el-table--border .el-table__cell {
+  border-right: 1px solid #edf0f7 !important;
+}
+
+/* 表头底部边框样式 - 稍微深一点以区分表头和内容 */
+.el-table__header th.el-table__cell {
+  border-bottom: 1px solid #e6e9f0 !important;
+}
+
+/* 表格固定列边框样式 */
+.el-table__fixed-right::before,
+.el-table__fixed::before {
+  background-color: #edf0f7 !important;
+  opacity: 0.8 !important;
+}
+
+/* 表格行悬停时的边框样式 */
+.el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+  box-shadow: inset 0 0 0 1px #f5f7fa !important;
+}
+
+/* 表格选中行的边框样式 */
+.el-table__body tr.current-row > td.el-table__cell {
+  box-shadow: inset 0 0 0 1px rgba(64, 158, 255, 0.15) !important;
+}
+
+/* ========= Ant Design 表格边框颜色优化 ========= */
+
+/* Ant Design 表格容器边框样式 */
+.ant-table-wrapper .ant-table {
+  border: 1px solid #edf0f7 !important;
+}
+
+/* Ant Design 表格单元格边框样式 */
+.ant-table-wrapper .ant-table-thead > tr > th {
+  border-bottom: 1px solid #e6e9f0 !important;
+}
+
+.ant-table-wrapper .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #edf0f7 !important;
+}
+
+/* Ant Design 表格行悬停时的边框样式 */
+.ant-table-wrapper .ant-table-tbody > tr:hover > td {
+  box-shadow: inset 0 0 0 1px #f5f7fa !important;
+}
+
+/* Ant Design 表格固定列边框样式 */
+.ant-table-wrapper .ant-table-cell-fix-left-last::after,
+.ant-table-wrapper .ant-table-cell-fix-right-first::after {
+  border-color: #edf0f7 !important;
+  opacity: 0.8 !important;
+}
+
+/* ========= 特定页面表格边框颜色优化 ========= */
+
+/* 用户管理页面表格边框 */
+.user-management-container .el-table {
+  border-color: #edf0f7 !important;
+  --el-table-border-color: #edf0f7 !important;
+}
+
+.user-management-container .el-table td.el-table__cell,
+.user-management-container .el-table th.el-table__cell.is-leaf {
+  border-bottom-color: #edf0f7 !important;
+}
+
+.user-management-container .el-table--border .el-table__cell {
+  border-right-color: #edf0f7 !important;
+}
+
+/* 文章管理页面表格边框 */
+.article-management-container .el-table {
+  border-color: #edf0f7 !important;
+  --el-table-border-color: #edf0f7 !important;
+}
+
+.article-management-container .el-table td.el-table__cell,
+.article-management-container .el-table th.el-table__cell.is-leaf {
+  border-bottom-color: #edf0f7 !important;
+}
+
+.article-management-container .el-table--border .el-table__cell {
+  border-right-color: #edf0f7 !important;
+}
+
+/* AI工具管理页面表格边框 */
+.tool-table {
+  border-color: #edf0f7 !important;
+}
+
+.tool-table .ant-table-thead > tr > th {
+  border-bottom-color: #e6e9f0 !important;
+}
+
+.tool-table .ant-table-tbody > tr > td {
+  border-bottom-color: #edf0f7 !important;
+}
+
+.tool-table .ant-table-tbody > tr > td.ant-table-cell-fix-right,
+.tool-table .ant-table-tbody > tr > td.ant-table-cell-fix-left {
+  border-color: #edf0f7 !important;
+}
+
+/* AI工具标签管理页面表格边框 */
+.tag-table {
+  border-color: #edf0f7 !important;
+}
+
+.tag-table .ant-table-thead > tr > th {
+  border-bottom-color: #e6e9f0 !important;
+}
+
+.tag-table .ant-table-tbody > tr > td {
+  border-bottom-color: #edf0f7 !important;
+}
+
+/* 留言管理页面表格边框 */
+.contact-messages-container .el-table {
+  border-color: #edf0f7 !important;
+  --el-table-border-color: #edf0f7 !important;
+}
+
+.contact-messages-container .el-table td.el-table__cell,
+.contact-messages-container .el-table th.el-table__cell.is-leaf {
+  border-bottom-color: #edf0f7 !important;
+}
+
+.contact-messages-container .el-table--border .el-table__cell {
+  border-right-color: #edf0f7 !important;
+}
+
+/* 友情链接管理页面表格边框 */
+.link-management-container .el-table {
+  border-color: #edf0f7 !important;
+  --el-table-border-color: #edf0f7 !important;
+}
+
+.link-management-container .el-table td.el-table__cell,
+.link-management-container .el-table th.el-table__cell.is-leaf {
+  border-bottom-color: #edf0f7 !important;
+}
+
+.link-management-container .el-table--border .el-table__cell {
+  border-right-color: #edf0f7 !important;
+}
+
+/* 设置页面表格边框 */
+.settings-container .el-table {
+  border-color: #edf0f7 !important;
+  --el-table-border-color: #edf0f7 !important;
+}
+
+.settings-container .el-table td.el-table__cell,
+.settings-container .el-table th.el-table__cell.is-leaf {
+  border-bottom-color: #edf0f7 !important;
+}
+
+.settings-container .el-table--border .el-table__cell {
+  border-right-color: #edf0f7 !important;
+}
+
+/* ========= 表格头部样式优化 ========= */
+
+/* 表头背景色优化 - 稍微淡化 */
+.el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+}
+
+/* Ant Design 表头背景色优化 */
+.ant-table-wrapper .ant-table-thead > tr > th {
+  background-color: #f8fafc !important;
+}
+
+/* ========= 表格条纹行样式优化 ========= */
+
+/* 表格条纹行背景色优化 - 更加淡雅 */
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background-color: #fafbfd !important;
+}
+
+/* Ant Design 表格条纹行背景色优化 */
+.ant-table-wrapper .ant-table-tbody > tr.ant-table-row-striped > td {
+  background-color: #fafbfd !important;
+}
+
+/* ========= 表格悬停效果优化 ========= */
+
+/* 表格行悬停背景色优化 - 更加淡雅 */
+.el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+  background-color: #f8fafc !important;
+}
+
+/* Ant Design 表格行悬停背景色优化 */
+.ant-table-wrapper .ant-table-tbody > tr:hover > td {
+  background-color: #f8fafc !important;
+}
+
+/* ========= 表格阴影效果优化 ========= */
+
+/* 表格阴影效果优化 - 更加轻柔 */
+.el-table {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Ant Design 表格阴影效果优化 */
+.ant-table-wrapper {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.02) !important;
+}
+
+/* ========= 表格分页边框颜色优化 ========= */
+
+/* 分页按钮边框颜色优化 */
+.el-pagination .el-pager li {
+  border: 1px solid #edf0f7 !important;
+}
+
+/* Ant Design 分页按钮边框颜色优化 */
+.ant-pagination-item {
+  border: 1px solid #edf0f7 !important;
+}
+
+/* ========= 表格内部组件边框颜色优化 ========= */
+
+/* 表格内部输入框边框颜色优化 */
+.el-table .el-input__wrapper {
+  box-shadow: 0 0 0 1px #edf0f7 inset !important;
+}
+
+.el-table .el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px #e6e9f0 inset !important;
+}
+
+/* 表格内部选择器边框颜色优化 */
+.el-table .el-select .el-input__wrapper {
+  box-shadow: 0 0 0 1px #edf0f7 inset !important;
+}
+
+.el-table .el-select .el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px #e6e9f0 inset !important;
+}
+
+/* 表格内部日期选择器边框颜色优化 */
+.el-table .el-date-editor .el-input__wrapper {
+  box-shadow: 0 0 0 1px #edf0f7 inset !important;
+}
+
+.el-table .el-date-editor .el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px #e6e9f0 inset !important;
+}

@@ -1,0 +1,134 @@
+/**
+ * 主题切换过渡效果优化
+ * 提供更高效的主题切换过渡动画，减少重绘和闪烁
+ */
+
+/* 主题过渡基础设置 */
+:root {
+  --theme-transition-time: 0.1s;
+}
+
+/* 主题过渡效果 - 使用will-change提前告知浏览器 */
+.theme-transition,
+.theme-transition * {
+  transition: background-color var(--theme-transition-time) ease,
+              color var(--theme-transition-time) ease,
+              border-color var(--theme-transition-time) ease,
+              box-shadow var(--theme-transition-time) ease !important;
+}
+
+/* 预设关键元素变化属性，提高渲染性能 */
+.theme-transition .el-menu,
+.theme-transition .el-menu-item,
+.theme-transition .el-sub-menu,
+.theme-transition .el-input__wrapper,
+.theme-transition .el-button,
+.theme-transition .el-card,
+.theme-transition .el-table,
+.theme-transition .header,
+.theme-transition .footer,
+.theme-transition .login-box,
+.theme-transition .main-content,
+.theme-transition .el-form-item,
+.theme-transition .el-dialog,
+.theme-transition .el-drawer,
+.theme-transition .el-tabs__nav,
+.theme-transition .el-dropdown-menu,
+.theme-transition .el-pagination {
+  will-change: background-color, color, border-color, box-shadow;
+}
+
+/* 主题变更标记类 - 使用更高效的动画 */
+.theme-changed {
+  animation: theme-refresh-flash 0.05s ease-out;
+}
+
+/* 主题刷新动画 - 更短的时间 */
+@keyframes theme-refresh-flash {
+  0% { opacity: 0.95; }
+  100% { opacity: 1; }
+}
+
+/* 表格主题切换优化 */
+.theme-transition .el-table,
+.theme-transition .el-table__header,
+.theme-transition .el-table__body,
+.theme-transition .el-table__footer {
+  transition: background-color var(--theme-transition-time) ease,
+              border-color var(--theme-transition-time) ease !important;
+}
+
+.theme-transition .el-table th.el-table__cell,
+.theme-transition .el-table td.el-table__cell {
+  transition: background-color var(--theme-transition-time) ease,
+              border-color var(--theme-transition-time) ease,
+              color var(--theme-transition-time) ease !important;
+}
+
+/* 表单元素主题切换优化 */
+.theme-transition .el-input__wrapper,
+.theme-transition .el-textarea__wrapper {
+  transition: background-color var(--theme-transition-time) ease,
+              box-shadow var(--theme-transition-time) ease !important;
+}
+
+.theme-transition .el-input__inner,
+.theme-transition .el-textarea__inner {
+  transition: color var(--theme-transition-time) ease !important;
+}
+
+/* 按钮主题切换优化 */
+.theme-transition .el-button {
+  transition: background-color var(--theme-transition-time) ease,
+              border-color var(--theme-transition-time) ease,
+              color var(--theme-transition-time) ease !important;
+}
+
+/* 卡片主题切换优化 */
+.theme-transition .el-card {
+  transition: background-color var(--theme-transition-time) ease,
+              border-color var(--theme-transition-time) ease,
+              box-shadow var(--theme-transition-time) ease !important;
+}
+
+/* 侧边栏主题切换优化 */
+.theme-transition .aside,
+.theme-transition .el-menu,
+.theme-transition .el-menu-item,
+.theme-transition .el-sub-menu__title {
+  transition: background-color var(--theme-transition-time) ease,
+              color var(--theme-transition-time) ease,
+              border-color var(--theme-transition-time) ease !important;
+}
+
+/* 主内容区域主题切换优化 */
+.theme-transition .main-content {
+  transition: background-color var(--theme-transition-time) ease !important;
+}
+
+/* 对话框主题切换优化 */
+.theme-transition .el-dialog,
+.theme-transition .el-drawer {
+  transition: background-color var(--theme-transition-time) ease,
+              border-color var(--theme-transition-time) ease !important;
+}
+
+/* 分页主题切换优化 */
+.theme-transition .el-pagination,
+.theme-transition .el-pagination .el-pager li {
+  transition: background-color var(--theme-transition-time) ease,
+              color var(--theme-transition-time) ease,
+              border-color var(--theme-transition-time) ease !important;
+}
+
+/* 防止主题切换时闪烁 */
+.theme-transition body,
+.theme-transition .el-container,
+.theme-transition .el-main {
+  transition: background-color var(--theme-transition-time) ease !important;
+}
+
+/* 确保在主题切换时不会出现闪烁 */
+.theme-changing {
+  transition: none !important;
+}

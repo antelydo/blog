@@ -1,0 +1,195 @@
+/**
+ * 管理后台表格样式修复
+ * 解决可能出现的样式冲突和特殊情况
+ */
+
+/* ========= 修复表格单元格内容对齐问题 ========= */
+
+/* 修复表格单元格内容垂直对齐问题 */
+.el-table .cell {
+  display: flex;
+  align-items: center;
+}
+
+/* 修复表格单元格内容水平对齐问题 */
+.el-table .is-center .cell {
+  justify-content: center;
+}
+
+.el-table .is-right .cell {
+  justify-content: flex-end;
+}
+
+/* 修复表格单元格内容换行问题 */
+.el-table .cell.el-tooltip {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* 修复表格单元格内容溢出问题 */
+.el-table .cell.multiline {
+  white-space: normal;
+  line-height: 1.5;
+}
+
+/* ========= 修复表格与其他组件的兼容性问题 ========= */
+
+/* 修复表格内按钮组样式 */
+.el-table .cell .el-button-group {
+  display: inline-flex;
+}
+
+/* 修复表格内表单元素样式 */
+.el-table .cell .el-input__wrapper,
+.el-table .cell .el-select__wrapper {
+  box-shadow: 0 0 0 1px #dcdfe6 inset;
+}
+
+.el-table .cell .el-input__wrapper:hover,
+.el-table .cell .el-select__wrapper:hover {
+  box-shadow: 0 0 0 1px #c0c4cc inset;
+}
+
+.el-table .cell .el-input__wrapper.is-focus,
+.el-table .cell .el-select__wrapper.is-focus {
+  box-shadow: 0 0 0 1px var(--el-color-primary) inset;
+}
+
+/* 修复表格内标签样式 */
+.el-table .cell .el-tag {
+  margin: 2px;
+}
+
+/* 修复表格内图标样式 */
+.el-table .cell .el-icon {
+  vertical-align: middle;
+}
+
+/* ========= 修复表格在特定容器中的样式 ========= */
+
+/* 修复表格在卡片中的样式 */
+.el-card .el-table {
+  border: none;
+  box-shadow: none;
+}
+
+/* 修复表格在弹窗中的样式 */
+.el-dialog .el-table,
+.el-drawer .el-table {
+  border: 1px solid #e6e9f0;
+  box-shadow: none;
+}
+
+/* ========= 修复表格在不同尺寸下的样式 ========= */
+
+/* 小型表格样式 */
+.el-table--small th.el-table__cell {
+  padding: 8px 0;
+}
+
+.el-table--small td.el-table__cell {
+  padding: 6px 0;
+}
+
+.el-table--small .cell {
+  padding: 0 8px;
+}
+
+/* 迷你表格样式 */
+.el-table--mini th.el-table__cell {
+  padding: 6px 0;
+}
+
+.el-table--mini td.el-table__cell {
+  padding: 4px 0;
+}
+
+.el-table--mini .cell {
+  padding: 0 6px;
+}
+
+/* ========= 修复表格在打印时的样式 ========= */
+
+@media print {
+  .el-table {
+    border: 1px solid #dcdfe6 !important;
+    box-shadow: none !important;
+  }
+  
+  .el-table th.el-table__cell,
+  .el-table td.el-table__cell {
+    border-color: #dcdfe6 !important;
+  }
+  
+  .el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+    background-color: #f5f7fa !important;
+  }
+}
+
+/* ========= 修复表格在暗黑模式下的样式冲突 ========= */
+
+/* 确保亮光模式下的表格样式不会影响暗黑模式 */
+html.dark .el-table,
+html.dark .el-table--border::after,
+html.dark .el-table--border::before,
+html.dark .el-table__inner-wrapper::after,
+html.dark .el-table__inner-wrapper::before,
+html.dark .el-table td.el-table__cell,
+html.dark .el-table th.el-table__cell.is-leaf,
+html.dark .el-table--border .el-table__cell {
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .el-table__header th.el-table__cell {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #e0e0e0 !important;
+}
+
+html.dark .el-table__body td.el-table__cell {
+  background-color: transparent !important;
+  color: #e0e0e0 !important;
+}
+
+html.dark .el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+}
+
+html.dark .el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* ========= 修复表格在系统主题模式下的样式冲突 ========= */
+
+/* 确保亮光模式下的表格样式不会影响系统主题模式 */
+html.system-dark-theme .el-table,
+html.system-dark-theme .el-table--border::after,
+html.system-dark-theme .el-table--border::before,
+html.system-dark-theme .el-table__inner-wrapper::after,
+html.system-dark-theme .el-table__inner-wrapper::before,
+html.system-dark-theme .el-table td.el-table__cell,
+html.system-dark-theme .el-table th.el-table__cell.is-leaf,
+html.system-dark-theme .el-table--border .el-table__cell {
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.system-dark-theme .el-table__header th.el-table__cell {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #e0e0e0 !important;
+}
+
+html.system-dark-theme .el-table__body td.el-table__cell {
+  background-color: transparent !important;
+  color: #e0e0e0 !important;
+}
+
+html.system-dark-theme .el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+}
+
+html.system-dark-theme .el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}

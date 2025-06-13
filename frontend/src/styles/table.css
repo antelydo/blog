@@ -1,0 +1,404 @@
+/* 表格样式 */
+.dark-theme .el-table th,
+.system-theme .el-table th {
+  background-color: var(--el-table-header-bg-color) !important;
+  color: var(--el-text-color-primary) !important;
+}
+
+.dark-theme .el-table__header,
+.system-theme .el-table__header {
+  background-color: var(--el-table-header-bg-color) !important;
+}
+
+.dark-theme .el-table__header-wrapper,
+.system-theme .el-table__header-wrapper {
+  background-color: var(--el-table-header-bg-color) !important;
+}
+
+.dark-theme .el-table__header th,
+.system-theme .el-table__header th {
+  background-color: var(--el-table-header-bg-color) !important;
+  color: var(--el-text-color-primary) !important;
+}
+
+/* 增强表格样式，确保在暗黑模式下正确显示 */
+.dark-theme .el-table,
+.system-theme .el-table {
+  --el-table-header-bg-color: var(--el-bg-color);
+  --el-table-tr-bg-color: var(--el-bg-color-overlay);
+  --el-table-border-color: var(--el-border-color);
+  --el-table-text-color: var(--el-text-color-regular);
+  --el-table-header-text-color: var(--el-text-color-primary);
+}
+
+.dark-theme .el-table--border,
+.system-theme .el-table--border {
+  border-color: var(--el-table-border-color);
+}
+
+.dark-theme .el-table--border th,
+.dark-theme .el-table--border td,
+.system-theme .el-table--border th,
+.system-theme .el-table--border td {
+  border-color: var(--el-table-border-color);
+}
+
+.dark-theme .el-table--striped .el-table__body tr.el-table__row--striped td,
+.system-theme .el-table--striped .el-table__body tr.el-table__row--striped td {
+  background-color: var(--el-fill-color-light);
+}
+
+.dark-theme .el-table--enable-row-hover .el-table__body tr:hover > td,
+.system-theme .el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: var(--el-fill-color);
+}
+
+/* ========= 增强表格样式，提升用户体验和设计审美 ========= */
+
+/* 全局表格样式增强 */
+.el-table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px 0 rgba(219, 216, 216, 0.05);
+  transition: all 0.3s;
+}
+
+/* 表头样式优化 */
+.el-table__header th.el-table__cell {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 8px;
+  transition: background-color 0.3s;
+  position: relative;
+  background-color: var(--el-fill-color-light);
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--el-border-color);
+}
+
+/* 表头排序图标优化 */
+.el-table__header th.el-table__cell .cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 表格单元格样式优化 */
+.el-table__body td.el-table__cell {
+  padding: 10px 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* 表格行悬停效果增强 */
+.el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: var(--el-fill-color-light);
+  transform: translateZ(0);
+}
+
+/* 表格行选中效果 */
+.el-table__body tr.current-row > td.el-table__cell {
+  background-color: rgba(var(--el-color-primary-rgb), 0.1) !important;
+  color: var(--el-color-primary);
+}
+
+/* 表格边框样式优化 */
+.el-table--border,
+.el-table--group {
+  border: 1px solid var(--el-table-border-color);
+  border-radius: 8px;
+}
+
+/* 固定列阴影效果优化 */
+.el-table--border .el-table__fixed-right::before,
+.el-table--border .el-table__fixed::before {
+  background-color: var(--el-table-border-color);
+  opacity: 0.5;
+}
+
+/* 固定表头阴影效果 */
+.el-table__fixed-header-wrapper thead div {
+  background-color: var(--el-bg-color);
+  color: var(--el-text-color-primary);
+}
+
+/* 空表格状态样式优化 */
+.el-table__empty-block {
+  min-height: 120px;
+  padding: 30px 0;
+}
+
+.el-table__empty-text {
+  color: var(--el-text-color-secondary);
+  font-size: 14px;
+}
+
+/* 表格单元格内容样式优化 */
+.el-table .cell {
+  line-height: 1.5;
+  padding-left: 10px;
+  padding-right: 10px;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 表格操作按钮列样式优化 */
+.el-table .operation-column .cell {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
+/* 表格中文本内容过长的处理 */
+.el-table .text-column .cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+}
+
+/* 表格单元格内的按钮样式优化 */
+.el-table .cell .el-button {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+/* 表格分割线样式优化 */
+.el-table::before {
+  height: 0;
+}
+
+/* 可选中表格行样式 */
+.el-table .el-table__row.selectable {
+  cursor: pointer;
+}
+
+/* 表格加载状态样式优化 */
+.el-table__body-wrapper .el-loading-mask {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* ========= 进一步增强表格样式 ========= */
+
+/* 卡片式表格 */
+.el-table.table-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 8px;
+  border: none;
+  background-color: var(--el-bg-color);
+}
+
+.el-table.table-card .el-table__header-wrapper {
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.el-table.table-card .el-table__body-wrapper {
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+}
+
+.el-table.table-card th.el-table__cell {
+  background-color: var(--el-fill-color-light);
+  border-bottom: 2px solid var(--el-border-color-light);
+  padding: 14px 12px;
+}
+
+.el-table.table-card td.el-table__cell {
+  border-bottom: 1px solid var(--el-border-color-lighter);
+}
+
+.el-table.table-card .el-table__row:last-child td.el-table__cell {
+  border-bottom: none;
+}
+
+/* 带分割的表格行 */
+.el-table.table-divided .el-table__row {
+  border-bottom: 1px solid var(--el-border-color-lighter);
+}
+
+.el-table.table-divided .el-table__row:last-child {
+  border-bottom: none;
+}
+
+/* 紧凑型表格 */
+.el-table.table-compact th.el-table__cell {
+  padding: 8px 6px;
+  font-size: 13px;
+}
+
+.el-table.table-compact td.el-table__cell {
+  padding: 6px;
+  font-size: 13px;
+}
+
+.el-table.table-compact .cell {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+/* 表格行交替颜色样式增强 */
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background-color: var(--el-fill-color-light);
+}
+
+/* 单元格编辑状态样式 */
+.el-table .cell-editing {
+  padding: 0 !important;
+}
+
+.el-table .cell-editing .el-input__wrapper,
+.el-table .cell-editing .el-select__wrapper {
+  box-shadow: 0 0 0 1px var(--el-color-primary) inset !important;
+}
+
+/* 表格分组标题样式增强 */
+.el-table .el-table__row--level-0 td:first-child {
+  font-weight: 600;
+  background-color: var(--el-fill-color-light);
+}
+
+/* 状态标签单元格样式 */
+.el-table .status-column .el-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  height: 22px;
+  border-radius: 11px;
+}
+
+/* 表格中的进度条单元格样式 */
+.el-table .progress-column .el-progress-bar {
+  margin-right: 0;
+}
+
+.el-table .progress-column .el-progress__text {
+  font-size: 12px;
+}
+
+/* 表格中的图标样式 */
+.el-table .icon-column .cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.el-table .icon-column .el-icon {
+  font-size: 16px;
+}
+
+/* 表格中的图片列样式 */
+.el-table .image-column .cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.el-table .image-column img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.el-table .image-column img:hover {
+  transform: scale(1.05);
+}
+
+/* 点击展开更多样式 */
+.el-table .expand-column .el-table__expand-icon {
+  transition: transform 0.2s ease-in-out;
+}
+
+.el-table .expand-column .el-table__expand-icon--expanded {
+  transform: rotate(90deg);
+}
+
+.el-table .expand-column .el-table__expand-icon .el-icon {
+  font-size: 12px;
+  color: var(--el-text-color-secondary);
+}
+
+/* 表格展开行样式 */
+.el-table .el-table__expanded-cell {
+  padding: 20px !important;
+  background-color: var(--el-fill-color-lighter);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* 表格头部排序图标优化 */
+.el-table .caret-wrapper {
+  height: 20px;
+  overflow: visible;
+}
+
+.el-table .sort-caret {
+  border-width: 4px;
+}
+
+/* 表格列宽调整手柄优化 */
+.el-table .el-table__column-resize-proxy {
+  background-color: var(--el-color-primary);
+  opacity: 0.5;
+}
+
+/* 表格行激活/选中样式增强 */
+.el-table .el-table__row.row-active > td.el-table__cell {
+  background-color: rgba(var(--el-color-primary-rgb), 0.15) !important;
+  transition: background-color 0.3s ease;
+}
+
+/* 表格行拖拽排序样式 */
+.el-table .el-table__row.sortable-ghost {
+  background-color: var(--el-color-primary-light-9);
+  opacity: 0.8;
+}
+
+.el-table .el-table__row.sortable-chosen {
+  background-color: var(--el-color-primary-light-8);
+  cursor: move;
+}
+
+/* 表格列固定样式优化 */
+.el-table .el-table__fixed-right,
+.el-table .el-table__fixed {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* 空数据状态优化 */
+.el-table__empty-block .el-empty__image {
+  width: 100px;
+  height: 100px;
+}
+
+/* 表格行右侧操作按钮 - 仅在hover时显示 */
+.el-table .el-table__row .row-action-buttons {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.el-table .el-table__row:hover .row-action-buttons {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* 可导出的表格图标 */
+.table-exportable-icon {
+  margin-left: 8px;
+  font-size: 14px;
+  color: var(--el-color-info);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.table-exportable-icon:hover {
+  color: var(--el-color-primary);
+} 

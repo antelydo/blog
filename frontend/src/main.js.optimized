@@ -1,0 +1,235 @@
+// 预加载网站图标（在Vue应用初始化之前执行）
+import './utils/preloadFavicon'
+
+// 导入全局配置和日志工具
+import appConfig from './config'
+import logger, { updateLoggerConfig } from './utils/logger'
+
+import { createApp } from 'vue'
+import App from './App.vue'
+
+// 导入优化后的CSS入口文件，替代多个单独的CSS导入
+import './styles/base-entry.css'  // 基础样式
+import './styles/theme-entry.css' // 主题相关样式
+// 管理后台样式将根据路由按需加载
+
+import router from './router'
+import { createPinia } from 'pinia'
+import i18n from './plugins/i18n'
+import { nextTick } from 'vue'
+
+// 导入CSS优化工具
+import cssOptimizer, { preloadCriticalCSS, loadRouteCSS } from './styles/css-optimization'
+
+// 导入第三方库样式
+import 'element-plus/dist/index.css'
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import { useThemeStore } from './stores/theme'
+import { useColorThemesStore } from './stores/colorThemes'
+import { useConfigStore } from './stores/config' // 导入网站配置store
+import { useBlogConfigStore } from './stores/blogConfig'
+import ElementPlus from 'element-plus'
+// 导入Ant Design Vue
+import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/reset.css'
+
+// 导入自定义组件和插件
+import ThemePlugin from './utils/themePlugin'  // 导入主题插件
+import ThemeForcer from './components/common/ThemeForcer.vue'  // 导入主题强制更新组件
+import ToggleIconButton from './components/common/ToggleIconButton.vue' // 导入主题跟随切换按钮
+import CollapseToggleButton from './components/common/CollapseToggleButton.vue' // 导入折叠切换按钮
+import ThemeIcon from './components/common/ThemeIcon.vue' // 导入主题图标组件
+import vThemeColor, { vThemeIcon } from './directives/themeColor' // 导入主题颜色指令和图标指令
+import './assets/css/theme.css'
+import { initLanguageHandler } from './language-handler'
+import { createHead } from "@vueuse/head"
+import ViewTrackerPlugin from './plugins/viewTrackerPlugin' // 导入浏览时长跟踪插件
+import VisitorTrackerPlugin from './plugins/visitorTracker' // 导入访客追踪插件
+
+// 创建全局样式元素，强制下拉框边框显示
+const styleElement = document.createElement('style')
+styleElement.textContent = `
+  /* 强制所有下拉框立即显示边框，优先级最高 */
+  .el-select .el-input__wrapper {
+    box-shadow: 0 0 0 1px #dcdfe6 inset !important;
+  }
+  .el-select:hover .el-input__wrapper {
+    box-shadow: 0 0 0 1px #c0c4cc inset !important;
+  }
+  .el-select .el-input.is-focus .el-input__wrapper {
+    box-shadow: 0 0 0 1px #409eff inset !important;
+  }
+
+  /* 暗色模式下的样式 */
+  html.dark .el-select .el-input__wrapper {
+    box-shadow: 0 0 0 1px #4c4d4f inset !important;
+  }
+  html.dark .el-select:hover .el-input__wrapper {
+    box-shadow: 0 0 0 1px #5e6064 inset !important;
+  }
+  html.dark .el-select .el-input.is-focus .el-input__wrapper {
+    box-shadow: 0 0 0 1px #409eff inset !important;
+  }
+`
+document.head.appendChild(styleElement)
+
+// 将router实例挂载到window对象，以便在API拦截器中使用
+window.router = router
+
+// 全局错误处理，捕获MetaMask或其他Web3钱包扩展可能产生的JSON-RPC错误
+window.addEventListener('error', (event) => {
+  // 检查错误是否与JSON-RPC相关
+  if (event.error && event.error.message && (
+    event.error.message.includes('JSON-RPC') ||
+    event.error.message.includes('inpage.js') ||
+    event.error.message.includes('MetaMask') ||
+    (event.error.code && event.error.code === -32603)
+  )) {
+    console.warn('捕获到Web3钱包扩展相关错误，已阻止其影响页面功能:', event.error.message)
+    // 阻止错误继续传播
+    event.preventDefault()
+    return true
+  }
+  return false
+}, { once: false, capture: true })
+
+// 从本地存储加载日志配置
+let logConfig = appConfig.LOG_CONFIG
+try {
+  const savedConfig = localStorage.getItem('logger_config')
+  if (savedConfig) {
+    const parsedConfig = JSON.parse(savedConfig)
+    logConfig = { ...logConfig, ...parsedConfig }
+  }
+} catch (e) {
+  console.error('从本地存储加载日志配置失败:', e)
+}
+
+// 初始化日志配置
+updateLoggerConfig(logConfig)
+
+// 如果配置为禁用控制台日志，则覆盖原始的console方法
+if (!logConfig.enableConsoleLog) {
+  logger.overrideConsole()
+  console.log('控制台日志已禁用，这是最后一条可见的日志消息')
+} else {
+  console.log('当前环境:', appConfig.APP_ENV, '日志级别:', logConfig.logLevel)
+}
+
+// 将logger暴露给全局，以便在其他组件中使用
+window.$logger = logger
+
+const app = createApp(App)
+const pinia = createPinia()
+const head = createHead() // 使用Vue的头部管理
+
+// 将app实例暴露到全局，以便在路由和其他地方使用
+window.app = app
+
+app.use(pinia)
+app.use(ElementPlus, { size: 'default' })
+app.use(Antd) // 注册Ant Design Vue
+app.use(i18n)
+app.use(head) // 注册头部管理
+
+// 注册Element Plus图标组件
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
+
+// 注册自定义组件
+app.component('ThemeForcer', ThemeForcer)
+app.component('ToggleIconButton', ToggleIconButton)
+app.component('CollapseToggleButton', CollapseToggleButton)
+app.component('ThemeIcon', ThemeIcon)
+
+// 指令注册
+app.directive('theme-color', vThemeColor)
+app.directive('theme-icon', vThemeIcon)
+
+// 使用主题插件
+app.use(ThemePlugin)
+
+// 使用浏览时长跟踪插件
+app.use(ViewTrackerPlugin, { router })
+
+// 使用访客追踪插件
+app.use(VisitorTrackerPlugin)
+
+// 应用全局错误处理
+app.config.errorHandler = (err, vm, info) => {
+  // 过滤掉 ResizeObserver 的无害警告
+  if (err && err.message && err.message.includes('ResizeObserver loop')) {
+    return;
+  }
+  console.error('Vue Error:', err, info)
+}
+
+// 初始化主题
+const themeStore = useThemeStore(pinia)
+themeStore.initialize()
+
+// 根据当前路由决定使用哪个配置store
+const isAdminRoute = window.location.pathname.startsWith('/admin')
+const configStore = isAdminRoute ? useConfigStore(pinia) : useBlogConfigStore(pinia)
+
+// 将页面标题设置函数暴露给全局，供路由使用
+window.getPageTitle = (title) => {
+  try {
+    // 根据当前路径动态判断使用哪个store
+    const currentPath = window.location.pathname
+    const isCurrentAdminRoute = currentPath.startsWith('/admin')
+
+    if (isCurrentAdminRoute) {
+      // 管理员路由使用configStore
+      return useConfigStore(pinia).getPageTitle(title)
+    } else {
+      // 前台路由使用blogConfigStore
+      return useBlogConfigStore(pinia).getPageTitle(title)
+    }
+  } catch (error) {
+    console.error('设置页面标题时出错:', error)
+    // 如果出错，返回默认标题
+    return title || '页面'
+  }
+}
+
+// 添加路由守卫，根据路由动态加载CSS
+router.beforeEach((to, from, next) => {
+  // 根据路由加载相应的CSS
+  loadRouteCSS(to);
+  next();
+});
+
+app.use(router)
+
+// 在main.js的app挂载之前，先初始化语言处理器
+initLanguageHandler()
+
+// 预加载关键CSS
+preloadCriticalCSS();
+
+// Mount the app first
+app.mount('#app')
+
+// 初始化完成后立即更新页面标题，确保国际化生效
+const updateInitialTitle = async () => {
+  try {
+    // 等待组件挂载和国际化初始化完成
+    await nextTick()
+
+    // 强制更新一次页面标题
+    if (window.router?.currentRoute?.value?.meta?.title) {
+      const title = window.router.currentRoute.value.meta.title
+      document.title = window.getPageTitle(title)
+    } else {
+      // 使用一个默认标题，等待App.vue完成配置初始化
+      document.title = isAdminRoute ? '管理后台' : '首页'
+    }
+  } catch (error) {
+    console.error('初始化标题更新失败:', error)
+  }
+}
+
+// 执行初始化标题更新
+updateInitialTitle()

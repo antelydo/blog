@@ -1,0 +1,72 @@
+// 极简版main.js - 用于解决堆栈溢出问题
+// 移除所有可能导致循环引用的代码
+
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import { createPinia } from 'pinia'
+
+// 导入基本样式
+import './styles/base-entry.css'  // 基础样式
+
+// 导入资源文件
+import './assets/css/font-awesome.css' // 导入本地Font Awesome样式
+import './assets/css/like-button.css' // 导入点赞按钮样式
+import './assets/css/favorite-button.css' // 导入收藏按钮样式
+import './views/index/assets/navbar-modern.css' // 导入现代化PC端导航栏样式
+import './views/index/assets/navbar-mobile-modern.css' // 导入现代化移动端导航栏样式
+
+// 导入Element Plus和Ant Design Vue
+import ElementPlus from 'element-plus'
+import './styles/element-plus-imports' // 使用修改过的导入方式
+import Antd from 'ant-design-vue'
+import './assets/css/ant-design-reset.css' // 使用本地CSS文件替代
+
+// 强制设置亮色主题
+document.documentElement.setAttribute('data-theme', 'light')
+document.documentElement.classList.add('light-theme')
+document.documentElement.classList.remove('dark-theme')
+document.documentElement.classList.remove('dark')
+
+// 创建全局样式元素，强制下拉框边框显示
+const styleElement = document.createElement('style')
+styleElement.textContent = `
+  /* 强制所有下拉框立即显示边框，优先级最高 */
+  .el-select .el-input__wrapper {
+    box-shadow: 0 0 0 1px #dcdfe6 inset !important;
+  }
+  .el-select:hover .el-input__wrapper {
+    box-shadow: 0 0 0 1px #c0c4cc inset !important;
+  }
+  .el-select .el-input.is-focus .el-input__wrapper {
+    box-shadow: 0 0 0 1px #409eff inset !important;
+  }
+`
+document.head.appendChild(styleElement)
+
+// 禁用主题切换功能
+window._disableThemeSwitch = true
+
+// 创建应用实例
+const app = createApp(App)
+const pinia = createPinia()
+
+// 使用插件
+app.use(pinia)
+app.use(ElementPlus, { size: 'default' })
+app.use(Antd) // 注册Ant Design Vue
+app.use(router)
+
+// 简化的错误处理
+app.config.errorHandler = (err) => {
+  if (err && err.message && err.message.includes('ResizeObserver loop')) {
+    return // 忽略ResizeObserver循环错误
+  }
+  console.error('Vue Error:', err)
+}
+
+// 挂载应用
+app.mount('#app')
+
+// 触发应用初始化完成事件
+window.dispatchEvent(new Event('main-js-initialized'))

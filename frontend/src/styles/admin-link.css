@@ -1,0 +1,204 @@
+/**
+ * 友情链接管理页面样式
+ * 适用于暗黑模式和跟随系统模式
+ */
+
+/* 友情链接管理页面基础样式 */
+.link-management {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* page-header 样式 */
+.link-management .page-header {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.link-management .page-header h2 {
+  transition: color 0.3s;
+}
+
+/* 暗黑模式下的 page-header 样式 */
+html.dark .link-management .page-header,
+html.dark .link-management .search-form,
+html.dark .link-management .filter-form,
+html.dark .link-management .el-card.page-header {
+  background-color: rgb(46, 46, 47) !important;
+  color: #e0e0e0 !important;
+}
+
+html.dark .link-management .page-header h2 {
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的 page-header 样式 */
+html.system-dark-theme .link-management .page-header,
+html.system-dark-theme .link-management .search-form,
+html.system-dark-theme .link-management .filter-form,
+html.system-dark-theme .link-management .el-card.page-header {
+  background-color: rgb(46, 46, 47) !important;
+  color: #e0e0e0 !important;
+}
+
+html.system-dark-theme .link-management .page-header h2 {
+  color: #ffffff !important;
+}
+
+/* 暗黑模式下的表格样式 */
+html.dark .link-management .el-table {
+  background-color: var(--el-bg-color, #141414) !important;
+  color: #ffffff !important;
+}
+
+html.dark .link-management .el-table th,
+html.dark .link-management .el-table tr,
+html.dark .link-management .el-table td {
+  background-color: var(--el-bg-color, #141414) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+html.dark .link-management .el-table--border {
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+html.dark .link-management .el-table--border::after,
+html.dark .link-management .el-table--border::before {
+  background-color: var(--el-border-color, #363636) !important;
+}
+
+/* 系统主题暗黑模式下的表格样式 */
+html.system-dark-theme .link-management .el-table {
+  background-color: var(--el-bg-color, #141414) !important;
+  color: #ffffff !important;
+}
+
+html.system-dark-theme .link-management .el-table th,
+html.system-dark-theme .link-management .el-table tr,
+html.system-dark-theme .link-management .el-table td {
+  background-color: var(--el-bg-color, #141414) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+html.system-dark-theme .link-management .el-table--border {
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+html.system-dark-theme .link-management .el-table--border::after,
+html.system-dark-theme .link-management .el-table--border::before {
+  background-color: var(--el-border-color, #363636) !important;
+}
+
+/* 暗黑模式下的表单样式 */
+html.dark .link-management .el-form-item__label {
+  color: #e0e0e0 !important;
+}
+
+html.dark .link-management .el-form-item {
+  background-color: transparent !important;
+  margin-bottom: 18px;
+}
+
+html.dark .link-management .el-input__inner,
+html.dark .link-management .el-textarea__inner,
+html.dark .link-management .el-select .el-input__inner,
+html.dark .link-management .el-input-number__decrease,
+html.dark .link-management .el-input-number__increase {
+  background-color: rgb(30, 30, 30) !important;
+  color: #e0e0e0 !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+html.dark .link-management .el-input__inner::placeholder,
+html.dark .link-management .el-textarea__inner::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* 系统主题暗黑模式下的表单样式 */
+html.system-dark-theme .link-management .el-form-item__label {
+  color: #e0e0e0 !important;
+}
+
+html.system-dark-theme .link-management .el-form-item {
+  background-color: transparent !important;
+  margin-bottom: 18px;
+}
+
+html.system-dark-theme .link-management .el-input__inner,
+html.system-dark-theme .link-management .el-textarea__inner,
+html.system-dark-theme .link-management .el-select .el-input__inner,
+html.system-dark-theme .link-management .el-input-number__decrease,
+html.system-dark-theme .link-management .el-input-number__increase {
+  background-color: rgb(30, 30, 30) !important;
+  color: #e0e0e0 !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+html.system-dark-theme .link-management .el-input__inner::placeholder,
+html.system-dark-theme .link-management .el-textarea__inner::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* 暗黑模式下的对话框样式 */
+html.dark .link-management .el-dialog {
+  background-color: var(--el-bg-color, #141414) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+html.dark .link-management .el-dialog__title {
+  color: #ffffff !important;
+}
+
+html.dark .link-management .el-dialog__header {
+  border-bottom-color: var(--el-border-color, #363636) !important;
+}
+
+/* 系统主题暗黑模式下的对话框样式 */
+html.system-dark-theme .link-management .el-dialog {
+  background-color: var(--el-bg-color, #141414) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+html.system-dark-theme .link-management .el-dialog__title {
+  color: #ffffff !important;
+}
+
+html.system-dark-theme .link-management .el-dialog__header {
+  border-bottom-color: var(--el-border-color, #363636) !important;
+}
+
+/* 暗黑模式下的分页样式 */
+html.dark .link-management .el-pagination {
+  color: #ffffff !important;
+}
+
+html.dark .link-management .el-pagination button,
+html.dark .link-management .el-pagination .el-select .el-input__inner {
+  background-color: var(--el-bg-color, #141414) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+html.dark .link-management .el-pagination .el-pagination__total,
+html.dark .link-management .el-pagination .el-pagination__jump {
+  color: #ffffff !important;
+}
+
+/* 系统主题暗黑模式下的分页样式 */
+html.system-dark-theme .link-management .el-pagination {
+  color: #ffffff !important;
+}
+
+html.system-dark-theme .link-management .el-pagination button,
+html.system-dark-theme .link-management .el-pagination .el-select .el-input__inner {
+  background-color: var(--el-bg-color, #141414) !important;
+  color: #ffffff !important;
+  border-color: var(--el-border-color, #363636) !important;
+}
+
+html.system-dark-theme .link-management .el-pagination .el-pagination__total,
+html.system-dark-theme .link-management .el-pagination .el-pagination__jump {
+  color: #ffffff !important;
+}

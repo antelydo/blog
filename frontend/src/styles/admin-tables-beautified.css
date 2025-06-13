@@ -1,0 +1,594 @@
+/**
+ * 管理后台表格美化样式
+ * 优化表格视觉效果，提升用户体验
+ */
+
+/* ========= 全局表格容器样式增强 ========= */
+
+/* Element Plus 表格容器样式 */
+.el-table {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  border: 1px solid #e8edf3 !important;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 20px !important;
+  --el-table-border-color: #e8edf3 !important;
+  --el-table-header-bg-color: #f8fafc !important;
+  --el-table-row-hover-bg-color: #f8fafc !important;
+}
+
+/* 表格内部边框线样式 */
+.el-table--border::after,
+.el-table--border::before,
+.el-table__inner-wrapper::after,
+.el-table__inner-wrapper::before {
+  background-color: #e8edf3 !important;
+}
+
+/* 表格单元格边框样式 */
+.el-table td.el-table__cell,
+.el-table th.el-table__cell.is-leaf {
+  border-bottom: 1px solid #e8edf3 !important;
+}
+
+.el-table--border .el-table__cell {
+  border-right: 1px solid #e8edf3 !important;
+}
+
+/* ========= 表头样式优化 ========= */
+
+/* 表头背景和文字样式 */
+.el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+  color: #4a5568 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 14px 10px !important;
+  height: 52px !important;
+  border-bottom: 1px solid #dfe4ed !important;
+  transition: background-color 0.3s ease !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* 表头单元格内容对齐 */
+.el-table__header th.el-table__cell .cell {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  line-height: 23px !important;
+}
+
+/* 表头悬停效果 */
+.el-table__header th.el-table__cell:hover {
+  background-color: #f0f4f8 !important;
+}
+
+/* 表头排序图标样式 */
+.el-table__column-sorter {
+  margin-left: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.el-table .sort-caret {
+  border-width: 4px !important;
+}
+
+.el-table .ascending .sort-caret.ascending {
+  border-bottom-color: var(--el-color-primary) !important;
+}
+
+.el-table .descending .sort-caret.descending {
+  border-top-color: var(--el-color-primary) !important;
+}
+
+/* ========= 表格内容样式优化 ========= */
+
+/* 表格单元格样式 */
+.el-table__body td.el-table__cell {
+  padding: 12px 10px !important;
+  font-size: 14px !important;
+  color: #5a6474 !important;
+  height: 52px !important;
+  transition: background-color 0.3s ease !important;
+}
+
+/* 表格单元格内容对齐 */
+.el-table__body td.el-table__cell .cell {
+  line-height: 23px !important;
+}
+
+/* 表格行悬停效果 */
+.el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+  background-color: #f8fafc !important;
+  transition: background-color 0.15s ease-in-out !important;
+  box-shadow: inset 0 0 0 1px #f0f4f8 !important;
+}
+
+/* 表格条纹行样式 */
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background-color: #fafbfd !important;
+}
+
+/* 表格行选中样式 */
+.el-table__body tr.current-row > td.el-table__cell {
+  background-color: rgba(64, 158, 255, 0.08) !important;
+  color: var(--el-color-primary) !important;
+}
+
+/* ========= 表格操作列样式优化 ========= */
+
+/* 操作按钮列样式 */
+.el-table .operations-column {
+  text-align: center !important;
+}
+
+/* 操作按钮间距 */
+.el-table .operations-column .el-button + .el-button {
+  margin-left: 8px !important;
+}
+
+/* 小型操作按钮样式 */
+.el-table .operations-column .el-button--small {
+  padding: 6px 12px !important;
+  font-size: 12px !important;
+  border-radius: 4px !important;
+}
+
+/* 表格中的图标按钮 */
+.el-table .icon-button {
+  padding: 6px !important;
+  margin: 0 3px !important;
+  border-radius: 4px !important;
+}
+
+/* ========= 表格分页样式优化 ========= */
+
+/* 分页容器样式 */
+.el-pagination {
+  margin-top: 16px !important;
+  padding: 0 !important;
+  font-weight: normal !important;
+  color: #606266 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+/* 分页按钮样式 */
+.el-pagination .el-pager li {
+  border-radius: 4px !important;
+  margin: 0 3px !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  font-weight: normal !important;
+  border: 1px solid #e8edf3 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* 分页按钮悬停样式 */
+.el-pagination .el-pager li:hover {
+  color: var(--el-color-primary) !important;
+  border-color: var(--el-color-primary) !important;
+}
+
+/* 分页按钮激活样式 */
+.el-pagination .el-pager li.is-active {
+  background-color: var(--el-color-primary) !important;
+  color: #ffffff !important;
+  border-color: var(--el-color-primary) !important;
+  font-weight: bold !important;
+}
+
+/* ========= 表格空数据样式优化 ========= */
+
+/* 空数据提示样式 */
+.el-table__empty-block {
+  min-height: 120px !important;
+  padding: 30px 0 !important;
+  background-color: #fafbfd !important;
+}
+
+.el-table__empty-text {
+  color: #909399 !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
+}
+
+/* 空数据图标样式 */
+.el-table__empty-block .el-empty__image {
+  width: 80px !important;
+  height: 80px !important;
+  margin-bottom: 12px !important;
+}
+
+/* ========= 表格加载状态样式优化 ========= */
+
+/* 加载遮罩样式 */
+.el-table .el-loading-mask {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  z-index: 10 !important;
+  border-radius: 8px !important;
+}
+
+/* 加载图标样式 */
+.el-table .el-loading-spinner {
+  padding: 15px 0 !important;
+}
+
+.el-table .el-loading-spinner .circular {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+/* ========= 表格展开行样式优化 ========= */
+
+/* 展开行样式 */
+.el-table .el-table__expanded-cell {
+  padding: 20px 50px !important;
+  background-color: #f9fafc !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* 展开图标样式 */
+.el-table .el-table__expand-icon {
+  color: #909399 !important;
+  transition: transform 0.2s ease-in-out !important;
+}
+
+.el-table .el-table__expand-icon--expanded {
+  transform: rotate(90deg) !important;
+}
+
+/* ========= 表格固定列样式优化 ========= */
+
+/* 固定列样式 */
+.el-table .el-table__fixed,
+.el-table .el-table__fixed-right {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.03) !important;
+  overflow: hidden !important;
+}
+
+/* 固定列边框样式 */
+.el-table .el-table__fixed::before,
+.el-table .el-table__fixed-right::before {
+  background-color: #e8edf3 !important;
+  opacity: 0.8 !important;
+}
+
+/* 固定列单元格样式 */
+.el-table .el-table__fixed .el-table__cell,
+.el-table .el-table__fixed-right .el-table__cell {
+  background-color: inherit !important;
+}
+
+/* ========= 表格特殊列样式优化 ========= */
+
+/* 状态列样式 */
+.el-table .status-column {
+  text-align: center !important;
+}
+
+.el-table .status-column .el-tag {
+  margin: 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 10px !important;
+  height: 24px !important;
+  line-height: 22px !important;
+  border-radius: 12px !important;
+  font-size: 12px !important;
+  font-weight: normal !important;
+}
+
+/* 日期列样式 */
+.el-table .date-column {
+  color: #7a8599 !important;
+  font-size: 13px !important;
+}
+
+/* ID列样式 */
+.el-table .id-column {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
+  color: #7a8599 !important;
+  font-size: 13px !important;
+}
+
+/* ========= Ant Design 表格样式优化 ========= */
+
+/* Ant Design 表格容器样式 */
+.ant-table-wrapper {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 20px !important;
+}
+
+/* Ant Design 表格边框样式 */
+.ant-table-wrapper .ant-table {
+  border-radius: 8px !important;
+  border: 1px solid #e8edf3 !important;
+}
+
+/* Ant Design 表头样式 */
+.ant-table-wrapper .ant-table-thead > tr > th {
+  background-color: #f8fafc !important;
+  color: #4a5568 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 14px 10px !important;
+  height: 52px !important;
+  border-bottom: 1px solid #dfe4ed !important;
+  transition: background-color 0.3s ease !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* Ant Design 表格单元格样式 */
+.ant-table-wrapper .ant-table-tbody > tr > td {
+  padding: 12px 10px !important;
+  font-size: 14px !important;
+  color: #5a6474 !important;
+  height: 52px !important;
+  border-bottom: 1px solid #e8edf3 !important;
+  transition: background-color 0.3s ease !important;
+}
+
+/* Ant Design 表格行悬停效果 */
+.ant-table-wrapper .ant-table-tbody > tr:hover > td {
+  background-color: #f8fafc !important;
+  box-shadow: inset 0 0 0 1px #f0f4f8 !important;
+}
+
+/* Ant Design 表格条纹行样式 */
+.ant-table-wrapper .ant-table-tbody > tr.ant-table-row-striped > td {
+  background-color: #fafbfd !important;
+}
+
+/* Ant Design 表格分页样式 */
+.ant-table-wrapper .ant-pagination {
+  margin: 16px 0 0 0 !important;
+}
+
+.ant-table-wrapper .ant-pagination-item {
+  border-radius: 4px !important;
+  margin: 0 3px !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  line-height: 30px !important;
+  border: 1px solid #e8edf3 !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-table-wrapper .ant-pagination-item:hover {
+  border-color: var(--el-color-primary) !important;
+}
+
+.ant-table-wrapper .ant-pagination-item:hover a {
+  color: var(--el-color-primary) !important;
+}
+
+.ant-table-wrapper .ant-pagination-item-active {
+  background-color: var(--el-color-primary) !important;
+  border-color: var(--el-color-primary) !important;
+}
+
+.ant-table-wrapper .ant-pagination-item-active a {
+  color: #ffffff !important;
+}
+
+/* Ant Design 表格空数据样式 */
+.ant-table-wrapper .ant-empty {
+  padding: 30px 0 !important;
+  background-color: #fafbfd !important;
+}
+
+.ant-table-wrapper .ant-empty-image {
+  height: 80px !important;
+}
+
+.ant-table-wrapper .ant-empty-description {
+  color: #909399 !important;
+  font-size: 14px !important;
+}
+
+/* Ant Design 表格加载状态样式 */
+.ant-table-wrapper .ant-spin-container::after {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 8px !important;
+}
+
+.ant-table-wrapper .ant-spin {
+  color: var(--el-color-primary) !important;
+}
+
+/* Ant Design 表格固定列样式 */
+.ant-table-wrapper .ant-table-cell-fix-left,
+.ant-table-wrapper .ant-table-cell-fix-right {
+  background-color: inherit !important;
+}
+
+.ant-table-wrapper .ant-table-cell-fix-left-last::after,
+.ant-table-wrapper .ant-table-cell-fix-right-first::after {
+  border-color: #e8edf3 !important;
+  opacity: 0.8 !important;
+}
+
+/* ========= 特定页面表格样式优化 ========= */
+
+/* 用户管理页面表格样式 */
+.user-management-container .el-table {
+  --el-table-border-color: #e8edf3 !important;
+  --el-table-header-bg-color: #f8fafc !important;
+}
+
+.user-management-container .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+  color: #4a5568 !important;
+}
+
+/* 文章管理页面表格样式 */
+.article-management-container .el-table {
+  --el-table-border-color: #e8edf3 !important;
+  --el-table-header-bg-color: #f8fafc !important;
+}
+
+.article-management-container .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+  color: #4a5568 !important;
+}
+
+/* AI工具管理页面表格样式 */
+.tool-table {
+  border-color: #e8edf3 !important;
+}
+
+.tool-table .ant-table-thead > tr > th {
+  background-color: #f8fafc !important;
+  color: #4a5568 !important;
+  border-bottom-color: #dfe4ed !important;
+}
+
+.tool-table .ant-table-tbody > tr > td {
+  border-bottom-color: #e8edf3 !important;
+  color: #5a6474 !important;
+}
+
+/* AI工具标签管理页面表格样式 */
+.tag-table {
+  border-color: #e8edf3 !important;
+}
+
+.tag-table .ant-table-thead > tr > th {
+  background-color: #f8fafc !important;
+  color: #4a5568 !important;
+  border-bottom-color: #dfe4ed !important;
+}
+
+.tag-table .ant-table-tbody > tr > td {
+  border-bottom-color: #e8edf3 !important;
+  color: #5a6474 !important;
+}
+
+/* 留言管理页面表格样式 */
+.contact-messages-container .el-table {
+  --el-table-border-color: #e8edf3 !important;
+  --el-table-header-bg-color: #f8fafc !important;
+}
+
+.contact-messages-container .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+  color: #4a5568 !important;
+}
+
+/* 友情链接管理页面表格样式 */
+.link-management-container .el-table {
+  --el-table-border-color: #e8edf3 !important;
+  --el-table-header-bg-color: #f8fafc !important;
+}
+
+.link-management-container .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+  color: #4a5568 !important;
+}
+
+/* 设置页面表格样式 */
+.settings-container .el-table {
+  --el-table-border-color: #e8edf3 !important;
+  --el-table-header-bg-color: #f8fafc !important;
+}
+
+.settings-container .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+  color: #4a5568 !important;
+}
+
+/* ========= 表格内部组件样式优化 ========= */
+
+/* 表格内部按钮样式 */
+.el-table .el-button {
+  border-radius: 4px !important;
+  transition: all 0.3s ease !important;
+}
+
+.el-table .el-button:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 表格内部标签样式 */
+.el-table .el-tag {
+  border-radius: 4px !important;
+  padding: 0 8px !important;
+  height: 22px !important;
+  line-height: 20px !important;
+  font-size: 12px !important;
+}
+
+/* 表格内部开关样式 */
+.el-table .el-switch {
+  --el-switch-on-color: var(--el-color-primary) !important;
+}
+
+/* 表格内部输入框样式 */
+.el-table .el-input__wrapper {
+  box-shadow: 0 0 0 1px #e8edf3 inset !important;
+  border-radius: 4px !important;
+}
+
+.el-table .el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px #dfe4ed inset !important;
+}
+
+/* 表格内部选择器样式 */
+.el-table .el-select .el-input__wrapper {
+  box-shadow: 0 0 0 1px #e8edf3 inset !important;
+}
+
+.el-table .el-select .el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px #dfe4ed inset !important;
+}
+
+/* ========= 表格响应式优化 ========= */
+
+/* 小屏幕下的表格样式 */
+@media (max-width: 768px) {
+  .el-table__header th.el-table__cell,
+  .el-table__body td.el-table__cell {
+    padding: 10px 8px !important;
+  }
+  
+  .el-table .operations-column .el-button + .el-button {
+    margin-left: 4px !important;
+  }
+  
+  .el-table .operations-column .el-button--small {
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* ========= 表格打印样式优化 ========= */
+
+@media print {
+  .el-table {
+    box-shadow: none !important;
+    border: 1px solid #dcdfe6 !important;
+  }
+  
+  .el-table__header th.el-table__cell {
+    background-color: #f5f7fa !important;
+    color: #000000 !important;
+  }
+  
+  .el-table__body td.el-table__cell {
+    color: #000000 !important;
+  }
+  
+  .el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+    background-color: #f9f9f9 !important;
+  }
+}

@@ -1,0 +1,163 @@
+/**
+ * 管理后台表格固定列边框修复
+ * 专门修复表格固定列左边框特别黑的问题
+ */
+
+/* ========= 修复表格固定列左边框 ========= */
+
+/* 修复表格固定列左边框 */
+.el-table__fixed {
+  border-right: 1px solid #e8edf3 !important;
+  box-shadow: none !important;
+}
+
+.el-table__fixed-right {
+  border-left: 1px solid #e8edf3 !important;
+  box-shadow: none !important;
+}
+
+/* 修复表格固定列单元格边框 */
+.el-table .el-table__fixed .el-table__cell,
+.el-table .el-table__fixed-right .el-table__cell {
+  border-right: 1px solid #e8edf3 !important;
+}
+
+/* 修复表格固定列阴影 */
+.el-table__fixed::before,
+.el-table__fixed-right::before {
+  background-color: #e8edf3 !important;
+  opacity: 0.8 !important;
+}
+
+/* 暗黑模式下修复表格固定列左边框 */
+html.dark-theme .el-table__fixed {
+  border-right: 1px solid #363638 !important;
+  box-shadow: none !important;
+}
+
+html.dark-theme .el-table__fixed-right {
+  border-left: 1px solid #363638 !important;
+  box-shadow: none !important;
+}
+
+/* 暗黑模式下修复表格固定列单元格边框 */
+html.dark-theme .el-table .el-table__fixed .el-table__cell,
+html.dark-theme .el-table .el-table__fixed-right .el-table__cell {
+  border-right: 1px solid #363638 !important;
+}
+
+/* 暗黑模式下修复表格固定列阴影 */
+html.dark-theme .el-table__fixed::before,
+html.dark-theme .el-table__fixed-right::before {
+  background-color: #363638 !important;
+  opacity: 0.8 !important;
+}
+
+/* ========= 使用自定义阴影替代默认阴影 ========= */
+
+/* 移除默认阴影 */
+.el-table__fixed,
+.el-table__fixed-right {
+  box-shadow: none !important;
+}
+
+/* 添加自定义阴影 */
+.el-table__fixed::after,
+.el-table__fixed-right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.el-table__fixed::after {
+  right: -10px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
+}
+
+.el-table__fixed-right::after {
+  left: -10px;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
+}
+
+/* 暗黑模式下自定义阴影 */
+html.dark-theme .el-table__fixed::after {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+}
+
+html.dark-theme .el-table__fixed-right::after {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+}
+
+/* ========= 修复表格固定列背景色 ========= */
+
+/* 修复表格固定列背景色 */
+.el-table .el-table__fixed .el-table__body tr td.el-table__cell {
+  background-color: #ffffff !important;
+}
+
+.el-table .el-table__fixed-right .el-table__body tr td.el-table__cell {
+  background-color: #ffffff !important;
+}
+
+/* 修复表格固定列头部背景色 */
+.el-table .el-table__fixed-header-wrapper .el-table__header th.el-table__cell,
+.el-table .el-table__fixed-right-header-wrapper .el-table__header th.el-table__cell {
+  background-color: #f8fafc !important;
+}
+
+/* 暗黑模式下修复表格固定列背景色 */
+html.dark-theme .el-table .el-table__fixed .el-table__body tr td.el-table__cell {
+  background-color: #232324 !important;
+}
+
+html.dark-theme .el-table .el-table__fixed-right .el-table__body tr td.el-table__cell {
+  background-color: #232324 !important;
+}
+
+/* 暗黑模式下修复表格固定列头部背景色 */
+html.dark-theme .el-table .el-table__fixed-header-wrapper .el-table__header th.el-table__cell,
+html.dark-theme .el-table .el-table__fixed-right-header-wrapper .el-table__header th.el-table__cell {
+  background-color: #2c2c2e !important;
+}
+
+/* ========= 修复表格固定列悬停效果 ========= */
+
+/* 修复表格固定列行悬停效果 */
+.el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell.is-fixed {
+  background-color: #f8fafc !important;
+}
+
+/* 暗黑模式下修复表格固定列行悬停效果 */
+html.dark-theme .el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell.is-fixed {
+  background-color: #2a2a2c !important;
+}
+
+/* ========= 修复表格固定列条纹行效果 ========= */
+
+/* 修复表格固定列条纹行效果 */
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell.is-fixed {
+  background-color: #fafbfd !important;
+}
+
+/* 暗黑模式下修复表格固定列条纹行效果 */
+html.dark-theme .el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell.is-fixed {
+  background-color: #292929 !important;
+}
+
+/* ========= 修复表格固定列右侧边框补丁 ========= */
+
+/* 修复表格固定列右侧边框补丁 */
+.el-table__fixed-right-patch {
+  background-color: #f8fafc !important;
+  border-bottom: 1px solid #e8edf3 !important;
+}
+
+/* 暗黑模式下修复表格固定列右侧边框补丁 */
+html.dark-theme .el-table__fixed-right-patch {
+  background-color: #2c2c2e !important;
+  border-bottom: 1px solid #363638 !important;
+}
