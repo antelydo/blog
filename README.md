@@ -580,6 +580,6 @@ limitations under the License.
 
 **[⬆ 回到顶部](#aichat-ui---ai工具聚合平台)**
 
-Made with ❤️ by [Your Name](https://github.com/antelydo)
+Made with ❤️ by [antelydo](https://github.com/antelydo)
 
 </div>
