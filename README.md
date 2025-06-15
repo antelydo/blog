@@ -12,8 +12,6 @@
 
 **一个现代化的个人简洁的博客平台，基于ThinkPHP 8和Vue.js 3构建**
 
-[在线演示](https://demo.example.com) · [文档](https://docs.example.com) · [报告问题](https://github.com/your-username/aichat-ui/issues) · [功能请求](https://github.com/your-username/aichat-ui/issues)
-
 </div>
 
 ## ✨ 特性
@@ -196,7 +194,7 @@ aichat-ui/                    #跟目录 命名无所谓
 
 #### 1. 克隆项目
 ```bash
-git clone https://github.com/your-username/aichat-ui.git
+git clone https://github.com/antelydo/blog
 cd aichat-ui
 ```
 
@@ -292,7 +290,7 @@ npm run dev
 #### 1. 使用 Docker Compose
 ```bash
 # 克隆项目
-git clone https://github.com/your-username/aichat-ui.git
+git clone https://github.com/antelydo/blog
 cd aichat-ui
 
 # 复制配置文件
@@ -565,8 +563,8 @@ limitations under the License.
 
 ## 📞 联系我们
 
-- **项目主页**: https://github.com/your-username/aichat-ui
-- **问题反馈**: https://github.com/your-username/aichat-ui/issues
+- **项目主页**: https://github.com/antelydo/blog
+- **问题反馈**: https://github.com/antelydo/blog/issues
 - **邮箱**: Antelydo@gmail.com
 - **QQ群**: 455250968
 
@@ -582,6 +580,6 @@ limitations under the License.
 
 **[⬆ 回到顶部](#aichat-ui---ai工具聚合平台)**
 
-Made with ❤️ by [Your Name](https://github.com/your-username)
+Made with ❤️ by [Your Name](https://github.com/antelydo/blog)
 
 </div>
